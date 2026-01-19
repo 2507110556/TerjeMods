@@ -1,0 +1,72 @@
+FrameWidgetClass IconRoot {
+ clipchildren 0
+ ignorepointer 1
+ position 0 0
+ size 80 100
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ImageWidgetClass IconBackground {
+   ignorepointer 1
+   color 0.2353 0.2353 0.2353 0.1176
+   size 80 80
+   halign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   image0 "set:TerjeGadgetProgramIcons image:cycle"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 1
+   {
+    ImageWidgetClass IconForeground {
+     ignorepointer 1
+     position 0 0
+     size 80 80
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 1
+     vexactsize 1
+     image0 "set:TerjeGadgetProgramIcons image:calculator_m"
+     mode blend
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+    }
+    ButtonWidgetClass IconButton {
+     size 1 1
+     halign center_ref
+     valign center_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Empty
+    }
+   }
+  }
+  TextWidgetClass IconText {
+   clipchildren 0
+   ignorepointer 1
+   size 1 16
+   halign center_ref
+   valign bottom_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   text "AAAAAAAAAA"
+   "exact text" 0
+   "text halign" center
+   "text valign" center
+  }
+ }
+}

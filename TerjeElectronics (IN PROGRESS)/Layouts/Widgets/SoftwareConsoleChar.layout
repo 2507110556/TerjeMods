@@ -1,0 +1,17 @@
+TextWidgetClass CharRoot {
+ ignorepointer 1
+ position 0 0
+ size 10 18
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ scaled 0
+ text "X"
+ font "gui/fonts/system"
+ "exact text" 0
+ "size to text h" 0
+ "size to text v" 0
+ "text halign" center
+ "text valign" center
+}

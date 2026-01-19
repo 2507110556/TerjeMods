@@ -1,0 +1,176 @@
+ImageSetClass {
+ Name "TerjeProgramIcons"
+ RefSize 2048 2048
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{3F7876012963C9A5}TerjeElectronics/Textures/program_icons.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass calculator_c {
+   Name "calculator_c"
+   Pos 484 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass calculator_m {
+   Name "calculator_m"
+   Pos 326 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass cycle {
+   Name "cycle"
+   Pos 1912 1912
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass browser_c {
+   Name "browser_c"
+   Pos 168 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass browser_m {
+   Name "browser_m"
+   Pos 6 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass clock_c {
+   Name "clock_c"
+   Pos 800 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass clock_m {
+   Name "clock_m"
+   Pos 642 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass gallery_m {
+   Name "gallery_m"
+   Pos 960 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass gallery_c {
+   Name "gallery_c"
+   Pos 1116 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass mail_m {
+   Name "mail_m"
+   Pos 1275 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass mail_c {
+   Name "mail_c"
+   Pos 1432 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass maps_m {
+   Name "maps_m"
+   Pos 1591 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass maps_c {
+   Name "maps_c"
+   Pos 1748 10
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass messenger_m {
+   Name "messenger_m"
+   Pos 6 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass messenger_c {
+   Name "messenger_c"
+   Pos 168 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass music_m {
+   Name "music_m"
+   Pos 326 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass music_c {
+   Name "music_c"
+   Pos 484 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass notes_m {
+   Name "notes_m"
+   Pos 642 169
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass notes_c {
+   Name "notes_c"
+   Pos 800 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass radio_m {
+   Name "radio_m"
+   Pos 1591 326
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass radio_c {
+   Name "radio_c"
+   Pos 1748 326
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass settings_m {
+   Name "settings_m"
+   Pos 1275 169
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass settings_c {
+   Name "settings_c"
+   Pos 1432 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass tetris_m {
+   Name "tetris_m"
+   Pos 1591 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass tetris_c {
+   Name "tetris_c"
+   Pos 1748 168
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass calendar_m {
+   Name "calendar_m"
+   Pos 6 328
+   Size 128 128
+   Flags 0
+  }
+  ImageSetDefClass calendar_c {
+   Name "calendar_c"
+   Pos 168 326
+   Size 128 128
+   Flags 0
+  }
+ }
+ Groups {
+ }
+}

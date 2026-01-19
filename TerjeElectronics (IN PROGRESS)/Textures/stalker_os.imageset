@@ -1,0 +1,209 @@
+ImageSetClass {
+ Name "TerjeSoftwareStalker"
+ RefSize 4096 4096
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{D76029A096AC94B7}TerjeElectronics/Textures/stalker_os.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass Logo {
+   Name "Logo"
+   Pos 0 0
+   Size 1024 1024
+   Flags 0
+  }
+  ImageSetDefClass LoadingBarBack {
+   Name "LoadingBarBack"
+   Pos 3816 8
+   Size 272 32
+   Flags 0
+  }
+  ImageSetDefClass LoadingBarDot {
+   Name "LoadingBarDot"
+   Pos 3776 8
+   Size 32 32
+   Flags 0
+  }
+ }
+ Groups {
+  ImageSetGroupClass PanelA {
+   Name "PanelA"
+   Images {
+    ImageSetDefClass PanelALeftTop {
+     Name "PanelALeftTop"
+     Pos 3699 107
+     Size 42 46
+     Flags 0
+    }
+    ImageSetDefClass PanelALeft {
+     Name "PanelALeft"
+     Pos 3699 153
+     Size 20 557
+     Flags 0
+    }
+    ImageSetDefClass PanelALeftBottom {
+     Name "PanelALeftBottom"
+     Pos 3699 710
+     Size 42 19
+     Flags 0
+    }
+    ImageSetDefClass PanelATop {
+     Name "PanelATop"
+     Pos 3741 107
+     Size 305 46
+     Flags 0
+    }
+    ImageSetDefClass PanelACenter {
+     Name "PanelACenter"
+     Pos 3719 153
+     Size 346 557
+     Flags 0
+    }
+    ImageSetDefClass PanelABottom {
+     Name "PanelABottom"
+     Pos 3741 710
+     Size 305 19
+     Flags 0
+    }
+    ImageSetDefClass PanelARightTop {
+     Name "PanelARightTop"
+     Pos 4046 107
+     Size 42 46
+     Flags 0
+    }
+    ImageSetDefClass PanelARight {
+     Name "PanelARight"
+     Pos 4065 153
+     Size 23 557
+     Flags 0
+    }
+    ImageSetDefClass PanelARightBottom {
+     Name "PanelARightBottom"
+     Pos 4046 710
+     Size 42 19
+     Flags 0
+    }
+   }
+  }
+  ImageSetGroupClass PanelB {
+   Name "PanelB"
+   Images {
+    ImageSetDefClass PanelBLeftTop {
+     Name "PanelBLeftTop"
+     Pos 3137 112
+     Size 80 80
+     Flags 0
+    }
+    ImageSetDefClass PanelBLeft {
+     Name "PanelBLeft"
+     Pos 3137 192
+     Size 80 456
+     Flags 0
+    }
+    ImageSetDefClass PanelBLeftBottom {
+     Name "PanelBLeftBottom"
+     Pos 3137 648
+     Size 80 80
+     Flags 0
+    }
+    ImageSetDefClass PanelBTop {
+     Name "PanelBTop"
+     Pos 3217 112
+     Size 384 80
+     Flags 0
+    }
+    ImageSetDefClass PanelBCenter {
+     Name "PanelBCenter"
+     Pos 3217 192
+     Size 384 456
+     Flags 0
+    }
+    ImageSetDefClass PanelBBottom {
+     Name "PanelBBottom"
+     Pos 3217 648
+     Size 384 80
+     Flags 0
+    }
+    ImageSetDefClass PanelBRightTop {
+     Name "PanelBRightTop"
+     Pos 3601 112
+     Size 80 80
+     Flags 0
+    }
+    ImageSetDefClass PanelBRight {
+     Name "PanelBRight"
+     Pos 3601 192
+     Size 80 456
+     Flags 0
+    }
+    ImageSetDefClass PanelBRightBottom {
+     Name "PanelBRightBottom"
+     Pos 3601 648
+     Size 80 80
+     Flags 0
+    }
+   }
+  }
+  ImageSetGroupClass PanelC {
+   Name "PanelC"
+   Images {
+    ImageSetDefClass PanelCLeftTop {
+     Name "PanelCLeftTop"
+     Pos 3476 4
+     Size 22 19
+     Flags 0
+    }
+    ImageSetDefClass PanelCLeft {
+     Name "PanelCLeft"
+     Pos 3476 23
+     Size 22 3
+     Flags 0
+    }
+    ImageSetDefClass PanelCLeftBottom {
+     Name "PanelCLeftBottom"
+     Pos 3476 26
+     Size 22 20
+     Flags 0
+    }
+    ImageSetDefClass PanelCTop {
+     Name "PanelCTop"
+     Pos 3498 4
+     Size 256 19
+     Flags 0
+    }
+    ImageSetDefClass PanelCCenter {
+     Name "PanelCCenter"
+     Pos 3498 23
+     Size 256 3
+     Flags 0
+    }
+    ImageSetDefClass PanelCBottom {
+     Name "PanelCBottom"
+     Pos 3498 26
+     Size 256 20
+     Flags 0
+    }
+    ImageSetDefClass PanelCRightTop {
+     Name "PanelCRightTop"
+     Pos 3754 4
+     Size 10 19
+     Flags 0
+    }
+    ImageSetDefClass PanelCRight {
+     Name "PanelCRight"
+     Pos 3754 23
+     Size 10 3
+     Flags 0
+    }
+    ImageSetDefClass PanelCRightBottom {
+     Name "PanelCRightBottom"
+     Pos 3754 26
+     Size 10 20
+     Flags 0
+    }
+   }
+  }
+ }
+}

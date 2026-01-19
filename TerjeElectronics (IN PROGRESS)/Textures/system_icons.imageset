@@ -1,0 +1,80 @@
+ImageSetClass {
+ Name "TerjeSoftwareIcons"
+ RefSize 512 512
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{D4BD701E86028C6F}TerjeElectronics/Textures/system_icons.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass battery_0 {
+   Name "battery_0"
+   Pos 1 4
+   Size 100 64
+   Flags 0
+  }
+  ImageSetDefClass signal_0 {
+   Name "signal_0"
+   Pos 1 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass signal_1 {
+   Name "signal_1"
+   Pos 78 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass signal_2 {
+   Name "signal_2"
+   Pos 155 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass signal_3 {
+   Name "signal_3"
+   Pos 232 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass signal_4 {
+   Name "signal_4"
+   Pos 309 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass signal_5 {
+   Name "signal_5"
+   Pos 386 76
+   Size 72 64
+   Flags 0
+  }
+  ImageSetDefClass battery_1 {
+   Name "battery_1"
+   Pos 102 4
+   Size 100 64
+   Flags 0
+  }
+  ImageSetDefClass battery_2 {
+   Name "battery_2"
+   Pos 203 4
+   Size 100 64
+   Flags 0
+  }
+  ImageSetDefClass battery_3 {
+   Name "battery_3"
+   Pos 304 4
+   Size 100 64
+   Flags 0
+  }
+  ImageSetDefClass battery_4 {
+   Name "battery_4"
+   Pos 405 4
+   Size 100 64
+   Flags 0
+  }
+ }
+ Groups {
+ }
+}

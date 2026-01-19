@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{2EE0678EA4A1058F}TerjeElectronics/Pda/gui/hardware_close_btn.edds"
+ Author "terje"
+ ChangeDate 1812493111
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_close_btn.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

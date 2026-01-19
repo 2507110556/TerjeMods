@@ -1,0 +1,4 @@
+class TerjeSoftwareWidgetTablet : TerjeSoftwareWidgetBase
+{
+	
+}

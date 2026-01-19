@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{7DF635F75DB04F77}TerjeElectronics/Pda/gui/hardware_back_btn.edds"
+ Author "terje"
+ ChangeDate 1745384247
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_back_btn.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

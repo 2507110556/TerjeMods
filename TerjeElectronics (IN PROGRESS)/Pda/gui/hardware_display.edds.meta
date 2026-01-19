@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{93111D635545CE7E}TerjeElectronics/Pda/gui/hardware_display.edds"
+ Author "terje"
+ ChangeDate 1879601975
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_display.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

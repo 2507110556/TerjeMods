@@ -1,0 +1,16 @@
+$animsetinstance {
+ #template "{F0C651DE8E24A5DE}DZ/anims/workspaces/player/player_main/player_main.ast"
+ #nparents 1
+ #parent "{7324B2E80BB624A1}DZ/anims/workspaces/player/player_main/player_main_1h.asi"
+ $animations {
+	"ActionContinuous.TakeTempSelfCro.In" "TerjeGadgets/Anm/pda_work_start.anm"
+	"ActionContinuous.TakeTempSelfCro.Loop" "TerjeGadgets/Anm/pda_work_loop.anm"
+	"ActionContinuous.TakeTempSelfCro.Out" "TerjeGadgets/Anm/pda_work_end.anm"
+	"ActionContinuous.TakeTempSelfErc.In" "TerjeGadgets/Anm/pda_work_start.anm"
+	"ActionContinuous.TakeTempSelfErc.Loop" "TerjeGadgets/Anm/pda_work_loop.anm"
+	"ActionContinuous.TakeTempSelfErc.Out" "TerjeGadgets/Anm/pda_work_end.anm"
+	"ActionContinuous.TakeTempSelfPne.In" "TerjeGadgets/Anm/pda_work_start.anm"
+	"ActionContinuous.TakeTempSelfPne.Loop" "TerjeGadgets/Anm/pda_work_loop.anm"
+	"ActionContinuous.TakeTempSelfPne.Out" "TerjeGadgets/Anm/pda_work_end.anm"
+  
+ }

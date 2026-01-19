@@ -1,0 +1,63 @@
+FrameWidgetClass HistoryEntryRoot {
+ position 0 0
+ size 1 60
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 1
+ {
+  GridSpacerWidgetClass HistoryEntryGrid {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   Padding 0
+   Margin 4
+   "Size To Content V" 1
+   Columns 1
+   Rows 2
+   {
+    FrameWidgetClass HistoryEntryFrame {
+     ignorepointer 1
+     position 0 0
+     size 1 8
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 1
+    }
+    TextWidgetClass HistoryEntryExpression {
+     ignorepointer 1
+     color 0.7059 0.7059 0.7059 1
+     position 0 0
+     size 1 0.35
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Normal
+     "exact text" 0
+     "text halign" right
+     "text valign" center
+    }
+    TextWidgetClass HistoryEntryResult {
+     ignorepointer 1
+     position 0 0
+     size 1 0.65
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     style Normal
+     text "0"
+     "exact text" 0
+     "text halign" right
+     "text valign" center
+    }
+   }
+  }
+ }
+}

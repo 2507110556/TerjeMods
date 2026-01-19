@@ -1,0 +1,4 @@
+class TerjeGadgetLoadscreenWidget : TerjeGadgetComponentWidget
+{
+	
+}

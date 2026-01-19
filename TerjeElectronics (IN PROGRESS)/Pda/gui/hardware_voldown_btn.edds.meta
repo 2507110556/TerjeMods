@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{70768C907E2D20DA}TerjeElectronics/Pda/gui/hardware_voldown_btn.edds"
+ Author "terje"
+ ChangeDate 135295799
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_voldown_btn.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

@@ -1,0 +1,234 @@
+FrameWidgetClass Root {
+ position 0 -50
+ size 1200 1200
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ scaled 1
+ {
+  ImageWidgetClass Background {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{E0891E2892A9DFCA}TerjeElectronics/Pda/gui/hardware.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ImageWidgetClass Display_Overlay {
+   visible 1
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{93111D635545CE7E}TerjeElectronics/Pda/gui/hardware_display.edds"
+   mode blend
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  FrameWidgetClass Display_Control {
+   ignorepointer 1
+   position -16 -1
+   size 955 540
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+  }
+  ImageWidgetClass PowerBtn_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.2353
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{BCB88B1AB40FA2B1}TerjeElectronics/Pda/gui/hardware_power_btn.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ButtonWidgetClass PowerBtn_Control {
+   visible 1
+   position 530 2
+   size 60 88
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Empty
+  }
+  ImageWidgetClass PowerLed_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.3922
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{BE814AE3CC1ADACA}TerjeElectronics/Pda/gui/hardware_net_led.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ImageWidgetClass NetLed_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.3922
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{CA4E1A3D69A288FB}TerjeElectronics/Pda/gui/hardware_power_led.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ImageWidgetClass CloseBtn_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.2353
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{2EE0678EA4A1058F}TerjeElectronics/Pda/gui/hardware_close_btn.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ButtonWidgetClass CloseBtn_Control {
+   visible 1
+   position 530 80
+   size 36 42
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Empty
+  }
+  ImageWidgetClass VoldownBtn_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.2353
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{70768C907E2D20DA}TerjeElectronics/Pda/gui/hardware_voldown_btn.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ButtonWidgetClass VoldownBtn_Control {
+   visible 1
+   position 530 150
+   size 36 42
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Empty
+  }
+  ImageWidgetClass BackBtn_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.2353
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{7DF635F75DB04F77}TerjeElectronics/Pda/gui/hardware_back_btn.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ButtonWidgetClass BackBtn_Control {
+   visible 1
+   position 530 -74
+   size 36 42
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Empty
+  }
+  ImageWidgetClass VolupBtn_Overlay {
+   visible 1
+   ignorepointer 1
+   color 1 1 1 0.2353
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   imageTexture "{676C390B90425F4A}TerjeElectronics/Pda/gui/hardware_volup_btn.edds"
+   mode additive
+   "src alpha" 1
+   "clamp mode" wrap
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+  ButtonWidgetClass VolupBtn_Control {
+   visible 1
+   position 530 -142
+   size 36 42
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   style Empty
+  }
+ }
+}

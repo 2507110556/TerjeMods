@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{BCB88B1AB40FA2B1}TerjeElectronics/Pda/gui/hardware_power_btn.edds"
+ Author "terje"
+ ChangeDate 1980265271
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_power_btn.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

@@ -1,0 +1,26 @@
+FrameWidgetClass rootFrame {
+ position 0 0
+ size 46 32
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ {
+  ImageWidgetClass BarBatteryIcon {
+   ignorepointer 1
+   size 37.5 24
+   halign center_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   image0 "set:TerjeSoftwareIcons image:battery_0"
+   mode blend
+   "src alpha" 1
+   "clamp mode" clamp
+   "stretch mode" stretch_w_h
+   filter 1
+  }
+ }
+}

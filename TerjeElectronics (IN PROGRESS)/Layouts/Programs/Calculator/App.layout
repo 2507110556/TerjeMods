@@ -1,0 +1,1117 @@
+FrameWidgetClass RootFrame {
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  GridSpacerWidgetClass RootGrid {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   "Size To Content H" 1
+   Columns 2
+   Rows 1
+   {
+    GridSpacerWidgetClass CalcGrid {
+     ignorepointer 1
+     position 0 0
+     size 0.65 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     Padding 0
+     Margin 0
+     "Size To Content V" 1
+     Columns 1
+     Rows 2
+     {
+      GridSpacerWidgetClass DataGrid {
+       ignorepointer 1
+       position 0 0
+       size 1 100
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       Padding 4
+       Margin 4
+       Columns 1
+       Rows 1
+       {
+        PanelWidgetClass DataBorder {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 10 10
+         size 48 48
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         style rover_sim_colorable
+         {
+          GridSpacerWidgetClass DataEditGrid {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           Padding 4
+           Margin 8
+           "Size To Content V" 1
+           Columns 1
+           Rows 2
+           {
+            TextWidgetClass DataExpression {
+             ignorepointer 1
+             color 0.7059 0.7059 0.7059 1
+             position 0 0
+             size 1 0.35
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Normal
+             "exact text" 0
+             "text halign" right
+             "text valign" center
+            }
+            TextWidgetClass DataNumber {
+             ignorepointer 1
+             position 0 0
+             size 1 0.65
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             style Normal
+             text "0"
+             "exact text" 0
+             "text halign" right
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      GridSpacerWidgetClass ButtonsGrid {
+       ignorepointer 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       Padding 4
+       Margin 4
+       Columns 4
+       Rows 6
+       {
+        PanelWidgetClass CopyFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Copy {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget0 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "COPY"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass CEFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass CE {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget1 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "CE"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass CFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass C {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget2 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "C"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass DelFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Del {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget20 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "DEL"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass PasteFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Paste {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget4 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "PASTE"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass PowFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Pow {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget5 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "POW"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass SqrtFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Sqrt {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget6 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "SQRT"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass DivFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Div {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget7 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "/"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N7Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num7 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget8 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "7"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N8Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num8 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget9 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "8"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N9Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num9 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget10 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "9"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass MulFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Mul {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget11 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "X"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N4Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num4 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget12 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "4"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N5Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num5 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget13 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "5"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N6Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num6 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget14 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "6"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass MinusFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Minus {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget15 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "-"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N1Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num1 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget16 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "1"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N2Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num2 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget17 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "2"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N3Frrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num3 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget18 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "3"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass PlusFrame {
+         ignorepointer 1
+         color 0.1882 0.2 0.2039 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Plus {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget19 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "+"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass SignFrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Sign {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget110 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "+/-"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass N0Frame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Num0 {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget111 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "0"
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass DotFrame {
+         ignorepointer 1
+         color 0.2196 0.2353 0.2392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Dot {
+           color 1 1 1 0.0196
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget112 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text ","
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+        PanelWidgetClass EqualFrame {
+         ignorepointer 1
+         color 0.4118 0.4392 0.4392 1
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style rover_sim_colorable
+         {
+          ButtonWidgetClass Equal {
+           color 1 1 1 0.0392
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 0
+           style EmptyHighlight
+           {
+            TextWidgetClass TextWidget113 {
+             ignorepointer 1
+             position 0 0
+             size 1 0.5
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "="
+             "text halign" center
+             "text valign" center
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    GridSpacerWidgetClass HistoryGrid {
+     ignorepointer 1
+     position 0 0
+     size 0.35 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     Padding 4
+     Margin 4
+     Columns 1
+     Rows 1
+     {
+      PanelWidgetClass HistoryBorder {
+       ignorepointer 1
+       color 0.2196 0.2353 0.2392 1
+       position 0 0
+       size 1 1
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 0
+       style rover_sim_colorable
+       {
+        ScrollWidgetClass HistoryScroll {
+         ignorepointer 1
+         color 0 0 0 0
+         position 0 0
+         size 1 1
+         hexactpos 1
+         vexactpos 1
+         hexactsize 0
+         vexactsize 0
+         style blank
+         "Scrollbar V" 1
+         {
+          WrapSpacerWidgetClass HistoryBody {
+           ignorepointer 1
+           position 0 0
+           size 1 1
+           hexactpos 1
+           vexactpos 1
+           hexactsize 0
+           vexactsize 1
+           Padding 8
+           Margin 0
+           "Size To Content V" 1
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{BE814AE3CC1ADACA}TerjeElectronics/Pda/gui/hardware_net_led.edds"
+ Author "terje"
+ ChangeDate 1913156407
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../../References/TerjeElectronicsPda/gui/hardware_net_led.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

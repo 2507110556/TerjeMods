@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{C947007636111BFA}TerjeElectronics/Textures/stalker_os.edds"
+ Author "terje"
+ ChangeDate -1179307217
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../References/TerjeElectronicsTextures/stalker_os.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}

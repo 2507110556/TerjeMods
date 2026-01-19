@@ -1,0 +1,61 @@
+FrameWidgetClass SoftwareConsoleRoot {
+ position 0 0
+ size 1 1
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  GridSpacerWidgetClass SoftwareConsoleGrid {
+   ignorepointer 1
+   position 0 0
+   size 1 1
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   Padding 16
+   Margin 16
+   content_halign center
+   content_valign center
+   Columns 1
+   Rows 1
+   {
+    ScrollWidgetClass SoftwareConsoleScroll {
+     ignorepointer 0
+     color 1 1 1 0
+     position 0 0
+     size 1 1
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     "Scrollbar V" 1
+     {
+      PanelWidgetClass SoftwareConsoleCursor {
+       visible 0
+       ignorepointer 1
+       position 0 0
+       size 2 18
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       scaled 0
+       style rover_sim_colorable
+      }
+     }
+    }
+   }
+  }
+  EditBoxWidgetClass SoftwareConsoleInput {
+   visible 0
+   position 0 0
+   size 1 0
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+  }
+ }
+}

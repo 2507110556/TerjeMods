@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{DC8A8673E9CE9630}TerjeElectronics/Textures/program_icons.edds"
+ Author "terje"
+ ChangeDate -1844923593
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../References/TerjeElectronicsTextures/program_icons.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}
