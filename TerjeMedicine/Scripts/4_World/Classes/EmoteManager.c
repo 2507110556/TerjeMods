@@ -1,0 +1,41 @@
+modded class EmoteManager
+{
+	int GetCurrentEmoteID()
+	{
+		return m_CurrentGestureID;
+	}
+	
+	int GetTotalEmotesCount()
+	{
+		return m_NameEmoteMap.Count();
+	}
+	
+	int GetEmoteKeyById(int emoteId)
+	{
+		return m_NameEmoteMap.GetKey(emoteId);
+	}
+	
+	bool IsPlayerSleeping()
+	{
+		return GetCurrentEmoteID() == EmoteConstants.ID_EMOTE_LYINGDOWN;
+	}
+	
+	override void Update( float deltaT )
+	{
+		super.Update(deltaT);
+		
+		if (GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_MIND_USE_COMMIT_SUICIDE))
+		{
+			if ( m_Player && m_Callback && m_Player.GetTerjeStats() != null && !m_Player.IsRestrained() )
+			{
+				if (m_CurrentGestureID == EmoteConstants.ID_EMOTE_SUICIDE && m_Player.GetTerjeStats().GetMindLevel() == 5)
+				{
+					if (m_Callback.GetState() == m_Callback.STATE_LOOP_LOOP)
+					{
+						CommitSuicide();
+					}
+				}
+			}
+		}
+	}
+}

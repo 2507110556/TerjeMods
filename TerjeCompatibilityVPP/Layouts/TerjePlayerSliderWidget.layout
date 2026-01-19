@@ -1,0 +1,104 @@
+GridSpacerWidgetClass TerjeWidget {
+ position 0 0
+ size 1 0
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ Padding 4
+ Margin 4
+ "Size To Content H" 1
+ "Size To Content V" 1
+ content_halign center
+ Rows 1
+ {
+  ImageWidgetClass TerjeIcon {
+   ignorepointer 1
+   size 36 36
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   image0 "set:dayz_gui image:iconHealth0"
+   mode additive
+   "src alpha" 1
+   "clamp mode" clamp
+   filter 1
+  }
+  SliderWidgetClass TerjeSlider {
+   inheritalpha 0
+   ignorepointer 0
+   keepsafezone 0
+   color 1 1 1 0.549
+   position 0 0
+   size 1 1
+   hexactpos 0
+   vexactpos 0
+   hexactsize 0
+   vexactsize 0
+   scaled 1
+   scriptclass ""
+   style Default
+   vertical 0
+   flipped 0
+   "fill in" 1
+   {
+    TextWidgetClass TerjeSliderDisplay {
+     ignorepointer 1
+     size 0.086 1
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style None
+     text "Health:[50]"
+     font "gui/fonts/sdf_MetronLight24"
+     "outline size" 2
+     "outline color" 0 0 0 0.7843
+     "bold text" 1
+     "exact text" 1
+     "exact text size" 16
+     "size to text h" 1
+     "size to text v" 1
+     "text halign" center
+     "text valign" center
+    }
+   }
+  }
+  ButtonWidgetClass TerjeBtnApply {
+   color 1 0 0 1
+   size 36 36
+   halign right_ref
+   valign center_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 1
+   vexactsize 1
+   {
+    ImageWidgetClass TerjeApplyImg {
+     ignorepointer 1
+     position 0 0
+     size 0.75 0.75
+     halign center_ref
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     image0 "set:ccgui_enforce image:MarkDone"
+     mode additive
+     "src alpha" 1
+     "clamp mode" clamp
+     "stretch mode" stretch_w_h
+     filter 1
+     "Transition width" 1
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,179 @@
+class TerjeConsumableEffects
+{	
+	void Apply(EntityAI entity, string classname, PlayerBase player, float amount)
+	{
+		PlayerBase operator = null;
+		if (entity)
+		{
+			operator = PlayerBase.Cast(entity.GetHierarchyRootPlayer());
+		}
+		
+		float skillIncrement;
+		array<ref TerjeSkillCfg> skills();
+		GetTerjeSkillsRegistry().GetSkills(skills);
+		foreach (ref TerjeSkillCfg skill : skills)
+		{
+			if (operator && operator.GetTerjeSkills())
+			{
+				skillIncrement = GetTerjeGameConfig().ConfigGetFloat( classname + " " + skill.GetId() + "SkillExpAddToSelf" );
+				if (skillIncrement >= 1)
+				{
+					operator.GetTerjeSkills().AddSkillExperience(skill.GetId(), (int)skillIncrement);
+				}
+			}
+			
+			if (player && player.GetTerjeSkills())
+			{
+				skillIncrement = GetTerjeGameConfig().ConfigGetFloat( classname + " " + skill.GetId() + "SkillExpAddToTarget" );
+				if (skillIncrement >= 1)
+				{
+					player.GetTerjeSkills().AddSkillExperience(skill.GetId(), (int)skillIncrement);
+				}
+			}
+		}
+
+		if (player)
+		{
+			float healthDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddHealth" );
+			if (healthDmg != 0)
+			{
+				if (healthDmg > 0)
+				{
+					player.GetTerjeHealth().AddHealth(healthDmg * amount);
+				}
+				else
+				{
+					player.GetTerjeHealth().DecreaseHealth(healthDmg * amount * -1, TerjeDamageSource.CONSUMABLE_EFFECT);
+				}
+			}
+			
+			float bloodDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddBlood" );
+			if (bloodDmg != 0)
+			{
+				if (bloodDmg > 0)
+				{
+					player.GetTerjeHealth().AddBlood(bloodDmg * amount);
+				}
+				else
+				{
+					player.GetTerjeHealth().DecreaseBlood(bloodDmg * amount * -1, TerjeDamageSource.CONSUMABLE_EFFECT);
+				}
+			}
+			
+			float shockDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddShock" );
+			if (shockDmg != 0)
+			{
+				if (shockDmg > 0)
+				{
+					player.GetTerjeHealth().AddShock(shockDmg * amount);
+				}
+				else
+				{
+					player.GetTerjeHealth().DecreaseShock(shockDmg * amount * -1, TerjeDamageSource.CONSUMABLE_EFFECT);
+				}
+			}
+			
+			float waterDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddWater" );
+			if (waterDmg != 0)
+			{
+				player.GetStatWater().Add(waterDmg * amount);
+			}
+			
+			float energyDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddEnergy" );
+			if (energyDmg != 0)
+			{
+				player.GetStatEnergy().Add(energyDmg * amount);
+			}
+		}
+	}
+	
+	string Describe(EntityAI entity, string classname)
+	{
+		string result = "";
+		ItemBase item = ItemBase.Cast(entity);
+		
+		array<ref TerjeSkillCfg> skills();
+		GetTerjeSkillsRegistry().GetSkills(skills);
+		foreach (ref TerjeSkillCfg skill : skills)
+		{
+			float skillIncrement = GetTerjeGameConfig().ConfigGetFloat( classname + " " + skill.GetId() + "SkillIncrement" );
+			if (skillIncrement >= 1)
+			{
+				int skillValue = (int)skillIncrement;
+				result = result + skill.GetDisplayName() + " <color rgba='0,148,255,255'>+" + skillValue + " EXP</color><br/>";
+			}
+		}
+		
+		float healthDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddHealth" );
+		if (healthDmg > 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_HEALTH <color rgba='97,215,124,255'>+" + (int)(healthDmg) + " HP</color><br/>";
+		}
+		else if (healthDmg < 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_HEALTH <color rgba='198,59,64,255'>" + (int)(healthDmg) + " HP</color><br/>";
+		}
+		
+		float bloodDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddBlood" );
+		if (bloodDmg > 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_BLOOD <color rgba='97,215,124,255'>+" + (int)(bloodDmg) + " HP</color><br/>";
+		}
+		else if (bloodDmg < 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_BLOOD <color rgba='198,59,64,255'>" + (int)(bloodDmg) + " HP</color><br/>";
+		}
+		
+		float shockDmg = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddShock" );
+		if (shockDmg > 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_SHOCK <color rgba='97,215,124,255'>+" + (int)(shockDmg) + " HP</color><br/>";
+		}
+		else if (shockDmg < 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_SHOCK <color rgba='198,59,64,255'>" + (int)(shockDmg) + " HP</color><br/>";
+		}
+		
+		float nutritionEnergy = GetTerjeGameConfig().ConfigGetFloat( classname + " Nutrition energy" );
+		if (nutritionEnergy == 0 && item != null && item.GetFoodStage())
+		{
+			nutritionEnergy = FoodStage.GetEnergy(item.GetFoodStage());
+		}
+		
+		if (nutritionEnergy == 0)
+		{
+			nutritionEnergy = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddEnergy" );
+		}
+		
+		if (nutritionEnergy > 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_ENERGY <color rgba='97,215,124,255'>+" + (int)(nutritionEnergy) + " cal</color><br/>";
+		}
+		else if (nutritionEnergy < 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_ENERGY <color rgba='198,59,64,255'>" + (int)(nutritionEnergy) + " cal</color><br/>";
+		}
+		
+		float nutritionWater = GetTerjeGameConfig().ConfigGetFloat( classname + " Nutrition water" );
+		if (nutritionWater == 0 && item != null && item.GetFoodStage())
+		{
+			nutritionWater = FoodStage.GetWater(item.GetFoodStage());
+		}
+		
+		if (nutritionWater == 0)
+		{
+			nutritionWater = GetTerjeGameConfig().ConfigGetFloat( classname + " terjeAddWater" );
+		}
+		
+		if (nutritionWater > 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_WATER <color rgba='97,215,124,255'>+" + (int)(nutritionWater) + " ml</color><br/>";
+		}
+		else if (nutritionWater < 0)
+		{
+			result = result + "#STR_TERJECORE_EFFECT_WATER <color rgba='198,59,64,255'>" + (int)(nutritionWater) + " ml</color><br/>";
+		}
+		
+		return result;
+	}
+}

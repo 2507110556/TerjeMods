@@ -1,0 +1,49 @@
+GridSpacerWidgetClass TerjePlayerRowWidget {
+ position 0 0
+ size 1 0
+ halign center_ref
+ valign center_ref
+ hexactpos 0
+ vexactpos 0
+ hexactsize 0
+ vexactsize 0
+ Padding 4
+ Margin 4
+ "Size To Content H" 1
+ "Size To Content V" 1
+ content_halign center
+ Rows 1
+ {
+  ButtonWidgetClass TerjeRowBtn {
+   clipchildren 0
+   color 1 0 0 1
+   size 1 25
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 1
+   {
+    TextWidgetClass TerjeRowDisplayName {
+     ignorepointer 1
+     size 1 1
+     valign center_ref
+     hexactpos 0
+     vexactpos 0
+     hexactsize 0
+     vexactsize 0
+     style None
+     text ">> PLAYER NAME"
+     font "gui/fonts/sdf_MetronLight24"
+     "outline size" 2
+     "outline color" 0 0 0 0.7843
+     "bold text" 1
+     "exact text" 1
+     "exact text size" 16
+     "size to text h" 1
+     "size to text v" 1
+     "text valign" center
+    }
+   }
+  }
+ }
+}

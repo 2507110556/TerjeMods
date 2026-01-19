@@ -1,0 +1,309 @@
+modded class TerjePlayerInspectableStats
+{
+	override void OnInit(PlayerBase player, int level)
+	{
+		super.OnInit(player, level);
+		
+		if (player && player.IsAlive() && player.GetTerjeStats())
+		{
+			if (player.GetTerjeStats().GetViscera())
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_viscera", "#STR_TERJEMED_PIS_VISCERA");
+			}
+			
+			int stubWoundsCount = player.GetTerjeStats().GetStubWounds();
+			if (stubWoundsCount > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_wound", "#STR_TERJEMED_PIS_STUB (" + stubWoundsCount + ")");
+			}
+			
+			int bulletWoundsCount = player.GetTerjeStats().GetBulletWounds();
+			if (bulletWoundsCount > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_wound", "#STR_TERJEMED_PIS_BULLET (" + bulletWoundsCount + ")");
+			}
+			
+			if (player.GetTerjeStats().GetSleepingLevel() >= 4)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_SLEEP", "set:TerjeMedicine_icon image:tm_sleeping_4", "#STR_TERJEMED_PIS_SLEEP_DESC");
+			}
+			
+			int mindLevel = player.GetTerjeStats().GetMindLevel();
+			if (mindLevel == 5)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_MIND", "set:TerjeMedicine_icon image:tm_mind_4", "#STR_TERJEMED_PIS_MIND_HARD");
+			}
+			else if (mindLevel == 4)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_MIND", "set:TerjeMedicine_icon image:tm_mind_3", "#STR_TERJEMED_PIS_MIND_LOW");
+			}
+			
+			if (player.GetTerjeStats().GetBandagesClean() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_bandagedclean_2", "#STR_TERJEMED_PIS_BC");
+			}
+			
+			if (player.GetTerjeStats().GetBandagesDirty() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_bandageddirty_2", "#STR_TERJEMED_PIS_BD");
+			}
+			
+			if (player.GetTerjeStats().GetSuturesBandagedClean() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_bandagedclean_2", "#STR_TERJEMED_PIS_SBC");
+			}
+			
+			if (player.GetTerjeStats().GetSuturesBandagedDirty() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_bandageddirty_2", "#STR_TERJEMED_PIS_SBD");
+			}
+			
+			if (player.GetTerjeStats().GetSuturesClean() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_protectingwound", "#STR_TERJEMED_PIS_SC");
+			}
+			
+			if (player.GetTerjeStats().GetSuturesDirty() > 0)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_protectingwoundseps", "#STR_TERJEMED_PIS_SD");
+			}
+			
+			int hematomasCount = player.GetTerjeStats().GetHematomas();
+			if (hematomasCount > 0)
+			{
+				if (level >= 2)
+				{
+					if (hematomasCount > TerjeMedicineConstants.HEMATOMAS_CRITICAL_COUNT)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_hematoma", "#STR_TERJEMED_PIS_HEM_CRIT (" + hematomasCount + ")");
+					}
+					else if (hematomasCount > TerjeMedicineConstants.HEMATOMAS_BAD_COUNT)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_hematoma", "#STR_TERJEMED_PIS_HEM_BAD (" + hematomasCount + ")");
+					}
+					else if (hematomasCount > TerjeMedicineConstants.HEMATOMAS_PAIN_COUNT)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_hematoma", "#STR_TERJEMED_PIS_HEM_LOW (" + hematomasCount + ")");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_WOUND", "set:TerjeMedicine_icon image:tm_hematoma", "");
+				}
+			}
+			
+			int zombieVirus = player.GetTerjeStats().GetZVirusLevel();
+			if (zombieVirus > 0)
+			{
+				if (level >= 2)
+				{
+					if (zombieVirus == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_ZV", "set:TerjeMedicine_icon image:tm_virusz", "#STR_TERJEMED_PIS_L1");
+					}
+					else if (zombieVirus == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_ZV", "set:TerjeMedicine_icon image:tm_virusz", "#STR_TERJEMED_PIS_L2");
+					}
+					else if (zombieVirus == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_ZV", "set:TerjeMedicine_icon image:tm_virusz", "#STR_TERJEMED_PIS_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_ZV", "set:TerjeMedicine_icon image:tm_virusz", "");
+				}
+			}
+			else if (level >= 3 && player.GetTerjeStats().GetZVirusValue() > 0.01)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_ZV", "set:TerjeMedicine_icon image:tm_virusz", "#STR_TERJECORE_PIS_INCUBATION");
+			}
+			
+			int sepsis = player.GetTerjeStats().GetSepsisLevel();
+			if (sepsis > 0)
+			{
+				if (level >= 2)
+				{
+					if (sepsis == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_SEPSIS", "set:TerjeMedicine_icon image:tm_sepsis", "#STR_TERJEMED_PIS_L1");
+					}
+					else if (sepsis == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_SEPSIS", "set:TerjeMedicine_icon image:tm_sepsis", "#STR_TERJEMED_PIS_L2");
+					}
+					else if (sepsis == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_SEPSIS", "set:TerjeMedicine_icon image:tm_sepsis", "#STR_TERJEMED_PIS_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_SEPSIS", "set:TerjeMedicine_icon image:tm_sepsis", "");
+				}
+			}
+			else if (level >= 3 && player.GetTerjeStats().GetSepsisValue() > 0.01)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_SEPSIS", "set:TerjeMedicine_icon image:tm_sepsis", "#STR_TERJECORE_PIS_INCUBATION");
+			}
+			
+			int rabies = player.GetTerjeStats().GetRabiesLevel();
+			if (rabies > 0)
+			{
+				if (level >= 2)
+				{
+					if (rabies == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_RABIES", "set:TerjeMedicine_icon image:tm_rabies", "#STR_TERJEMED_PIS_L1");
+					}
+					else if (rabies == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_RABIES", "set:TerjeMedicine_icon image:tm_rabies", "#STR_TERJEMED_PIS_L2");
+					}
+					else if (rabies == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_RABIES", "set:TerjeMedicine_icon image:tm_rabies", "#STR_TERJEMED_PIS_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_RABIES", "set:TerjeMedicine_icon image:tm_rabies", "");
+				}
+			}
+			else if (level >= 3 && player.GetTerjeStats().GetRabiesValue() > 0.1)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_RABIES", "set:TerjeMedicine_icon image:tm_rabies", "#STR_TERJECORE_PIS_INCUBATION");
+			}
+			
+			int pain = player.GetTerjeStats().GetPainLevel();
+			if (pain > 0)
+			{
+				if (level >= 2)
+				{
+					if (pain == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_PAIN", "set:TerjeMedicine_icon image:tm_pain", "#STR_TERJEMED_PIS_PAIN_L1");
+					}
+					else if (pain == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_PAIN", "set:TerjeMedicine_icon image:tm_pain", "#STR_TERJEMED_PIS_PAIN_L2");
+					}
+					else if (pain == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_PAIN", "set:TerjeMedicine_icon image:tm_pain", "#STR_TERJEMED_PIS_PAIN_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_PAIN", "set:TerjeMedicine_icon image:tm_pain", "");
+				}
+			}
+			
+			int influenza = player.GetTerjeStats().GetInfluenzaLevel();
+			if (influenza > 0)
+			{
+				if (level >= 2)
+				{
+					if (influenza == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_INFLUENZA", "set:TerjeMedicine_icon image:tm_influenza", "#STR_TERJEMED_PIS_INF_L1");
+					}
+					else if (influenza == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_INFLUENZA", "set:TerjeMedicine_icon image:tm_influenza", "#STR_TERJEMED_PIS_INF_L2");
+					}
+					else if (influenza == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_INFLUENZA", "set:TerjeMedicine_icon image:tm_influenza", "#STR_TERJEMED_PIS_INF_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_INFLUENZA", "set:TerjeMedicine_icon image:tm_influenza", "");
+				}
+			}
+			else if (level >= 3 && player.GetTerjeStats().GetInfluenzaValue() > 0.5)
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_INFLUENZA", "set:TerjeMedicine_icon image:tm_influenza", "#STR_TERJECORE_PIS_INCUBATION");
+			}
+			
+			int overdose = player.GetTerjeStats().GetOverdoseLevel();
+			if (overdose > 0)
+			{
+				if (level >= 2)
+				{
+					if (overdose == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_OVERDOSE", "set:TerjeMedicine_icon image:tm_overdosed", "#STR_TERJEMED_PIS_OVERD_L1");
+					}
+					else if (overdose == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_OVERDOSE", "set:TerjeMedicine_icon image:tm_overdosed", "#STR_TERJEMED_PIS_OVERD_L2");
+					}
+					else if (overdose == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_OVERDOSE", "set:TerjeMedicine_icon image:tm_overdosed", "#STR_TERJEMED_PIS_OVERD_L3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_OVERDOSE", "set:TerjeMedicine_icon image:tm_overdosed", "");
+				}
+			}
+			
+			int poison = player.GetTerjeStats().GetPoisonLevel();
+			if (poison > 0)
+			{
+				if (level >= 2)
+				{
+					if (poison == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_POISON", "set:TerjeMedicine_icon image:tm_poison", "#STR_TERJEMED_PIS_PL1");
+					}
+					else if (poison == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_POISON", "set:TerjeMedicine_icon image:tm_poison", "#STR_TERJEMED_PIS_PL2");
+					}
+					else if (poison == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_POISON", "set:TerjeMedicine_icon image:tm_poison", "#STR_TERJEMED_PIS_PL3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_POISON", "set:TerjeMedicine_icon image:tm_poison", "");
+				}
+			}
+			
+			int biohazard = player.GetTerjeStats().GetBiohazardLevel();
+			if (biohazard > 0)
+			{
+				if (level >= 2)
+				{
+					if (biohazard == 1)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_BIOHAZARD", "set:TerjeMedicine_icon image:tm_biohazard", "#STR_TERJEMED_PIS_PL1");
+					}
+					else if (biohazard == 2)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_BIOHAZARD", "set:TerjeMedicine_icon image:tm_biohazard", "#STR_TERJEMED_PIS_PL2");
+					}
+					else if (biohazard == 3)
+					{
+						AddInspectableStat("#STR_TERJEMED_PIS_BIOHAZARD", "set:TerjeMedicine_icon image:tm_biohazard", "#STR_TERJEMED_PIS_PL3");
+					}
+				}
+				else if (level == 1)
+				{
+					AddInspectableStat("#STR_TERJEMED_PIS_BIOHAZARD", "set:TerjeMedicine_icon image:tm_biohazard", "");
+				}
+			}
+			
+			if (player.GetTerjeStats().GetContusion())
+			{
+				AddInspectableStat("#STR_TERJEMED_PIS_CONTUSION", "set:TerjeMedicine_icon image:tm_concussion", "#STR_TERJEMED_PIS_CONTUSION_DESC");
+			}
+		}
+	}
+}

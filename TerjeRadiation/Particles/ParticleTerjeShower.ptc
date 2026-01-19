@@ -1,0 +1,55 @@
+EffectDef {
+ Emitors {
+  EmitorDef terje_shower {
+   ShapeType Cone
+   ShapeSize 0 0 0
+   ConeAngle 360 0 0
+   MaxNum 100
+   BirthRate 50
+   BirthRateRND 0
+   Angles 0 180 0
+   Material "{DD4F6AF883F92F41}graphics/particles/materials/smoke/smoke_dust_01b.emat"
+   CenterX 0
+   CenterY 0.03
+   SizeMultiplier 4
+   SizeRND 4
+   RandomRotDir 1
+   RotMultiplier 40
+   StretchMultiplier 1
+   VelAngle 0
+   RandomAngle 1
+   Velocity 25
+   VelocityRND 10
+   AirResistance 0.02
+   AirResistanceRND 0
+   GravityMultiply 0
+   Spring 0
+   Wind 0
+   AnimOnce 0
+   AnimFPS 10
+   LifetimeByAnim 0
+   LifeTime 0.6
+   LifeTimeRND 0.2
+   Color {
+    0 1 1 1 1 1 1 1
+   }
+   Alpha {
+    0 0.77848 0.41295 0.6962 0.66071 0.19872 1 0
+   }
+   RotationSpeed {
+    0 0 1 1
+   }
+   Size {
+    0 0 0.02232 0.06962 0.25074 0.59494 0.62872 1 1 1
+   }
+   EffectTime 0
+   Repeat 1
+   AlphaMast {
+    0 0.47468 1 0.62025
+   }
+   VelocityMast {
+    0 0.60127 1 0.62658
+   }
+  }
+ }
+}

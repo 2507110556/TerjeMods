@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{5FACF91ADBCB8035}TerjeRadiation/Textures/icon_radiation.edds"
+ Author "kaban-pc"
+ ChangeDate 174600591
+ Configurations {
+  PNGResourceClass PC {
+   SourceFile "../../References/TerjeRadiation/Textures/icon_radiation.png"
+  }
+  PNGResourceClass XBOX_ONE : PC {
+  }
+  PNGResourceClass PS4 : PC {
+  }
+  PNGResourceClass LINUX : PC {
+  }
+ }
+}

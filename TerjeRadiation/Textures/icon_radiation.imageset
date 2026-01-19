@@ -1,0 +1,44 @@
+ImageSetClass {
+ Name "TerjeRadiation_icon"
+ RefSize 1024 1024
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "{5FACF91ADBCB8035}TerjeRadiation/Textures/icon_radiation.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass tr_rad_sickness {
+   Name "tr_rad_sickness"
+   Pos 30 106
+   Size 70 70
+   Flags 0
+  }
+  ImageSetDefClass tr_antirad {
+   Name "tr_antirad"
+   Pos 33 30
+   Size 70 70
+   Flags 0
+  }
+  ImageSetDefClass tr_shower {
+   Name "tr_shower"
+   Pos 7 810
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass tr_canistre {
+   Name "tr_canistre"
+   Pos 220 810
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass tr_pump {
+   Name "tr_pump"
+   Pos 433 810
+   Size 170 170
+   Flags 0
+  }
+ }
+ Groups {
+ }
+}

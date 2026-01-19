@@ -1,0 +1,16 @@
+MetaFileClass {
+ Name "{C2886C62E12E628B}TerjeRadiation/Textures/mod_icon.edds"
+ Author "terje"
+ ChangeDate 821866869
+ Configurations {
+  TGAResourceClass PC {
+   SourceFile "../../References/TerjeRadiation/Textures/mod_icon.tga"
+  }
+  TGAResourceClass XBOX_ONE : PC {
+  }
+  TGAResourceClass PS4 : PC {
+  }
+  TGAResourceClass LINUX : PC {
+  }
+ }
+}
