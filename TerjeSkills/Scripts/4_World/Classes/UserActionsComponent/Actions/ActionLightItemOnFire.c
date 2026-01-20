@@ -27,6 +27,19 @@ modded class ActionLightItemOnFireCB
 
 modded class ActionLightItemOnFire
 {
+	bool Streatman_CanIgnite(ItemBase item, ItemBase target_item)
+	{
+		// this makes sure, that the player only gets success XP if the fire actually starts
+		if (item && target_item)
+		{
+			if (item.CanIgniteItem(target_item) && target_item.IsThisIgnitionSuccessful(item))
+				return true;
+			if (item.CanBeIgnitedBy(target_item) && target_item.IsTargetIgnitionSuccessful(item))
+				return true;
+		}
+		return  false;
+	}
+	
 	override void OnFinishProgressServer( ActionData action_data )
 	{
 		bool ignitionResult = true;
@@ -42,7 +55,7 @@ modded class ActionLightItemOnFire
 				absoluteChance += (Math.Clamp(1.0 - absoluteChance, 0, 1) * Math.Clamp(perkValue, 0, 1));
 			}
 			
-			if (Math.RandomFloat01() < absoluteChance)
+			if (Math.RandomFloat01() < absoluteChance && Streatman_CanIgnite(item, target_item))
 			{
 				ignitionResult = true;
 				GetTerjeSettingInt(TerjeSettingsCollection.SKILLS_SURV_MAKE_FIRE_SUCCESS_GAIN_EXP, expGain);
