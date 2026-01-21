@@ -7,7 +7,8 @@ class CfgPatches
 		requiredVersion=0.1;
 		requiredAddons[]=
 		{
-			"TerjeRadiation", "DZ_Vehicles_Parts"
+			"TerjeRadiation",
+			"DZ_Vehicles_Parts"
 		};
 	};
 };
@@ -22,7 +23,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_CANISTRECHEMICAL_NAME";
 		descriptionShort="#STR_TERJERAD_CANISTRECHEMICAL_DESC";
-		model="\TerjeRadiation\Tools\canistre\canistre.p3d";
+		model="TerjeRadiation\Tools\canistre\canistre.p3d";
 		rotationFlags=0;
 		itemSize[]={4,5};
 		weight=1000;
@@ -85,7 +86,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_SOAP_NAME";
 		descriptionShort="#STR_TERJERAD_SOAP_DESC";
-		model="\TerjeRadiation\Tools\soap\soap.p3d";
+		model="TerjeRadiation\Tools\soap\soap.p3d";
 		rotationFlags=1;
 		itemSize[]={1,1};
 		weight=40;
@@ -117,7 +118,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_ART_ANTIRAD_NAME";
 		descriptionShort="#STR_TERJERAD_ART_ANTIRAD_DESC";
-		model="\TerjeRadiation\Tools\artifact\fireball\artfireball.p3d";
+		model="TerjeRadiation\Tools\artifact\fireball\artfireball.p3d";
 		animClass="NoFireClass";
 		weight=1500;
 		itemSize[]={2,2};

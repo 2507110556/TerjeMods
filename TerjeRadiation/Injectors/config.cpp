@@ -19,7 +19,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="#STR_TERJERAD_RADIOPROTECTOR";
-		model="\dz\gear\medical\Epinephrine.p3d";
+		model="dz\gear\medical\Epinephrine.p3d";
 		debug_ItemCategory=7;
 		hiddenSelections[]=
 		{

@@ -5,7 +5,11 @@ class CfgPatches
 		units[]={};
 		weapons[]={};
 		requiredVersion=0.1;
-		requiredAddons[]={"TerjeCore", "TerjeMedicine"};
+		requiredAddons[]=
+		{
+			"TerjeCore",
+			"TerjeMedicine"
+		};
 	};
 };
 
@@ -17,7 +21,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_IMMUNITY1";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity1_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity1_co.paa"};
 		
 		terjeSkillId="immunity";
 		terjeSkillMinLevel=0;
@@ -29,7 +33,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_IMMUNITY2";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity2_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity2_co.paa"};
 		
 		terjeSkillId="immunity";
 		terjeSkillMinLevel=10;
@@ -41,7 +45,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_IMMUNITY3";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity3_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity3_co.paa"};
 		
 		terjeSkillId="immunity";
 		terjeSkillMinLevel=20;
@@ -53,7 +57,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_IMMUNITY4";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity4_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity4_co.paa"};
 		
 		terjeSkillId="immunity";
 		terjeSkillMinLevel=30;
@@ -65,7 +69,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_IMMUNITY5";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity5_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity5_co.paa"};
 		
 		terjeSkillId="immunity";
 		terjeSkillMinLevel=40;
@@ -77,7 +81,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_MEDICINE1";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine1_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine1_co.paa"};
 		
 		terjeSkillId="med";
 		terjeSkillMinLevel=0;
@@ -89,7 +93,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_MEDICINE2";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine2_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine2_co.paa"};
 		
 		terjeSkillId="med";
 		terjeSkillMinLevel=10;
@@ -101,7 +105,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_MEDICINE3";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine3_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine3_co.paa"};
 		
 		terjeSkillId="med";
 		terjeSkillMinLevel=20;
@@ -113,7 +117,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_MEDICINE4";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine4_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine4_co.paa"};
 		
 		terjeSkillId="med";
 		terjeSkillMinLevel=30;
@@ -125,7 +129,7 @@ class CfgVehicles
 		scope=2;
 		rotationFlags=1;
 		displayName="#STR_TERJESKILL_BOOK_MEDICINE5";
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine5_co.paa" };
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine5_co.paa"};
 		
 		terjeSkillId="med";
 		terjeSkillMinLevel=40;
@@ -139,71 +143,71 @@ class CfgVehicles
 	class StaticObj_TerjeBookImmunity1: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity1_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity1_co.paa"};
 	};
 	class StaticObj_TerjeBookImmunity2: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity2_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity2_co.paa"};
 	};
 	class StaticObj_TerjeBookImmunity3: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity3_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity3_co.paa"};
 	};
 	class StaticObj_TerjeBookImmunity4: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity4_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity4_co.paa"};
 	};
 	class StaticObj_TerjeBookImmunity5: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_immunity5_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_immunity5_co.paa"};
 	};
 	class StaticObj_TerjeBookMedicine1: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine1_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine1_co.paa"};
 	};
 	class StaticObj_TerjeBookMedicine2: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine2_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine2_co.paa"};
 	};
 	class StaticObj_TerjeBookMedicine3: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine3_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine3_co.paa"};
 	};
 	class StaticObj_TerjeBookMedicine4: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine4_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine4_co.paa"};
 	};
 	class StaticObj_TerjeBookMedicine5: HouseNoDestruct
 	{
 		scope=1;
-		model="\DZ\gear\books\Book_kniga.p3d";
-		hiddenSelections[]=	{"camoGround"};
-		hiddenSelectionsTextures[]={ "TerjeMedicine\Books\data\book_medicine5_co.paa" };
+		model="DZ\gear\books\Book_kniga.p3d";
+		hiddenSelections[]={"camoGround"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Books\data\book_medicine5_co.paa"};
 	};
 };

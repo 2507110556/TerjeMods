@@ -26,32 +26,39 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_PLASTER_NAME";
 		descriptionShort="#STR_TERJEMED_PLASTER_DESC";
-		model="\TerjeMedicine\Tools\plaster\plaster.p3d";
+		model="TerjeMedicine\Tools\plaster\plaster.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=20;
-		varTemperatureMin = 0;
-		varTemperatureMax = 0;
-		absorbency = 0.7;
+		varTemperatureMin=0;
+		varTemperatureMax=0;
+		absorbency=0.7;
 		medicalItem=1;
 		medBloodStop=1;
-		canBeSplit = 1;
-		varQuantityInit = 10;
-		varQuantityMin = 0;
-		varQuantityMax = 10;
-		varQuantityDestroyOnMin = 1;
-		stackedUnit = "pills";
-		quantityBar = 0;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\plaster\data\plaster_co.paa"};
+		canBeSplit=1;
+		varQuantityInit=10;
+		varQuantityMin=0;
+		varQuantityMax=10;
+		varQuantityDestroyOnMin=1;
+		stackedUnit="pills";
+		quantityBar=0;
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\plaster\data\plaster_co.paa"};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\plaster\data\plaster_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\plaster\data\plaster_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\plaster\data\plaster_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\plaster\data\plaster_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\plaster\data\plaster_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\plaster\data\plaster_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\plaster\data\plaster_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\plaster\data\plaster_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\plaster\data\plaster_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\plaster\data\plaster_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -62,31 +69,38 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTPH_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTPH_DESC";
-		model="\TerjeMedicine\Tools\plaster\plaster.p3d";
+		model="TerjeMedicine\Tools\plaster\plaster.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=20;
-		varTemperatureMin = 0;
-		varTemperatureMax = 0;
-		absorbency = 0.7;
-		varQuantityInit = 10;
-		varQuantityMin = 0;
-		varQuantityMax = 10;
-		varQuantityDestroyOnMin = 1;
-		stackedUnit = "pills";
-		quantityBar = 0;
+		varTemperatureMin=0;
+		varTemperatureMax=0;
+		absorbency=0.7;
+		varQuantityInit=10;
+		varQuantityMin=0;
+		varQuantityMax=10;
+		varQuantityDestroyOnMin=1;
+		stackedUnit="pills";
+		quantityBar=0;
 		canBeSplit=1;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\phstrips\phstrips_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\phstrips\phstrips_co.paa"};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\phstrips\phstrips_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\phstrips\phstrips_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\phstrips\phstrips_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\phstrips\phstrips_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\phstrips\phstrips_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\phstrips\phstrips_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\phstrips\phstrips_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\phstrips\phstrips_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\phstrips\phstrips_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\phstrips\phstrips_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -97,13 +111,13 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTVIRZ_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTVIRUSZ_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
 		itemSize[]={1,1};
 		rotationFlags=17;
 		weight=130;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -111,8 +125,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -123,13 +144,13 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTSEPS_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTSPESIS_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
 		itemSize[]={1,1};
 		rotationFlags=17;
 		weight=130;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -137,8 +158,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -149,13 +177,13 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTRABIE_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTRABIE_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
 		itemSize[]={1,1};
 		rotationFlags=17;
 		weight=130;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -163,8 +191,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -175,14 +210,14 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTVIRZ_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTVIRUSZ_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
 		rotationFlags=17;
 		itemSize[]={1,1};
 		weight=140;
 		absorbency=0;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -190,8 +225,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -210,14 +252,14 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTSEPS_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTSPESIS_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
 		rotationFlags=17;
 		itemSize[]={1,1};
 		weight=140;
 		absorbency=0;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -225,8 +267,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -245,14 +294,14 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_EXPRESSTESTRABIE_NAME";
 		descriptionShort="#STR_TERJEMED_EXPRESSTESTRABIE_DESC";
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
 		rotationFlags=17;
 		itemSize[]={1,1};
 		weight=140;
 		absorbency=0;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
 		soundImpactType="plastic";
 		class DamageSystem
 		{
@@ -260,8 +309,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\expresstest\data\expresstest_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -280,23 +336,30 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SYRINGE_NEW_NAME";
 		descriptionShort="#STR_TERJEMED_SYRINGE_NEW_DESC";
-		model="\TerjeMedicine\Tools\syringe\syringe_new.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_new.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=20;
 		absorbency=0;
 		medicalItem=1;
 		varCleannessInit=1;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\syringe\data\syringe_new_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\syringe\data\syringe_new_co.paa"};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_new_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -315,7 +378,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SYRINGE_EMPTY_NAME";
 		descriptionShort="#STR_TERJEMED_SYRINGE_EMPTY_DESC";
-		model="\TerjeMedicine\Tools\syringe\syringe_empty.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_empty.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=20;
@@ -327,8 +390,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 80;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_destruct.rvmat"}}};
+					hitpoints=80;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -359,7 +429,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SYRINGE_EMPTY_NAME";
 		descriptionShort="#STR_TERJEMED_SYRINGE_EMPTY_DESC";
-		model="\TerjeMedicine\Tools\syringe\syringe_plast_empty.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_plast_empty.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=20;
@@ -371,8 +441,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 30;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_destruct.rvmat"}}};
+					hitpoints=30;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -404,7 +481,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SYRINGE_FULL_NAME";
 		descriptionShort="#STR_TERJEMED_SYRINGE_FULL_DESC";
-		model="\TerjeMedicine\Tools\syringe\syringe_full.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_full.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=100;
@@ -416,8 +493,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 80;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_destruct.rvmat"}}};
+					hitpoints=80;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_glass_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_glass_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_glass_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -449,7 +533,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SYRINGE_FULL_NAME";
 		descriptionShort="#STR_TERJEMED_SYRINGE_FULL_DESC";
-		model="\TerjeMedicine\Tools\syringe\syringe_plast_full.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_plast_full.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=100;
@@ -461,8 +545,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 30;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_destruct.rvmat"}}};
+					hitpoints=30;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\syringe\data\syringe_pl_glass_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -552,7 +643,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_SURGKIT_NAME";
 		descriptionShort="#STR_TERJEMED_SURGKIT_DESC";
-		model="\TerjeMedicine\Tools\surgical_kit\surgical_kit.p3d";
+		model="TerjeMedicine\Tools\surgical_kit\surgical_kit.p3d";
 		rotationFlags=17;
 		varQuantityInit=5;
 		varQuantityMin=0;
@@ -572,16 +663,23 @@ class CfgVehicles
 		terjeSurgeryBulletTime=25;
 		terjeSurgeryStubEffectivity=0.7;
 		terjeSurgeryStubTime=20;
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_co.paa"};
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_co.paa"};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\surgical_kit\data\surgical_kit_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -604,7 +702,7 @@ class CfgVehicles
 	class TerjeSurgicalTool_White: TerjeSurgicalTool_ColorBase
 	{
 		scope=2;
-		model="\TerjeMedicine\Tools\surgical_tool\surgical_tool.p3d";
+		model="TerjeMedicine\Tools\surgical_tool\surgical_tool.p3d";
 		rotationFlags=0;
 		weight=100;
 		absorbency=0.0;
@@ -615,8 +713,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -624,7 +729,7 @@ class CfgVehicles
 	class TerjeSurgicalTool_Ceramic: TerjeSurgicalTool_ColorBase
 	{
 		scope=2;
-		model="\TerjeMedicine\Tools\surgical_tool\surgical_tool_ceramic.p3d";
+		model="TerjeMedicine\Tools\surgical_tool\surgical_tool_ceramic.p3d";
 		rotationFlags=0;
 		weight=100;
 		absorbency=0.0;
@@ -635,8 +740,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat.rvmat"}},{0.7,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat.rvmat"}},{0.5,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\surgical_tool\data\surgical_tool_ceramic_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -650,8 +762,8 @@ class CfgVehicles
 		vehicleClass="Clothing";
 		simulation="clothing";
 		medicalItem=1;
-		repairableWithKits[] = {8};
-		repairCosts[] = {15.0};
+		repairableWithKits[]={8};
+		repairCosts[]={15.0};
 		inventorySlot[]=
 		{
 			"Eyewear"
@@ -682,7 +794,14 @@ class CfgVehicles
 				class Health
 				{
 					hitpoints=50;
-					healthLevels[] = {{1.0,{}},{0.7,{}},{0.5,{}},{0.3,{}},{0.0,{}}};
+					healthLevels[]=
+					{
+						{1.0,{}},
+						{0.7,{}},
+						{0.5,{}},
+						{0.3,{}},
+						{0.0,{}}
+					};
 				};
 			};
 		};
@@ -717,7 +836,7 @@ class CfgVehicles
 		model="TerjeMedicine\Tools\sleepingbag\sbag_packed.p3d";
 		weight=2000;
 		bounding="BSphere";
-		inventorySlot[] = {"VestBackpack"};
+		inventorySlot[]={"VestBackpack"};
 		projectionTypename="TerjeSleepingBagPlacing";
 		overrideDrawArea="3.0";
 		forceFarBubble="true";
@@ -739,7 +858,7 @@ class CfgVehicles
 			"TerjeMedicine\Tools\sleepingbag\data\sbag_placed.rvmat"
 		};
 		openable=0;
-		absorbency = 0;
+		absorbency=0;
 		carveNavmesh=1;
 		itemSize[]={3,4};
 		itemsCargoSize[]={0,0};
@@ -757,8 +876,15 @@ class CfgVehicles
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1.0,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed.rvmat"}},{0.7,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed.rvmat"}},{0.5,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_damage.rvmat"}},{0.3,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_damage.rvmat"}},{0.0,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed.rvmat"}},
+						{0.7,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed.rvmat"}},
+						{0.5,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Tools\sleepingbag\data\sbag_packed_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -856,17 +982,17 @@ class CfgVehicles
 	class StaticObj_TerjeSurgicalTool_Ceramic: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\surgical_tool\surgical_tool_ceramic.p3d";
+		model="TerjeMedicine\Tools\surgical_tool\surgical_tool_ceramic.p3d";
 	};
 	class StaticObj_TerjeSurgicalTool_White: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\surgical_tool\surgical_tool.p3d";
+		model="TerjeMedicine\Tools\surgical_tool\surgical_tool.p3d";
 	};
 	class StaticObj_TerjeSurgicalKit: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\surgical_kit\surgical_kit.p3d";
+		model="TerjeMedicine\Tools\surgical_kit\surgical_kit.p3d";
 	};
 	class StaticObj_TerjeBandageHemostatic: HouseNoDestruct
 	{
@@ -876,84 +1002,84 @@ class CfgVehicles
 	class StaticObj_TerjeImprovisedSyringeFull : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\syringe\syringe_plast_full.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_plast_full.p3d";
 	};
 	class StaticObj_TerjeSyringeFull : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\syringe\syringe_full.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_full.p3d";
 	};
 	class StaticObj_TerjeImprovisedSyringeEmpty : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\syringe\syringe_plast_empty.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_plast_empty.p3d";
 	};
 	class StaticObj_TerjeSyringeEmpty : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\syringe\syringe_empty.p3d";
+		model="TerjeMedicine\Tools\syringe\syringe_empty.p3d";
 	};
 	class StaticObj_TerjeSyringeNew : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\syringe\syringe_new.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\syringe\data\syringe_new_co.paa"};
+		model="TerjeMedicine\Tools\syringe\syringe_new.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\syringe\data\syringe_new_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestRabiesPack : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestSepsisPack : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestVirusZPack : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstestpack.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestRabies: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_rab_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestSepsis: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_sep_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestVirusZ: HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\expresstest\expresstest.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
+		model="TerjeMedicine\Tools\expresstest\expresstest.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\expresstest\data\expresstest_zed_co.paa"};
 	};
 	class StaticObj_TerjeExpressTestAgents : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\plaster\plaster.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\phstrips\phstrips_co.paa"};
+		model="TerjeMedicine\Tools\plaster\plaster.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\phstrips\phstrips_co.paa"};
 	};
 	class StaticObj_TerjePlaster : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Tools\plaster\plaster.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Tools\plaster\data\plaster_co.paa"};
+		model="TerjeMedicine\Tools\plaster\plaster.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Tools\plaster\data\plaster_co.paa"};
 	};
 };

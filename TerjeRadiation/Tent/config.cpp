@@ -42,12 +42,12 @@ class CfgNonAIVehicles
 	class ProxyAttachment;
 	class ProxyJerryCan: ProxyAttachment
 	{
-		model="\dz\vehicles\parts\jerrycan.p3d";
+		model="dz\vehicles\parts\jerrycan.p3d";
 		inventoryslot[] += {"CanisterGasoline"};
 	};
 	class ProxyPump: ProxyAttachment
 	{
-		model="\TerjeRadiation\Tent\Pump.p3d";
+		model="TerjeRadiation\Tent\Pump.p3d";
 		inventoryslot[] += {"TerjePump"};
 	};
 };
@@ -182,7 +182,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_RADTENT";
 		descriptionShort="#STR_TERJERAD_RADTENT_DESC";
-		model="\TerjeRadiation\Tent\RadTent.p3d";
+		model="TerjeRadiation\Tent\RadTent.p3d";
 		bounding="BSphere";
 		overrideDrawArea="3.0";
 		forceFarBubble="true";
@@ -473,7 +473,7 @@ class CfgVehicles
 		scope=1;
 		displayName="#STR_TERJERAD_RADTENT";
 		descriptionShort="#STR_TERJERAD_RADTENT_DESC";
-		model="\TerjeRadiation\Tent\RadTentPlacing.p3d";
+		model="TerjeRadiation\Tent\RadTentPlacing.p3d";
 		storageCategory=10;
 		hiddenSelections[]=
 		{
@@ -504,7 +504,7 @@ class CfgVehicles
 	class TerjeRadTentStatic: HouseNoDestruct
 	{
 		scope=2;
-		model="\TerjeRadiation\Tent\RadTentStatic.p3d";
+		model="TerjeRadiation\Tent\RadTentStatic.p3d";
 		displayName="#STR_TERJERAD_RADTENT";
 		descriptionShort="#STR_TERJERAD_RADTENT_DESC";
 	};
@@ -513,13 +513,13 @@ class CfgSoundShaders
 {
 	class TerjeRadTentShowerSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Tent\sound\shower",0.9}};
+		samples[]={{"TerjeRadiation\Tent\sound\shower",0.9}};
 		volume=1;
 		range=50;
 	};
 	class TerjeRadTentPumpSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Tent\sound\pump",0.9}};
+		samples[]={{"TerjeRadiation\Tent\sound\pump",0.9}};
 		volume=2;
 		range=25;
 	};

@@ -19,7 +19,7 @@ class CfgVehicles
 	class TerjeSalveBase : Inventory_Base
 	{
 		descriptionShort="#STR_TERJEMED_SALVE_DESC";
-		model="\TerjeMedicine\Salves\cosmetic_tube.p3d";
+		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
 		rotationFlags=17;
 		itemSize[]={1,2};
 		weight=120;
@@ -31,15 +31,22 @@ class CfgVehicles
 		absorbency=0;
 		overdosedIncrement=0.01;
 		medicalItem=1;
-		hiddenSelections[] = {"zbytek"};
+		hiddenSelections[]={"zbytek"};
 		class DamageSystem
 		{
 			class GlobalHealth
 			{
 				class Health
 				{
-					hitpoints = 100;
-					healthLevels[] = {{1,{"TerjeMedicine\Salves\data\cosmetic_tube_mat.rvmat"}},{0.7,{"TerjeMedicine\Salves\data\cosmetic_tube_mat.rvmat"}},{0.5,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_damage.rvmat"}},{0.3,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_damage.rvmat"}},{0,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_destruct.rvmat"}}};
+					hitpoints=100;
+					healthLevels[]=
+					{
+						{1.0,{"TerjeMedicine\Salves\data\cosmetic_tube_mat.rvmat"}},
+						{0.7,{"TerjeMedicine\Salves\data\cosmetic_tube_mat.rvmat"}},
+						{0.5,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_damage.rvmat"}},
+						{0.3,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_damage.rvmat"}},
+						{0.0,{"TerjeMedicine\Salves\data\cosmetic_tube_mat_destruct.rvmat"}}
+					};
 				};
 			};
 		};
@@ -51,7 +58,7 @@ class CfgVehicles
 		displayName="#STR_TERJEMED_FINALGON";
 		medHematomaHeal=1;
 		medHematomaHealTimeSec=300;
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\finalgon_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\finalgon_co.paa"};
 	};
 
 	class TerjeSalveCapsicum : TerjeSalveBase
@@ -60,7 +67,7 @@ class CfgVehicles
 		displayName="#STR_TERJEMED_CAPSICUM";
 		medHematomaHeal=1;
 		medHematomaHealTimeSec=400;
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\capsicum_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\capsicum_co.paa"};
 	};
 
 	class TerjeSalveViprosal : TerjeSalveBase
@@ -69,31 +76,31 @@ class CfgVehicles
 		displayName="#STR_TERJEMED_VIPROSAL";
 		medHematomaHeal=1;
 		medHematomaHealTimeSec=600;
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\viprosal_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\viprosal_co.paa"};
 	};
 
 	class HouseNoDestruct;
 	class StaticObj_TerjeSalveFinalgon : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Salves\cosmetic_tube.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\finalgon_co.paa"};
+		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\finalgon_co.paa"};
 	};
 
 	class StaticObj_TerjeSalveCapsicum : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Salves\cosmetic_tube.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\capsicum_co.paa"};
+		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\capsicum_co.paa"};
 	};
 
 	class StaticObj_TerjeSalveViprosal : HouseNoDestruct
 	{
 		scope=1;
-		model="\TerjeMedicine\Salves\cosmetic_tube.p3d";
-		hiddenSelections[] = {"zbytek"};
-		hiddenSelectionsTextures[] = {"TerjeMedicine\Salves\data\viprosal_co.paa"};
+		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
+		hiddenSelections[]={"zbytek"};
+		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\viprosal_co.paa"};
 	};
 };

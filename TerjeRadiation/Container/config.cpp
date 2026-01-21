@@ -23,7 +23,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_CASEMILITARY_NAME";
 		descriptionShort="#STR_TERJERAD_CASEMILITARY_DESC";
-		model="\TerjeRadiation\Container\military\military_case.p3d";
+		model="TerjeRadiation\Container\military\military_case.p3d";
 		hologramMaterial="military_case";
 		hologramMaterialPath="TerjeRadiation\Container\military";
 		slopeTolerance=0.4;
@@ -35,7 +35,7 @@ class CfgVehicles
 		canBeDigged=1;
 		rotationFlags=2;
 		hiddenSelections[]={"zbytek"};
-		hiddenSelectionsTextures[]={"\TerjeRadiation\Container\military\data\military_case_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeRadiation\Container\military\data\military_case_co.paa"};
 		soundImpactType="wood";
 		class DamageSystem
 		{
@@ -112,7 +112,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_CASESPECIAL_NAME";
 		descriptionShort="#STR_TERJERAD_CASESPECIAL_DESC";
-		model="\TerjeRadiation\Container\special\special_case.p3d";
+		model="TerjeRadiation\Container\special\special_case.p3d";
 		rotationFlags=17;
 		weight=2500;
 		itemSize[]={7,5};
@@ -121,7 +121,7 @@ class CfgVehicles
 		canBeDigged=1;
 		isMeleeWeapon=1;
 		hiddenSelections[]={"zbytek"};
-		hiddenSelectionsTextures[]={"\TerjeRadiation\Container\special\data\special_case_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeRadiation\Container\special\data\special_case_co.paa"};
 		class DamageSystem
 		{
 			class GlobalHealth

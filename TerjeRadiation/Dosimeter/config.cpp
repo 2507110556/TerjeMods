@@ -36,7 +36,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_DOSIMETR_PRIPYAT_NAME";
 		descriptionShort="#STR_TERJERAD_DOSIMETR_PRIPYAT_DESC";
-		model="\TerjeRadiation\Dosimeter\Pripyat\pripyat.p3d";
+		model="TerjeRadiation\Dosimeter\Pripyat\pripyat.p3d";
 		hiddenSelections[]=
 		{
 			"pos_1",
@@ -90,7 +90,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_DOSIMETR_MKC01A_NAME";
 		descriptionShort="#STR_TERJERAD_DOSIMETR_MKC01A_DESC";
-		model="\TerjeRadiation\Dosimeter\Mkc01\mkc01.p3d";
+		model="TerjeRadiation\Dosimeter\Mkc01\mkc01.p3d";
 		hiddenSelections[]=
 		{
 			"pos_1",
@@ -144,7 +144,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_DOSIMETR_CDV700_NAME";
 		descriptionShort="#STR_TERJERAD_DOSIMETR_CDV700_DESC";
-		model="\TerjeRadiation\Dosimeter\Cdv700\cdv700.p3d";
+		model="TerjeRadiation\Dosimeter\Cdv700\cdv700.p3d";
 		itemSize[]={4,3};
 		weight=1600;
 		rotationFlags=2;
@@ -192,7 +192,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJERAD_DOSIMETR_DPG05_NAME";
 		descriptionShort="#STR_TERJERAD_DOSIMETR_DPG05_DESC";
-		model="\TerjeRadiation\Dosimeter\Dpg05\dpg05.p3d";
+		model="TerjeRadiation\Dosimeter\Dpg05\dpg05.p3d";
 		itemSize[]={2,3};
 		weight=400;
 		rotationFlags=1;
@@ -232,50 +232,50 @@ class CfgSoundShaders
 {
 	class TerjeGeigerLowSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\geiger_low",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\geiger_low",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerMediumSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\geiger_medium",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\geiger_medium",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerHighSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\geiger_high",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\geiger_high",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerAlarmSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\geiger_alarm",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\geiger_alarm",0.9}};
 		volume=2;
 		range=8;
 	};
 
 	class TerjeGeigerElectroLowSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\electro_low",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\electro_low",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerElectroMediumSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\electro_medium",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\electro_medium",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerElectroHighSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\electro_high",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\electro_high",0.9}};
 		volume=2;
 		range=8;
 	};
 	class TerjeGeigerElectroAlarmSoundShader
 	{
-		samples[]={{"\TerjeRadiation\Dosimeter\Sounds\electro_alarm",0.9}};
+		samples[]={{"TerjeRadiation\Dosimeter\Sounds\electro_alarm",0.9}};
 		volume=2;
 		range=8;
 	};
