@@ -2,7 +2,7 @@
 
 This is the main mod that is used as a base dependency for all other mods.
 
-![image](/Wiki/logos/TerjeCore.jpg)
+![image](/WIKI/logos/TerjeCore.jpg)
 
 ## DESCRIPTION
 
@@ -15,7 +15,7 @@ TerjeModding/scripts/3_Game
 TerjeModding/scripts/4_World
 TerjeModding/scripts/5_Mission
 ```
-* Or download a ready-made template from [the link](/Wiki/examples/TerjeModding) - and place it on drive P.
+* Or download a ready-made template from [the link](/WIKI/examples/TerjeModding) - and place it on drive P.
 
 * After making the required changes, package the resulting mod into a pbo.
 

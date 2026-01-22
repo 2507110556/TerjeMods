@@ -1,4 +1,4 @@
-# TerjeMods Wiki
+# TerjeMods WIKI
 
 Добро пожаловать в документацию модов **TerjeMods**!
 
@@ -6,7 +6,7 @@ Discord: https://discord.gg/Ec5t3MwnaE
 
 Github: https://github.com/TerjeBruoygard/TerjeMods
 
-![image](/Wiki/logos/TerjeCore.jpg)
+![image](/WIKI/logos/TerjeCore.jpg)
 
 Здесь вы найдете подробное описание всех модификаций, их возможностей, а также инструкции по установке и использованию.
 

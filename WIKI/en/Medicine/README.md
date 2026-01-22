@@ -2,7 +2,7 @@
 
 Medical overhaul mod for DayZ.
 
-![image](/Wiki/logos/TerjeMedicine.jpg)
+![image](/WIKI/logos/TerjeMedicine.jpg)
 
 
 ## DESCRIPTION
@@ -14,46 +14,46 @@ This mod introduces a deeper and more realistic health system to the game, enhan
 Mechanics included in the mod:
 
 1. **PROPHYLAXIS AND TREATMENT**
-   + [Medicines](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-medicines)
-   + [Vaccines](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-vaccines)
-   + [Disinfection](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-disinfection)
+   + [Medicines](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-medicines)
+   + [Vaccines](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-vaccines)
+   + [Disinfection](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-disinfection)
      
 2. **PHYSICAL CONDITION**
-   + [Hematomas](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-hematomas)
-   + [Gunshot Wounds](https://github.com/TerjeBruoygard/TerjeMods/edit/master/Wiki/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
-   + [Stab Wounds](https://github.com/TerjeBruoygard/TerjeMods/edit/master/Wiki/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
-   + [Internal Organ Wound](https://github.com/TerjeBruoygard/TerjeMods/edit/master/Wiki/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
-   + [Surgical Sutures](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-surgical-sutures)
-   + [Concussion](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-concussion)
-   + [Hemostasis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-hemostasis)
-   + [Hematopoiesis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-hematopoiesis-blood-regeneration)
+   + [Hematomas](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-hematomas)
+   + [Gunshot Wounds](https://github.com/TerjeBruoygard/TerjeMods/edit/master/WIKI/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
+   + [Stab Wounds](https://github.com/TerjeBruoygard/TerjeMods/edit/master/WIKI/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
+   + [Internal Organ Wound](https://github.com/TerjeBruoygard/TerjeMods/edit/master/WIKI/en/Medicine/README.md#-----internal-organ-gunshot-and-stab-wounds)
+   + [Surgical Sutures](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-surgical-sutures)
+   + [Concussion](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-concussion)
+   + [Hemostasis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-hemostasis)
+   + [Hematopoiesis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-hematopoiesis-blood-regeneration)
 
 3. **INFECTIONS AND DISEASES**
-   + [Cold](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-cold--pneumonia)
-   + [Food Poisoning](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-food-poisoning)
-   + [Chemical Poisoning](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-chemical-poisoning)
-   + [Zombie Virus](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-zombie-virus)
-   + [Sepsis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-sepsis)
-   + [Rabies](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-rabies)
+   + [Cold](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-cold--pneumonia)
+   + [Food Poisoning](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-food-poisoning)
+   + [Chemical Poisoning](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-chemical-poisoning)
+   + [Zombie Virus](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-zombie-virus)
+   + [Sepsis](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-sepsis)
+   + [Rabies](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-rabies)
 
 4. **SYMPTOMS**
-   + [Pain](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-pain)
-   + [Overdose](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-overdose)
+   + [Pain](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-pain)
+   + [Overdose](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-overdose)
 
 5. **EMOTIONAL STATES**
-   + [Sleep](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-sleep)
-   + [Mental Health](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-mental-health)
+   + [Sleep](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-sleep)
+   + [Mental Health](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-mental-health)
 
 6. **ZONES**
-   + [Psionic Zones](https://github.com/TerjeBruoygard/TerjeMods/edit/master/Wiki/en/Medicine/README.md#-psionic-zone)
+   + [Psionic Zones](https://github.com/TerjeBruoygard/TerjeMods/edit/master/WIKI/en/Medicine/README.md#-psionic-zone)
 
 # PROPHYLAXIS AND TREATMENT
 
-## ![image](/Wiki/images/tablets.png) MEDICINES
+## ![image](/WIKI/images/tablets.png) MEDICINES
 
 >Medicines are divided into three categories: tablets, ampoules, and injectors. Tablets are typically used in the early stages of illness and for prevention, with each package containing ten tablets, and packages of the same type can be combined. Ampoules hold potent medications for treating complex illnesses or diseases in their medium to severe stages, requiring players to use a syringe for administration. After each injection, the syringe becomes contaminated and must be disinfected with alcohol or boiled in a pot of water over a fire. Injectors function similarly to ampoules but do not require syringes, as all injectors are disposable.
 
-## ![image](/Wiki/images/vaccine.png) VACCINES
+## ![image](/WIKI/images/vaccine.png) VACCINES
 
 >Vaccines provide protection against dangerous diseases, significantly reducing the risk of infection. Upon use, a vaccine builds immunity to specific infections, helping the character avoid illnesses in contaminated environments. To ensure optimal protection, administer vaccines in advance to boost the character's immunity and regularly monitor the need for revaccination.
 
@@ -70,7 +70,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
     medRabiesVacineTime     = 14400; // Vaccine against Rabies
 ```
 
-## ![image](/Wiki/images/desinfection.png) DISINFECTION
+## ![image](/WIKI/images/desinfection.png) DISINFECTION
 
 >Disinfection is a mandatory procedure for maintaining sterility and preventing wound infections. Dirty medical items must be thoroughly disinfected before use to minimize the risk of infection. Prior to any medical procedures or operations, hands should also be disinfected, especially in field conditions where the risk of infection is higher. Proper disinfection is essential for successful treatment and ensuring health safety in extreme environments.
 
@@ -81,7 +81,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 
 # PHYSICAL CONDITION
 
-## ![image](/Wiki/images/hematoma.png) HEMATOMAS
+## ![image](/WIKI/images/hematoma.png) HEMATOMAS
 
 >Hematomas can occur if you are hit by a zombie or struck with blunt weapons. When numerous hematomas are present, your health will begin to decline. Although they heal naturally over time, applying ointments can speed up the healing process.
 
@@ -98,7 +98,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 ```
 
 
-## ![image](/Wiki/images/organs.png)  ![image](/Wiki/images/bullet.png)  ![image](/Wiki/images/cut3.png) INTERNAL ORGAN, GUNSHOT AND STAB WOUNDS
+## ![image](/WIKI/images/organs.png)  ![image](/WIKI/images/bullet.png)  ![image](/WIKI/images/cut3.png) INTERNAL ORGAN, GUNSHOT AND STAB WOUNDS
 
 >A player can sustain a piercing wound from melee attacks or a bullet wound from firearms, both of which can cause severe bleeding and require immediate bandaging. Hemostatic bandages are more effective than regular bandages or cloth. After bandaging, the wound may continue to bleed slightly until the foreign object is removed with a surgery. In more severe cases, these wounds can lead to internal organ injuries, which are deeper and more difficult to treat. A well-maintained bulletproof vest can protect against bullet wounds, and its effectiveness is determined by a ballistic calculator. Light vests can block small-caliber rounds but are ineffective against medium and large calibers. If the vest successfully blocks the bullet, the player will still sustain an unarmored wound in the form of a hematoma.
 
@@ -124,7 +124,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 	terjeSurgeryStubTime=20; // Duration (s)
 ```
 
-## ![image](/Wiki/images/cut2.png) SURGICAL SUTURES
+## ![image](/WIKI/images/cut2.png) SURGICAL SUTURES
 
 >Surgical sutures are applied during surgery and must be regularly disinfected to prevent sepsis. Proper hygiene and disinfection are essential to ensure successful healing and reduce the risk of life-threatening infections.
 
@@ -136,7 +136,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 | IFAK                       | TerjeFirstAidKitIndividual_Black | Universal kit      | 10     | 0.3/40                          | 0.6/30                | 0.8/20                           |
 | AFAK                       | TerjeFirstAidKitAdvance_Black  | Universal kit      | 20     | 0.3/40                          | 0.6/30                | 0.8/20                           |
 
-## ![image](/Wiki/images/brain.png) CONCUSSION
+## ![image](/WIKI/images/brain.png) CONCUSSION
 
 >A concussion can result from a strong blow to the head with a blunt object, an explosion near the character, or a low-caliber bullet impact while wearing a ballistic helmet. Initial symptoms include headache, dizziness, unstable coordination, and blurred vision, all of which can hinder movement and combat effectiveness. While a concussion gradually subsides on its own, recovery can be accelerated with special medications that reduce symptom severity.
 
@@ -152,7 +152,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
     overdosedIncrement = 0.3; // Overdose
 ```
 
-## ![image](/Wiki/images/blood3.png) HEMOSTASIS (BLEEDING RATE)
+## ![image](/WIKI/images/blood3.png) HEMOSTASIS (BLEEDING RATE)
 
 >Hemostasis is your body’s natural process for stopping bleeding. Your character can slow blood loss by using specific medications, giving you valuable time to survive the injury and seek additional treatment.
 
@@ -168,7 +168,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
         overdosedIncrement = 0.15; // Overdose increment
 ```
 
-## ![image](/Wiki/images/blood4.png) HEMATOPOIESIS (BLOOD REGENERATION)
+## ![image](/WIKI/images/blood4.png) HEMATOPOIESIS (BLOOD REGENERATION)
 
 >Hematopoiesis is your body’s process of regenerating red blood cells. Your character can boost the rate of blood regeneration with specific medications, helping you recover more quickly from scratches, cuts, and bullet wounds.
 
@@ -189,7 +189,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 
 # INFECTIONS AND DISEASES
 
-## ![image](/Wiki/images/influenza.png) COLD / PNEUMONIA
+## ![image](/WIKI/images/influenza.png) COLD / PNEUMONIA
 
 >You can catch a cold or the flu from prolonged exposure to cold temperatures. Without proper treatment, a mild cold can progress and eventually develop into pneumonia. When suffering from pneumonia, your character will slowly lose health. Treat it using antibiotics of the same level or higher, with multiple doses often needed for full recovery. A mild cold can be cured by resting in a warm place.
 
@@ -217,7 +217,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
     overdosedIncrement = 0.45; // Overdose
 ```
 
-## ![image](/Wiki/images/poisoning.png) FOOD POISONING
+## ![image](/WIKI/images/poisoning.png) FOOD POISONING
 
 >Food poisoning can result from consuming spoiled or undercooked food, rotten fruits, poisonous mushrooms, dirty water, or accidentally ingesting substances like gasoline. Symptoms such as nausea and vomiting appear quickly after consumption. If left untreated, the condition can worsen, causing dehydration and gradual health loss. Treatment involves drinking plenty of water and using specific medications to relieve the symptoms.
 
@@ -239,7 +239,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
     overdosedIncrement = 0.45; // Overdose
 ```
 
-## ![image](/Wiki/images/biohazard.png) CHEMICAL POISONING
+## ![image](/WIKI/images/biohazard.png) CHEMICAL POISONING
 
 >Chemical poisoning occurs from inhaling toxic gases. Early symptoms include coughing, followed by nausea and vomiting as the condition worsens. In its later stages, chemical poisoning leads to severe health loss and can be fatal without timely treatment. To counteract the effects, take an antidote or specific medications designed to reduce toxicity.
 
@@ -256,7 +256,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 	overdosedIncrement = 0.45; // Overdose increment
 ```
 
-## ![image](/Wiki/images/virusz.png) ZOMBIE VIRUS
+## ![image](/WIKI/images/virusz.png) ZOMBIE VIRUS
 
 >The zombie virus is transmitted through airborne droplets and bodily fluids, with a small chance of infection during close combat with zombies. The risk increases significantly if a zombie inflicts wounds on you. Wearing a face mask and ballistic armor can help reduce the likelihood of infection. The virus has a long incubation period, giving players over an hour of real time to find an antidote. In the terminal stage of the infection, your health will begin to rapidly decline.
 
@@ -275,7 +275,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 	terjeAddShock = -100; // Shock reduction upon medicine injection
 ```
 
-## ![image](/Wiki/images/blood2.png) SEPSIS
+## ![image](/WIKI/images/blood2.png) SEPSIS
 
 >Sepsis occurs when an infection enters an open wound, potentially resulting from a zombie scratch, knife wound, or gunshot wound with a small probability. The risk increases significantly if you handle the wound with dirty hands. If left untreated, sepsis will gradually cause your health to deteriorate over time.
 
@@ -293,7 +293,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 	overdosedIncrement = 0.45; // Overdose increment
 ```
 
-## ![image](/Wiki/images/virus.png) RABIES
+## ![image](/WIKI/images/virus.png) RABIES
 
 >Rabies is transmitted through bites from infected animals, such as wolves. After infection, the disease progresses gradually, with no immediate symptoms. In the early stage, mild temperature fluctuations and weakness occur, often going unnoticed. In the second stage, the condition worsens, causing severe nausea and vomiting, which prevent the character from eating or drinking. In the critical third stage, a spike in temperature leads to rapid health loss, exhaustion, and severely impaired survival. Without timely treatment, the disease is fatal. Early-stage treatment with special medications or vaccination before infection can stop the disease from progressing.
 
@@ -312,7 +312,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 
 # SYMPTOMS
 
-## ![image](/Wiki/images/pain.png) PAIN
+## ![image](/WIKI/images/pain.png) PAIN
 
 >Pain results from various injuries, with its intensity depending on the severity of the trauma. Although pain gradually subsides on its own over time, it can be relieved more quickly by using painkillers of the corresponding level or higher.
 
@@ -340,7 +340,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 	overdosedIncrement = 0.45; // Overdose increment
 ```
 
-## ![image](/Wiki/images/overdose.png) OVERDOSE
+## ![image](/WIKI/images/overdose.png) OVERDOSE
 
 >Overdose occurs when excessive amounts of medication or toxic substances are introduced into the body.  
 The overdose gradually weakens as toxins are eliminated from the system. It progresses through three stages:  
@@ -357,7 +357,7 @@ The overdose gradually weakens as toxins are eliminated from the system. It prog
 
 # EMOTIONAL STATES
 
-## ![image](/Wiki/images/dream.png) SLEEP
+## ![image](/WIKI/images/dream.png) SLEEP
 
 >Your character now needs sleep, just like food and water. Regular rest is essential for maintaining health and stamina.  
 If the sleep indicator turns yellow, the character will start yawning, and their vision will gradually worsen.  
@@ -379,7 +379,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 	overdosedIncrement = 0.45; // Overdose increment
 ```
 
-## ![image](/Wiki/images/mental.png) MENTAL HEALTH
+## ![image](/WIKI/images/mental.png) MENTAL HEALTH
 
 >The character's mental health can deteriorate under extreme stress, such as zombie attacks, prolonged exposure to dangerous Psi-zones, or consuming human meat, which can lead to nervous breakdowns and hallucinations. These conditions may trigger panic and disorientation, making survival and interaction with the environment more challenging. To manage these symptoms, use antidepressants to stabilize the character's psyche and mitigate the negative effects of stress.  
 
@@ -419,7 +419,7 @@ When in the Psionic Zone, the character begins to lose mental health, resulting 
 When the mental state reaches zero, the character may kill him/herself or commit other unpredictable actions that can lead to death.
 
 ## 🛡️ Psionic Protection
-To safely visit Psionic zones, you must use [antidepressants](https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Medicine#-mental-state) to stabilize your mental state.
+To safely visit Psionic zones, you must use [antidepressants](https://github.com/TerjeBruoygard/TerjeMods/tree/master/WIKI/en/Medicine#-mental-state) to stabilize your mental state.
 You can also use **PSI Helm** - **TerjeHeadgearPsiHelm** for protection. The standard protection is 95%.
 
 ## 🛡️ Protection by SteamID

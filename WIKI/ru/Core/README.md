@@ -2,7 +2,7 @@
 
 Это основной мод, который используется в качестве базовой зависимости для всех остальных модов
 
-![image](/Wiki/logos/TerjeCore.jpg)
+![image](/WIKI/logos/TerjeCore.jpg)
 
 ## ОПИСАНИЕ
 * Эта инструкция подразумевает что вы уже понимаете, что такое моддинг в игре DayZ. 
@@ -14,7 +14,7 @@ TerjeModding/scripts/3_Game
 TerjeModding/scripts/4_World
 TerjeModding/scripts/5_Mission
 ```
-* Либо скачиваем готовый шаблон по [ссылке](/Wiki/examples/TerjeModding) - и размещаем его на диск Р.
+* Либо скачиваем готовый шаблон по [ссылке](/WIKI/examples/TerjeModding) - и размещаем его на диск Р.
 
 * После внесения требуемых изменений пакуем получившийся мод в pbo.
 

@@ -2,7 +2,7 @@
 
 A mod for skills and perks for DayZ.
 
-![image](/Wiki/logos/TerjeSkills.jpg)
+![image](/WIKI/logos/TerjeSkills.jpg)
 
 
 ## DESCRIPTION
@@ -216,6 +216,6 @@ The **TerjeSkills** mod provides a flexible settings system, allowing you to ada
 
 These settings give you full control over the skill system, making the game more personalized and matching your survival style.
 
-You can see a sample of the settings and how to configure them in the [Modding Wiki](../Modding/README.md#terjeskills). 
+You can see a sample of the settings and how to configure them in the [Modding WIKI](../Modding/README.md#terjeskills). 
 
 There are also many settings with descriptions in the **Skills.cfg** file located at **DayZServer\profiles\TerjeSettings**.

@@ -293,7 +293,7 @@ Groups combine several items together. Can be used inside a selector to choose m
 
 ### 🔒 CONDITIONS
 
-[CONDITIONS WIKI PAGE](https://github.com/TerjeBruoygard/TerjeMods/blob/master/Wiki/en/Conditions/README.md)
+[CONDITIONS WIKI PAGE](https://github.com/TerjeBruoygard/TerjeMods/blob/master/WIKI/en/Conditions/README.md)
 
 ### 🗺️ RESPAWNS.XML CONFIGURATION – RESPAWN POINTS
 
@@ -437,7 +437,7 @@ The player will respawn with the following specific stats:
 
 ### 🔒 CONDITIONS
 
-[CONDITIONS WIKI PAGE](https://github.com/TerjeBruoygard/TerjeMods/blob/master/Wiki/en/Conditions/README.md)
+[CONDITIONS WIKI PAGE](https://github.com/TerjeBruoygard/TerjeMods/blob/master/WIKI/en/Conditions/README.md)
 
 ## Frequently Asked Questions
 

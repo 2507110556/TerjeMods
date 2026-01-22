@@ -2,7 +2,7 @@
 
 A radiation overhaul mod for DayZ.
 
-![image](/Wiki/logos/TerjeRadiation.jpg)
+![image](/WIKI/logos/TerjeRadiation.jpg)
 
 ## DESCRIPTION
 The mod adds radiation zones and radiation poisoning mechanics, making world exploration more intense and thrilling. While in a zone, your character and their belongings accumulate radiation, leading to radiation sickness.
@@ -19,7 +19,7 @@ Mechanics included in the mod:
 + [Protective Suit](#️-radiation-protection)
 + [Protective Containers](#️-protective-containers)
 
-## ![image](/Wiki/images/radiation.png) RADIATION POISONING
+## ![image](/WIKI/images/radiation.png) RADIATION POISONING
 
 >Radiation poisoning develops when you are in areas with high radiation levels or in contact with contaminated items. Initial symptoms include weakness, nausea, and dizziness. Over time, the character begins to experience bleeding and weakened immunity. In the later stages, radiation poisoning leads to severe health loss and body exhaustion, threatening the character's life.
 To treat radiation poisoning, take medications that remove radiation from the body, such as iodine tablets or anti-radiation drugs. Try to avoid radiation zones or use protective equipment to minimize exposure.
@@ -132,7 +132,7 @@ The protection system works as follows:
 + On the edge of a radioactive zone, where exposure is weak, a gas mask will suffice.
 + Closer to the center of the zone, where exposure is stronger, a full set of protective suit is required.
 
->These parameters, as well as which slots must have (or lack) parts of the suit, can be configured using the section [Modding Wiki](../Modding/README.md#TerjeRadiation).
+>These parameters, as well as which slots must have (or lack) parts of the suit, can be configured using the section [Modding WIKI](../Modding/README.md#TerjeRadiation).
 
 Each body part wearing protection has a certain influence (weight) on the overall radiation protection level. This influence is expressed in percentages distributed among the suit elements.
 
@@ -187,7 +187,7 @@ For more fine-tuning you can prescribe protection to certain clothes, depending 
 
 To do this, you will need to override the required clothing through your mod.
 
-See [Modding Wiki](../Modding/README.md#TerjeRadiation) for more information on customization.
+See [Modding WIKI](../Modding/README.md#TerjeRadiation) for more information on customization.
 
 ## 🗃️ Protective Cargos:
 For safe visits to radiation zones, use **protective cargos**. These are containers that prevent radiation accumulation on items stored inside them. They are indispensable for carrying and protecting valuable items when exploring radiation zones.

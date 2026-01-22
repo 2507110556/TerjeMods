@@ -1,4 +1,4 @@
 
-- [English Wiki](en/README.md)
+- [English WIKI](en/README.md)
 
-- [Russian Wiki](ru/README.md)
+- [Russian WIKI](ru/README.md)

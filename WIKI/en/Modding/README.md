@@ -16,7 +16,7 @@ TerjeModding/scripts/3_Game
 TerjeModding/scripts/4_World
 TerjeModding/scripts/5_Mission
 ```
-5. Alternatively, download a ready-made template from [this link](/Wiki/examples/TerjeModding) and place it on the P drive.
+5. Alternatively, download a ready-made template from [this link](/WIKI/examples/TerjeModding) and place it on the P drive.
 6. After making the required changes, package the resulting mod into a PBO file and place it in your client-side mod (not server-side).
 7. Note that this guide assumes you create a new mod **TerjeModding** with a new `config.cpp` every time. However, you can combine multiple settings in one `config.cpp`. It is not mandatory to create a new one each time.
 
@@ -60,7 +60,7 @@ If you want to create custom items with specific healing functions, you will nee
 5. Go to the top of the file and copy the name of the class located in **CfgPatches**. In our case, it will be **DZ_Gear_Food**.  
 6. Go to your `config.cpp` and add the name **DZ_Gear_Food** in **class TerjeModding** under **requiredAddons** after **TerjeMedicine**, separated by a comma.  
 7. Next, go to **CfgVehicles** in your `config.cpp` and define your item **Apple**, ensuring it inherits from **Edible_Base**.  
-8. Visit the Wiki [TerjeMedicine](/Wiki/en/Medicine/README.md), copy the required data for curing a cold, and paste it into the class of your **Apple** item.
+8. Visit the WIKI [TerjeMedicine](/WIKI/en/Medicine/README.md), copy the required data for curing a cold, and paste it into the class of your **Apple** item.
 
 The final `config.cpp` should look like this:
 ```cs
@@ -133,7 +133,7 @@ Using the **TerjeMedicine** mod, you can now add an unlimited number of liquids.
 4. Go to the top of the `config.cpp` file and copy the name of the class located in **CfgPatches**. In our case, this will be **DZ_Data**.  
 5. Add the class name **DZ_Data** to your `config.cpp` in **class TerjeModding** under **requiredAddons** after **TerjeMedicine**, separated by a comma.  
 6. Next, scroll down and add **class cfgLiquidDefinitions**, defining the liquid **Vodka** within it.  
-7. Visit the Wiki [TerjeMedicine](/Wiki/en/Medicine/README.md), copy the required data for radiation treatment, and paste it into the class of your liquid **Vodka**.
+7. Visit the WIKI [TerjeMedicine](/WIKI/en/Medicine/README.md), copy the required data for radiation treatment, and paste it into the class of your liquid **Vodka**.
 
 The resulting `config.cpp` should look like this:
 ```cs
