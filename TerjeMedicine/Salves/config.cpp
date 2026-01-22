@@ -79,27 +79,26 @@ class CfgVehicles
 	};
 
 	class HouseNoDestruct;
-	class StaticObj_TerjeSalveFinalgon : HouseNoDestruct
+	class StaticObj_TerjeSalve : HouseNoDestruct
 	{
-		scope=1;
 		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
 		hiddenSelections[]={"zbytek"};
+	};
+	class StaticObj_TerjeSalveFinalgon : StaticObj_TerjeSalve
+	{
+		scope=1;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\finalgon_co.paa"};
 	};
 
-	class StaticObj_TerjeSalveCapsicum : HouseNoDestruct
+	class StaticObj_TerjeSalveCapsicum : StaticObj_TerjeSalve
 	{
 		scope=1;
-		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
-		hiddenSelections[]={"zbytek"};
 		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\capsicum_co.paa"};
 	};
 
-	class StaticObj_TerjeSalveViprosal : HouseNoDestruct
+	class StaticObj_TerjeSalveViprosal : StaticObj_TerjeSalve
 	{
 		scope=1;
-		model="TerjeMedicine\Salves\cosmetic_tube.p3d";
-		hiddenSelections[]={"zbytek"};
 		hiddenSelectionsTextures[]={"TerjeMedicine\Salves\data\viprosal_co.paa"};
 	};
 };
