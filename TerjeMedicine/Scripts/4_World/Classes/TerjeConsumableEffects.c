@@ -42,18 +42,21 @@ modded class TerjeConsumableEffects
 			timeModifier = 1.0;
 		}
 		
-		if (player && player.GetTerjeStats())
+		if (player)
 		{
+			TerjePlayerStats terjeStats = player.GetTerjeStats();
+			if (terjeStats)
+			{
 			float overdosedIncrement = GetTerjeGameConfig().ConfigGetFloat( classname + " overdosedIncrement" );
 			if (overdosedIncrement > 0)
 			{
-				player.GetTerjeStats().SetOverdoseValue(player.GetTerjeStats().GetOverdoseValue() + (overdosedIncrement * amount));
+				terjeStats.SetOverdoseValue(terjeStats.GetOverdoseValue() + (overdosedIncrement * amount));
 			}
 			
 			float biohazardIncrement = GetTerjeGameConfig().ConfigGetFloat( classname + " biohazardIncrement" );
 			if (biohazardIncrement > 0)
 			{
-				player.GetTerjeStats().SetBiohazardValue(player.GetTerjeStats().GetBiohazardValue() + (biohazardIncrement * amount));
+				terjeStats.SetBiohazardValue(terjeStats.GetBiohazardValue() + (biohazardIncrement * amount));
 			}
 			
 			int medPainkillerLevel = GetTerjeGameConfig().ConfigGetInt( classname + " medPainkillerLevel" );
@@ -66,7 +69,7 @@ modded class TerjeConsumableEffects
 				
 				int activePainkillerLevel = 0;
 				float activePainkillerTime = 0;
-				player.GetTerjeStats().GetPainkiller(activePainkillerLevel, activePainkillerTime);
+				terjeStats.GetPainkiller(activePainkillerLevel, activePainkillerTime);
 				
 				float medPainkillerTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medPainkillerTimeSec" );
 				if (medPainkillerLevel >= activePainkillerLevel && medPainkillerTimeSec > 0)
@@ -77,7 +80,7 @@ modded class TerjeConsumableEffects
 						medPainkillerMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetPainkiller(medPainkillerLevel, Math.Min(medPainkillerMaxTimeSec, activePainkillerTime + (medPainkillerTimeSec * amount * timeModifier)));
+					terjeStats.SetPainkiller(medPainkillerLevel, Math.Min(medPainkillerMaxTimeSec, activePainkillerTime + (medPainkillerTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -90,8 +93,8 @@ modded class TerjeConsumableEffects
 					medHealthgenMaxTimeSec = 1800;
 				}
 				
-				float medHealthgenActualTime = player.GetTerjeStats().GetHealthExtraRegenTimer();
-				player.GetTerjeStats().SetHealthExtraRegenTimer(Math.Min(medHealthgenMaxTimeSec, medHealthgenActualTime + (medHealthgenTimeSec * amount * timeModifier)));
+				float medHealthgenActualTime = terjeStats.GetHealthExtraRegenTimer();
+				terjeStats.SetHealthExtraRegenTimer(Math.Min(medHealthgenMaxTimeSec, medHealthgenActualTime + (medHealthgenTimeSec * amount * timeModifier)));
 			}
 			
 			int medAntipoisonLevel = GetTerjeGameConfig().ConfigGetInt( classname + " medAntipoisonLevel" );
@@ -99,7 +102,7 @@ modded class TerjeConsumableEffects
 			{
 				int activeAntipoisonLevel = 0;
 				float activeAntipoisonTime = 0;
-				player.GetTerjeStats().GetAntipoison(activeAntipoisonLevel, activeAntipoisonTime);
+				terjeStats.GetAntipoison(activeAntipoisonLevel, activeAntipoisonTime);
 				
 				float medAntipoisonTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medAntipoisonTimeSec" );
 				if (medAntipoisonLevel >= activeAntipoisonLevel && medAntipoisonTimeSec > 0)
@@ -110,7 +113,7 @@ modded class TerjeConsumableEffects
 						medAntipoisonMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetAntipoison(medAntipoisonLevel, Math.Min(medAntipoisonMaxTimeSec, activeAntipoisonTime + (medAntipoisonTimeSec * amount * timeModifier)));
+					terjeStats.SetAntipoison(medAntipoisonLevel, Math.Min(medAntipoisonMaxTimeSec, activeAntipoisonTime + (medAntipoisonTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -119,7 +122,7 @@ modded class TerjeConsumableEffects
 			{
 				int activeAntibiohazardLevel = 0;
 				float activeAntibiohazardTime = 0;
-				player.GetTerjeStats().GetAntibiohazard(activeAntibiohazardLevel, activeAntibiohazardTime);
+				terjeStats.GetAntibiohazard(activeAntibiohazardLevel, activeAntibiohazardTime);
 				
 				float medAntibiohazardTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medAntibiohazardTimeSec" );
 				if (medAntibiohazardLevel >= activeAntibiohazardLevel && medAntibiohazardTimeSec > 0)
@@ -130,7 +133,7 @@ modded class TerjeConsumableEffects
 						medAntibiohazardMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetAntibiohazard(medAntibiohazardLevel, Math.Min(medAntibiohazardMaxTimeSec, activeAntibiohazardTime + (medAntibiohazardTimeSec * amount * timeModifier)));
+					terjeStats.SetAntibiohazard(medAntibiohazardLevel, Math.Min(medAntibiohazardMaxTimeSec, activeAntibiohazardTime + (medAntibiohazardTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -144,7 +147,7 @@ modded class TerjeConsumableEffects
 				
 				int activeAntibioticLevel = 0;
 				float activeAntibioticTime = 0;
-				player.GetTerjeStats().GetAntibiotic(activeAntibioticLevel, activeAntibioticTime);
+				terjeStats.GetAntibiotic(activeAntibioticLevel, activeAntibioticTime);
 				
 				float medAntibioticsTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medAntibioticsTimeSec" );
 				if (medAntibioticLevel >= activeAntibioticLevel && medAntibioticsTimeSec > 0)
@@ -155,7 +158,7 @@ modded class TerjeConsumableEffects
 						medAntibioticsMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetAntibiotic(medAntibioticLevel, Math.Min(medAntibioticsMaxTimeSec, activeAntibioticTime + (medAntibioticsTimeSec * amount * timeModifier)));
+					terjeStats.SetAntibiotic(medAntibioticLevel, Math.Min(medAntibioticsMaxTimeSec, activeAntibioticTime + (medAntibioticsTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -169,7 +172,7 @@ modded class TerjeConsumableEffects
 				
 				int activeRabiesAntibioticLevel = 0;
 				float activeRabiesAntibioticTime = 0;
-				player.GetTerjeStats().GetRabiesCure(activeRabiesAntibioticLevel, activeRabiesAntibioticTime);
+				terjeStats.GetRabiesCure(activeRabiesAntibioticLevel, activeRabiesAntibioticTime);
 				
 				float medRabiesAntibioticsTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medRabiesAntibioticTimeSec" );
 				if (medRabiesAntibioticLevel >= activeRabiesAntibioticLevel && medRabiesAntibioticsTimeSec > 0)
@@ -180,7 +183,7 @@ modded class TerjeConsumableEffects
 						medRabiesAntibioticsMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetRabiesCure(medRabiesAntibioticLevel, Math.Min(medRabiesAntibioticsMaxTimeSec, activeRabiesAntibioticTime + (medRabiesAntibioticsTimeSec * amount * timeModifier)));
+					terjeStats.SetRabiesCure(medRabiesAntibioticLevel, Math.Min(medRabiesAntibioticsMaxTimeSec, activeRabiesAntibioticTime + (medRabiesAntibioticsTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -193,7 +196,7 @@ modded class TerjeConsumableEffects
 					medZAntidotMaxTimeSec = 1800;
 				}
 				
-				player.GetTerjeStats().SetZAntidotValue(Math.Min(medZAntidotMaxTimeSec, player.GetTerjeStats().GetZAntidotValue() + (medZAntidotTimeSec * amount * timeModifier)));
+				terjeStats.SetZAntidotValue(Math.Min(medZAntidotMaxTimeSec, terjeStats.GetZAntidotValue() + (medZAntidotTimeSec * amount * timeModifier)));
 			}
 			
 			float medAntisepsis = GetTerjeGameConfig().ConfigGetFloat( classname + " medAntisepsisTimeSec" );
@@ -205,7 +208,7 @@ modded class TerjeConsumableEffects
 					medAntisepsisMaxTimeSec = 1800;
 				}
 				
-				player.GetTerjeStats().SetAntisepsisValue(Math.Min(medAntisepsisMaxTimeSec, player.GetTerjeStats().GetAntisepsisValue() + (medAntisepsis * amount * timeModifier)));
+				terjeStats.SetAntisepsisValue(Math.Min(medAntisepsisMaxTimeSec, terjeStats.GetAntisepsisValue() + (medAntisepsis * amount * timeModifier)));
 			}
 			
 			float medConcussionHealTime = GetTerjeGameConfig().ConfigGetFloat( classname + " medConcussionHealTimeSec" );
@@ -217,7 +220,7 @@ modded class TerjeConsumableEffects
 					medConcussionHealMaxTimeSec = 1800;
 				}
 				
-				player.GetTerjeStats().SetContusionHealValue(Math.Min(medConcussionHealMaxTimeSec, player.GetTerjeStats().GetContusionHealValue() + (medConcussionHealTime * amount * timeModifier)));
+				terjeStats.SetContusionHealValue(Math.Min(medConcussionHealMaxTimeSec, terjeStats.GetContusionHealValue() + (medConcussionHealTime * amount * timeModifier)));
 			}
 			
 			float medBloodHemostaticValue = GetTerjeGameConfig().ConfigGetInt( classname + " medBloodHemostaticValue" );
@@ -225,7 +228,7 @@ modded class TerjeConsumableEffects
 			{
 				int activeHemostaticValue = 0;
 				float activeHemostaticTime = 0;
-				player.GetTerjeStats().GetHemostatic(activeHemostaticValue, activeHemostaticTime);
+				terjeStats.GetHemostatic(activeHemostaticValue, activeHemostaticTime);
 				
 				float medHemostaticTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medBloodHemostaticTimeSec" );
 				if (medBloodHemostaticValue >= activeHemostaticValue && medHemostaticTimeSec > 0)
@@ -236,7 +239,7 @@ modded class TerjeConsumableEffects
 						medHemostaticMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetHemostatic(medBloodHemostaticValue, Math.Min(medHemostaticMaxTimeSec, activeHemostaticTime + (medHemostaticTimeSec * amount * timeModifier)));
+					terjeStats.SetHemostatic(medBloodHemostaticValue, Math.Min(medHemostaticMaxTimeSec, activeHemostaticTime + (medHemostaticTimeSec * amount * timeModifier)));
 				}	
 			}
 			
@@ -245,7 +248,7 @@ modded class TerjeConsumableEffects
 			{
 				int activeRegenValue = 0;
 				float activeRegenTime = 0;
-				player.GetTerjeStats().GetBloodRegen(activeRegenValue, activeRegenTime);
+				terjeStats.GetBloodRegen(activeRegenValue, activeRegenTime);
 				
 				float medRegenTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medBloodRegenTimeSec" );
 				if (medBloodRegenValue >= activeRegenValue && medRegenTimeSec > 0)
@@ -256,7 +259,7 @@ modded class TerjeConsumableEffects
 						medRegenMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetBloodRegen(medBloodRegenValue, Math.Min(medRegenMaxTimeSec, activeRegenTime + (medRegenTimeSec * amount * timeModifier)));
+					terjeStats.SetBloodRegen(medBloodRegenValue, Math.Min(medRegenMaxTimeSec, activeRegenTime + (medRegenTimeSec * amount * timeModifier)));
 				}	
 			}
 			
@@ -269,7 +272,7 @@ modded class TerjeConsumableEffects
 					medHematomaHealMaxTimeSec = 1800;
 				}
 				
-				player.GetTerjeStats().SetSalveValue(Math.Min(medHematomaHealMaxTimeSec, player.GetTerjeStats().GetSalveValue() + (medHematomaHealTimeSec * amount * timeModifier)));
+				terjeStats.SetSalveValue(Math.Min(medHematomaHealMaxTimeSec, terjeStats.GetSalveValue() + (medHematomaHealTimeSec * amount * timeModifier)));
 			}
 			
 			float medAdrenalinTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medAdrenalinTimeSec" );
@@ -281,7 +284,7 @@ modded class TerjeConsumableEffects
 					medAdrenalinMaxTimeSec = 1800;
 				}
 				
-				player.GetTerjeStats().SetAdrenalinValue(Math.Min(medAdrenalinMaxTimeSec, player.GetTerjeStats().GetAdrenalinValue() + (medAdrenalinTimeSec * amount * timeModifier)));
+				terjeStats.SetAdrenalinValue(Math.Min(medAdrenalinMaxTimeSec, terjeStats.GetAdrenalinValue() + (medAdrenalinTimeSec * amount * timeModifier)));
 				player.GetStaminaHandler().SetStamina( player.GetStaminaHandler().GetStaminaMax() );
 			}
 			
@@ -290,7 +293,7 @@ modded class TerjeConsumableEffects
 			{
 				int activeAntidepValue = 0;
 				float activeAntidepTime = 0;
-				player.GetTerjeStats().GetAntidepresant(activeAntidepValue, activeAntidepTime);
+				terjeStats.GetAntidepresant(activeAntidepValue, activeAntidepTime);
 				
 				float medAntidepTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medAntidepresantTimer" );
 				if (medAntidepLevel >= activeAntidepValue && medAntidepTimeSec > 0)
@@ -301,7 +304,7 @@ modded class TerjeConsumableEffects
 						medAntidepMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetAntidepresant(medAntidepLevel, Math.Min(medAntidepMaxTimeSec, activeAntidepTime + (medAntidepTimeSec * amount * timeModifier)));
+					terjeStats.SetAntidepresant(medAntidepLevel, Math.Min(medAntidepMaxTimeSec, activeAntidepTime + (medAntidepTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -311,7 +314,7 @@ modded class TerjeConsumableEffects
 				float medMindDegradationTime = GetTerjeGameConfig().ConfigGetFloat( classname + " medMindDegradationTime" );
 				if (medMindDegradationTime > 0)
 				{
-					player.GetTerjeStats().AddMindDegradation(medMindDegradationForce, medMindDegradationTime * amount);
+					terjeStats.AddMindDegradation(medMindDegradationForce, medMindDegradationTime * amount);
 				}
 			}
 			
@@ -321,30 +324,30 @@ modded class TerjeConsumableEffects
 				float medSleepingIncValue = GetTerjeGameConfig().ConfigGetFloat( classname + " medSleepingIncrementValue" );
 				if (medSleepingIncValue > 0)
 				{
-					player.GetTerjeStats().AddSleepingIncrement(medSleepingIncValue, medSleepingIncTime * amount);
+					terjeStats.AddSleepingIncrement(medSleepingIncValue, medSleepingIncTime * amount);
 				}
 				else if (medSleepingIncValue < 0)
 				{
-					player.GetTerjeStats().AddSleepingDecrement(Math.AbsFloat(medSleepingIncValue), medSleepingIncTime * amount);
+					terjeStats.AddSleepingDecrement(Math.AbsFloat(medSleepingIncValue), medSleepingIncTime * amount);
 				}
 			}
 			
 			float medInfluenzaVacineTime = GetTerjeGameConfig().ConfigGetFloat( classname + " medInfluenzaVacineTime" );
 			if (medInfluenzaVacineTime > 0)
 			{
-				player.GetTerjeStats().SetInfluenzaVacineValue(medInfluenzaVacineTime * amount * timeModifier);
+				terjeStats.SetInfluenzaVacineValue(medInfluenzaVacineTime * amount * timeModifier);
 			}
 			
 			float medZVirusVacineTime = GetTerjeGameConfig().ConfigGetFloat( classname + " medZVirusVacineTime" );
 			if (medZVirusVacineTime > 0)
 			{
-				player.GetTerjeStats().SetZVirusVacineValue(medZVirusVacineTime * amount * timeModifier);
+				terjeStats.SetZVirusVacineValue(medZVirusVacineTime * amount * timeModifier);
 			}
 			
 			float medRabiesVacineTime = GetTerjeGameConfig().ConfigGetFloat( classname + " medRabiesVacineTime" );
 			if (medRabiesVacineTime > 0)
 			{
-				player.GetTerjeStats().SetRabiesVacineValue(medRabiesVacineTime * amount * timeModifier);
+				terjeStats.SetRabiesVacineValue(medRabiesVacineTime * amount * timeModifier);
 			}
 			
 			float medImmunityGainForce = GetTerjeGameConfig().ConfigGetFloat( classname + " medImmunityGainForce" );
@@ -352,7 +355,7 @@ modded class TerjeConsumableEffects
 			{
 				float activeImmmunityGainForce = 0;
 				float activeImmunityGainTime = 0;
-				player.GetTerjeStats().GetImmunityGainValue(activeImmmunityGainForce, activeImmunityGainTime);
+				terjeStats.GetImmunityGainValue(activeImmmunityGainForce, activeImmunityGainTime);
 				
 				float medImmunityGainTimeSec = GetTerjeGameConfig().ConfigGetFloat( classname + " medImmunityGainTimeSec" );
 				if (medImmunityGainForce >= activeImmmunityGainForce && medImmunityGainTimeSec > 0)
@@ -363,7 +366,7 @@ modded class TerjeConsumableEffects
 						medImmunityGainMaxTimeSec = 1800;
 					}
 					
-					player.GetTerjeStats().SetImmunityGainValue(medImmunityGainForce, Math.Min(medImmunityGainMaxTimeSec, activeImmunityGainTime + (medImmunityGainTimeSec * amount * timeModifier)));
+					terjeStats.SetImmunityGainValue(medImmunityGainForce, Math.Min(medImmunityGainMaxTimeSec, activeImmunityGainTime + (medImmunityGainTimeSec * amount * timeModifier)));
 				}
 			}
 			
@@ -371,73 +374,74 @@ modded class TerjeConsumableEffects
 			float medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medHematomasIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetHematomas(player.GetTerjeStats().GetHematomas() + (medDmgValue * amount));
+				terjeStats.SetHematomas(terjeStats.GetHematomas() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medContussionLight");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetContusionValue(TerjeMedicineConstants.CONTUSION_LIGHT);
+				terjeStats.SetContusionValue(TerjeMedicineConstants.CONTUSION_LIGHT);
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medContussionHeavy");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetContusionValue(TerjeMedicineConstants.CONTUSION_HEAVY);
+				terjeStats.SetContusionValue(TerjeMedicineConstants.CONTUSION_HEAVY);
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medFoodPoisonIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetPoisonValue(player.GetTerjeStats().GetPoisonValue() + (medDmgValue * amount));
+				terjeStats.SetPoisonValue(terjeStats.GetPoisonValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medChemicalPoisonIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetBiohazardValue(player.GetTerjeStats().GetBiohazardValue() + (medDmgValue * amount));
+				terjeStats.SetBiohazardValue(terjeStats.GetBiohazardValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medInfuenzaInfectionIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetInfluenzaValue(player.GetTerjeStats().GetInfluenzaValue() + (medDmgValue * amount));
+				terjeStats.SetInfluenzaValue(terjeStats.GetInfluenzaValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medZombieVirusIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetZVirusValue(player.GetTerjeStats().GetZVirusValue() + (medDmgValue * amount));
+				terjeStats.SetZVirusValue(terjeStats.GetZVirusValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medSepsisInfectionIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetSepsisValue(player.GetTerjeStats().GetSepsisValue() + (medDmgValue * amount));
+				terjeStats.SetSepsisValue(terjeStats.GetSepsisValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medRabiesVirusIncrement");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetRabiesValue(player.GetTerjeStats().GetRabiesValue() + (medDmgValue * amount));
+				terjeStats.SetRabiesValue(terjeStats.GetRabiesValue() + (medDmgValue * amount));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medPsiDamageValue");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().AddMindDegradation(medDmgValue, GetTerjeGameConfig().ConfigGetFloat(classname + " medPsiDamageTime"));
+				terjeStats.AddMindDegradation(medDmgValue, GetTerjeGameConfig().ConfigGetFloat(classname + " medPsiDamageTime"));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medSleepDamageValue");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().AddSleepingDecrement(medDmgValue, GetTerjeGameConfig().ConfigGetFloat(classname + " medSleepDamageTime"));
+				terjeStats.AddSleepingDecrement(medDmgValue, GetTerjeGameConfig().ConfigGetFloat(classname + " medSleepDamageTime"));
 			}
 			
 			medDmgValue = GetTerjeGameConfig().ConfigGetFloat(classname + " medPainSet");
 			if (medDmgValue > 0)
 			{
-				player.GetTerjeStats().SetPainValue(medDmgValue);
+				terjeStats.SetPainValue(medDmgValue);
+			}
 			}
 		}
 	}
