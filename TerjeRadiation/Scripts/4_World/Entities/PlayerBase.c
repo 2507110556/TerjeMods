@@ -141,10 +141,13 @@ modded class PlayerBase
 	override float GetTerjeRadiationProtection(float environmentRadiation)
 	{
 		float protection = GetTerjeScriptableAreas().CalculatePlayerBodyProtection(this, "radiation", environmentRadiation);
-		float perkRadresMod;
-		if (GetTerjeSkills() && GetTerjeSkills().GetPerkValue("immunity", "radres", perkRadresMod))
+		if (GetTerjeSkills())
 		{
-			protection += (1.0 - protection) * perkRadresMod;
+			float perkRadresMod;
+			if (GetTerjeSkills().GetPerkValue("immunity", "radres", perkRadresMod))
+			{
+				protection += (1.0 - protection) * perkRadresMod;
+			}
 		}
 		
 		return Math.Clamp(protection, 0, 1);

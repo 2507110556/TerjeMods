@@ -58,22 +58,25 @@ class TerjeSyringeFull extends Inventory_Base
 	{
 		if (GetGame().IsDedicatedServer())
 		{
-			float perkValue;
 			float operatorPerkSterilityMod = 1.0;
 			PlayerBase operator = PlayerBase.Cast( this.GetHierarchyRootPlayer() ); 
-			if (operator && operator.GetTerjeSkills() && operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+			if (operator && operator.GetTerjeSkills())
 			{
-				operatorPerkSterilityMod = Math.Clamp(1.0 + perkValue, 0, 1);
+				float perkValue;
+				if (operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+				{
+					operatorPerkSterilityMod = Math.Clamp(1.0 + perkValue, 0, 1);
+				}
 			}
 			
-			float perkSepsisresMod;
-			if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisresMod))
+			float perkSepsisresMod = 1.0;
+			if (player.GetTerjeSkills())
 			{
-				perkSepsisresMod = 1.0 - Math.Clamp(perkSepsisresMod, 0, 1);
-			}
-			else
-			{
-				perkSepsisresMod = 1.0;
+				float perkSepsisres;
+				if (player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisres))
+				{
+					perkSepsisresMod -= Math.Clamp(perkSepsisres, 0, 1);
+				}
 			}
 			
 			float dirtySyringeSepsisChance = 0;

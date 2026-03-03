@@ -90,7 +90,7 @@ class TerjePlayerModifierRadiation : TerjePlayerModifierBase
 					immunityMod += resdiseasesmod;
 				}
 				float radregen;
-				if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "radregen", radregen))
+				if (player.GetTerjeSkills().GetPerkValue("immunity", "radregen", radregen))
 				{
 					perkRadgenMod += radregen;
 				}

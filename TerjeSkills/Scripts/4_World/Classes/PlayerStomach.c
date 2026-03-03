@@ -42,7 +42,7 @@ modded class PlayerStomach
 					float metabolismConsumeFoodExpMod;
 					if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_METABOLISM_CONSUME_FOOD_EXP_MOD, metabolismConsumeFoodExpMod))
 					{
-						m_terjeMetabolismSkillExpBuffer += (energy * metabolismConsumeFoodExpMod * 0.001);
+						m_terjeMetabolismSkillExpBuffer += energy * metabolismConsumeFoodExpMod * 0.001;
 					}
 				}
 				
@@ -52,34 +52,37 @@ modded class PlayerStomach
 					float metabolismConsumeWaterExpMod;
 					if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_METABOLISM_CONSUME_WATER_EXP_MOD, metabolismConsumeWaterExpMod))
 					{
-						m_terjeMetabolismSkillExpBuffer += (water * metabolismConsumeWaterExpMod * 0.0002);
+						m_terjeMetabolismSkillExpBuffer += water * metabolismConsumeWaterExpMod * 0.0002;
 					}
 				}
 			}
 			
-			if (profile.GetEnergy() > 0)
+			if (m_Player && m_Player.GetTerjeSkills())
 			{
-				float incaloriePerkValue;
-				if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("mtblsm", "incalorie", incaloriePerkValue))
+				if (profile.GetEnergy() > 0)
 				{
-					amount = amount * (1.0 + incaloriePerkValue);
+					float incaloriePerkValue;
+					if (m_Player.GetTerjeSkills().GetPerkValue("mtblsm", "incalorie", incaloriePerkValue))
+					{
+						amount *= 1.0 + incaloriePerkValue;
+					}
+				}
+				if (profile.GetWaterContent() > 0)
+				{
+					float incrhydrPerkValue;
+					if (m_Player.GetTerjeSkills().GetPerkValue("mtblsm", "incrhydr", incrhydrPerkValue))
+					{
+						amount *= 1.0 + incrhydrPerkValue;
+					}
+				}
+				
+				bool hasSalmonella = (agents & eAgents.SALMONELLA);
+				if (hasSalmonella && m_Player.GetTerjeSkills().GetPerkLevel("mtblsm", "wmlover") > 0)
+				{
+					agents = (agents & ~eAgents.SALMONELLA);
 				}
 			}
 			
-			if (profile.GetWaterContent() > 0)
-			{
-				float incrhydrPerkValue;
-				if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("mtblsm", "incrhydr", incrhydrPerkValue))
-				{
-					amount = amount * (1.0 + incrhydrPerkValue);
-				}
-			}
-			
-			bool hasSalmonella = (agents & eAgents.SALMONELLA);
-			if (hasSalmonella && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkLevel("mtblsm", "wmlover") > 0)
-			{
-				agents = (agents & ~eAgents.SALMONELLA);
-			}
 		}
 
 		super.AddToStomach(class_name, amount, food_stage, agents, temperature);
