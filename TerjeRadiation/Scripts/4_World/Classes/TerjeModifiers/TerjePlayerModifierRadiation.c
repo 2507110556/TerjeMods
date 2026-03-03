@@ -101,7 +101,7 @@ class TerjePlayerModifierRadiation : TerjePlayerModifierBase
 			if (antiradLevel > 0)
 			{
 				GetTerjeSettingFloat(TerjeSettingsCollection.RADIATION_MEDS_DEC_PER_SEC, radiationDecPerSec);
-				radiationDecPerSec *= (antiradLevel - radiationLevel) + 1;
+				radiationDecPerSec *= antiradLevel - radiationLevel + 1;
 			}
 			else
 			{

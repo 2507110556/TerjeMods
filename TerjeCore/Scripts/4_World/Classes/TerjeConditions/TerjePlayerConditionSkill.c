@@ -6,9 +6,12 @@ class TerjePlayerConditionSkill : TerjePlayerConditionBase
 		string requiredLevel;
 		if (condition.FindAttribute("skillId", skillId) && condition.FindAttribute("requiredLevel", requiredLevel))
 		{
-			if (player && (player.GetTerjeSkills() != null) && (player.GetTerjeSkills().GetSkillLevel(skillId) >= requiredLevel.ToInt()))
+			if (player && player.GetTerjeSkills())
 			{
-				return true;
+				if (player.GetTerjeSkills().GetSkillLevel(skillId) >= requiredLevel.ToInt())
+				{
+					return true;
+				}
 			}
 		}
 		

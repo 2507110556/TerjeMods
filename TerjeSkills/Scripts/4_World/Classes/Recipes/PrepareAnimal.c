@@ -152,14 +152,11 @@ modded class PrepareAnimal
 				float huntingOverrideKnifeDamage;
 				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_HUNTING_OVERRIDE_KNIFE_DAMAGE, huntingOverrideKnifeDamage))
 				{
-					float mknifeSkill;
-					if (player.GetTerjeSkills().GetPerkValue("hunt", "mknife", mknifeSkill))
+					float mknifeSkill = 1.0;
+					float perkMknife;
+					if (player.GetTerjeSkills().GetPerkValue("hunt", "mknife", perkMknife))
 					{
-						mknifeSkill = Math.Clamp(1.0 + mknifeSkill, 0, 1);
-					}
-					else
-					{
-						mknifeSkill = 1.0;
+						mknifeSkill = Math.Clamp(1.0 + perkMknife, 0, 1);
 					}
 					
 					float animalBodyMod = 1.0;

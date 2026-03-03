@@ -65,7 +65,8 @@ class TerjeSyringeFull extends Inventory_Base
 				float perkValue;
 				if (operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
 				{
-					operatorPerkSterilityMod = Math.Clamp(1.0 + perkValue, 0, 1);
+					operatorPerkSterilityMod += perkValue;
+					operatorPerkSterilityMod = Math.Clamp(operatorPerkSterilityMod, 0, 1);
 				}
 			}
 			

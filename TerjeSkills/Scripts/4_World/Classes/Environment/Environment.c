@@ -12,7 +12,7 @@ modded class Environment
 				float settingsMod = 1.0;
 				GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_SURV_TEMPERATURE_MODIFIER, settingsMod);
 				relativeTemp = result - GameConstants.ENVIRO_PLAYER_COMFORT_TEMP;	
-				relativeTemp = relativeTemp * Math.Clamp(1.0 + (skillModifierValue * settingsMod), 0, 1);
+				relativeTemp *= Math.Clamp(1.0 + (skillModifierValue * settingsMod), 0, 1);
 				result = relativeTemp + GameConstants.ENVIRO_PLAYER_COMFORT_TEMP;
 			}
 			
@@ -22,7 +22,7 @@ modded class Environment
 				relativeTemp = result - GameConstants.ENVIRO_PLAYER_COMFORT_TEMP;	
 				if (relativeTemp < 0)
 				{
-					relativeTemp = relativeTemp * Math.Clamp(1.0 - perkColdresValue, 0, 1);
+					relativeTemp *= Math.Clamp(1.0 - perkColdresValue, 0, 1);
 				}
 				result = relativeTemp + GameConstants.ENVIRO_PLAYER_COMFORT_TEMP;
 			}

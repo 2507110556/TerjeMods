@@ -43,14 +43,11 @@ modded class PrepareFish
 				float fishingOverrideKnifeDamage;
 				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_FISHING_OVERRIDE_KNIFE_DAMAGE, fishingOverrideKnifeDamage))
 				{
-					float mknifeSkill;
-					if (player.GetTerjeSkills().GetPerkValue("fish", "strgarms", mknifeSkill))
+					float mknifeSkill = 1.0;
+					float perkStrgarms;
+					if (player.GetTerjeSkills().GetPerkValue("fish", "strgarms", perkStrgarms))
 					{
-						mknifeSkill = Math.Clamp(1.0 + mknifeSkill, 0, 1);
-					}
-					else
-					{
-						mknifeSkill = 1.0;
+						mknifeSkill = Math.Clamp(1.0 + perkStrgarms, 0, 1);
 					}
 					
 					float fishBodyMod = 1.0;
