@@ -165,7 +165,7 @@ modded class StaminaHandler
 			m_StaminaConsumers.SetTerjeMaxStaminaModifier(m_terjeMaxStaminaModifier);
 		}
 		
-		m_StaminaDepletion = m_StaminaDepletion / m_terjeMaxStaminaModifier;
+		m_StaminaDepletion /= m_terjeMaxStaminaModifier;
 		super.Update(deltaT, pCurrentCommandID);
 	}
 	
@@ -190,21 +190,21 @@ modded class StaminaHandler
 			{
 				if (m_StaminaDelta < 0 && m_Player.GetTerjeSkills().GetPerkValue("athlc", "quickf", perkValue))
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Clamp(1.0 + perkValue, 0.0, 1.0);
+					m_StaminaDelta *= Math.Clamp(1.0 + perkValue, 0.0, 1.0);
 				}
 			}
 			else if (pHumanMovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_RUN || pHumanMovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_WALK)
 			{
 				if (m_StaminaDelta > 0 && m_Player.GetTerjeSkills().GetPerkValue("athlc", "marathon", perkValue))
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Max(1.0 + perkValue, 1.0);
+					m_StaminaDelta *= Math.Max(1.0 + perkValue, 1.0);
 				}
 			}
 			else if (pHumanMovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_IDLE)
 			{
 				if (m_StaminaDelta > 0 && m_Player.GetTerjeSkills().GetPerkValue("athlc", "pbreath", perkValue))
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Max(1.0 + perkValue, 1.0);
+					m_StaminaDelta *= Math.Max(1.0 + perkValue, 1.0);
 				}
 			}		
 		}
@@ -221,11 +221,11 @@ modded class StaminaHandler
 			{
 				if (m_StaminaDelta < 0)
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Clamp(1.0 - perkValue, 0.0, 1.0);
+					m_StaminaDelta *= Math.Clamp(1.0 - perkValue, 0.0, 1.0);
 				}
 				else if (m_StaminaDelta > 0)
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Max(1.0 + perkValue, 1.0);
+					m_StaminaDelta *= Math.Max(1.0 + perkValue, 1.0);
 				}
 			}
 		}
@@ -242,11 +242,11 @@ modded class StaminaHandler
 			{
 				if (m_StaminaDelta < 0)
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Clamp(1.0 - perkValue, 0.0, 1.0);
+					m_StaminaDelta *= Math.Clamp(1.0 - perkValue, 0.0, 1.0);
 				}
 				else if (m_StaminaDelta > 0)
 				{
-					m_StaminaDelta = m_StaminaDelta * Math.Max(1.0 + perkValue, 1.0);
+					m_StaminaDelta *= Math.Max(1.0 + perkValue, 1.0);
 				}
 			}
 		}

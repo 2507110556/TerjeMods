@@ -8,7 +8,7 @@ modded class HungerMdfr
 			float skillModifier;
 			if (player.GetTerjeSkills().GetSkillModifierValue("mtblsm", "energconsmod", skillModifier))
 			{
-				metabolic_speed = metabolic_speed * Math.Clamp(1.0 + skillModifier, 0.0, 1.0);
+				metabolic_speed *= Math.Clamp(1.0 + skillModifier, 0, 1);
 			}
 			
 			if (m_MovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_IDLE)
@@ -16,7 +16,7 @@ modded class HungerMdfr
 				float enrgsavePerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "enrgsave", enrgsavePerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + enrgsavePerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + enrgsavePerkValue, 0, 1);
 				}
 			}
 			else if (m_MovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_SPRINT)
@@ -24,7 +24,7 @@ modded class HungerMdfr
 				float enrgcontrPerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "enrgcontr", enrgcontrPerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + enrgcontrPerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + enrgcontrPerkValue, 0, 1);
 				}
 			}
 			else
@@ -32,7 +32,7 @@ modded class HungerMdfr
 				float enrgcontaPerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "enrgconta", enrgcontaPerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + enrgcontaPerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + enrgcontaPerkValue, 0, 1);
 				}
 			}
 		}
@@ -42,11 +42,14 @@ modded class HungerMdfr
 	
 	override protected float GetTerjeHealthDammageModifier(PlayerBase player, float deltaT, float energy)
 	{
-		float reshungerPerkValue;
 		float healthDmg = super.GetTerjeHealthDammageModifier(player, deltaT, energy);
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("mtblsm", "reshunger", reshungerPerkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			healthDmg = healthDmg * Math.Clamp(1.0 + reshungerPerkValue, 0.0, 1.0);
+			float reshungerPerkValue;
+			if (player.GetTerjeSkills().GetPerkValue("mtblsm", "reshunger", reshungerPerkValue))
+			{
+				healthDmg *= Math.Clamp(1.0 + reshungerPerkValue, 0, 1);
+			}
 		}
 		
 		return healthDmg;

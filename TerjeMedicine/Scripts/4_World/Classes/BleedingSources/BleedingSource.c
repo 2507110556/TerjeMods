@@ -5,10 +5,13 @@ modded class BleedingSource
 	
 	override void OnUpdateServer(float deltatime, float blood_scale, bool no_blood_loss )
 	{
-		float perkWhealingMod;
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "whealing", perkWhealingMod))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			m_ActiveTime += deltatime * perkWhealingMod;
+			float perkWhealingMod;
+			if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "whealing", perkWhealingMod))
+			{
+				m_ActiveTime += deltatime * perkWhealingMod;
+			}
 		}
 		
 		super.OnUpdateServer(deltatime, blood_scale, true);

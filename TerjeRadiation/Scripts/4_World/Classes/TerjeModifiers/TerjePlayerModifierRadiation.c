@@ -90,7 +90,7 @@ class TerjePlayerModifierRadiation : TerjePlayerModifierBase
 					immunityMod += resdiseasesmod;
 				}
 				float radregen;
-				if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "radregen", radregen))
+				if (player.GetTerjeSkills().GetPerkValue("immunity", "radregen", radregen))
 				{
 					perkRadgenMod += radregen;
 				}
@@ -101,7 +101,7 @@ class TerjePlayerModifierRadiation : TerjePlayerModifierBase
 			if (antiradLevel > 0)
 			{
 				GetTerjeSettingFloat(TerjeSettingsCollection.RADIATION_MEDS_DEC_PER_SEC, radiationDecPerSec);
-				radiationDecPerSec *= (antiradLevel - radiationLevel) + 1;
+				radiationDecPerSec *= antiradLevel - radiationLevel + 1;
 			}
 			else
 			{

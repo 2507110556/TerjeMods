@@ -2,21 +2,20 @@ modded class TerjePlayerModifierBase
 {
 	override float GetPlayerImmunity(PlayerBase player)
 	{
-		if (player.GetTerjeSkills() && player.GetTerjeSkills().IsPerkRegistered("immunity", "resdiseasesmod"))
+		if (player.GetTerjeSkills())
 		{
-			float immunityMod;
-			if (player.GetTerjeSkills().GetSkillModifierValue("immunity", "resdiseasesmod", immunityMod))
+			if (player.GetTerjeSkills().IsPerkRegistered("immunity", "resdiseasesmod"))
 			{
-				return Math.Clamp(immunityMod, 0, 1);
-			}
-			else
-			{
+				float immunityMod;
+				if (player.GetTerjeSkills().GetSkillModifierValue("immunity", "resdiseasesmod", immunityMod))
+				{
+					return Math.Clamp(immunityMod, 0, 1);
+				}
+				
 				return 0;
 			}
 		}
-		else
-		{
-			return player.GetTerjeStats().GetInternalImmunity();
-		}
+		
+		return player.GetTerjeStats().GetInternalImmunity();
 	}
 }

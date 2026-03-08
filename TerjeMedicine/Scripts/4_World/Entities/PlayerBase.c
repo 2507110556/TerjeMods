@@ -110,12 +110,12 @@ modded class PlayerBase
 		{
 			healthRegenCommonModifier = 0; // Do not heal when heavy injured
 		}
-		else
+		else if (GetTerjeSkills())
 		{
 			float perkQhealingMod;
-			if (GetTerjeSkills() && GetTerjeSkills().GetPerkValue("immunity", "qhealing", perkQhealingMod))
+			if (GetTerjeSkills().GetPerkValue("immunity", "qhealing", perkQhealingMod))
 			{
-				healthRegenCommonModifier *= (1.0 + perkQhealingMod);
+				healthRegenCommonModifier *= 1.0 + perkQhealingMod;
 			}
 		}
 		
