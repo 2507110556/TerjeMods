@@ -2,16 +2,15 @@ modded class ShockMdfr
 {
 	override float GetRefillSpeed(PlayerBase player)
 	{	
-		float perkRecshockMod;
-		if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "recshock", perkRecshockMod))
+		float perkRecshockMod = 1.0;
+		if (player.GetTerjeSkills())
 		{
-			perkRecshockMod = 1.0 + perkRecshockMod;
+			float perkRecshock;
+			if (player.GetTerjeSkills().GetPerkValue("immunity", "recshock", perkRecshock))
+			{
+				perkRecshockMod += perkRecshock;
+			}
 		}
-		else
-		{
-			perkRecshockMod = 1.0;
-		}
-		
 		return super.GetRefillSpeed(player) * perkRecshockMod;
 	}
 }
