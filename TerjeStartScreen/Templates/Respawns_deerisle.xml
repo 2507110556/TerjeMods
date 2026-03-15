@@ -101,7 +101,7 @@
 		
 		
 		Conditions: (optional) - list of conditions under which the respawn will be available to the player
-			ALL SUPPORTED CONDITIONS YOU CAN FOUND HERE: https://github.com/TerjeBruoygard/TerjeModsScripting/blob/master/Wiki/en/Conditions/README.md
+			ALL SUPPORTED CONDITIONS YOU CAN FOUND HERE: https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Conditions/README.md
 -->
 <Respawns>
 	<Respawn id="deerisle" displayName="Deerisle (random)">

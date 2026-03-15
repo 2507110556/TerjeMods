@@ -32,7 +32,7 @@
 				
 				
 				Conditions: (optional) - list of conditions under which the recipe will be available to the player
-					ALL SUPPORTED CONDITIONS YOU CAN FOUND HERE: https://github.com/TerjeBruoygard/TerjeModsScripting/blob/master/Wiki/en/Conditions/README.md
+					ALL SUPPORTED CONDITIONS YOU CAN FOUND HERE: https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Conditions/README.md
 -->
 <Recipes>
 	<Recipe displayName="Example craft 1" enabled="1" time="1">
