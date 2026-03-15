@@ -13,7 +13,7 @@ class TerjeRadTent extends TentBase
 		
 		m_HalfExtents = Vector(1.8, 0.33, 3.4);
 	}
-		
+	
 	override bool HasClutterCutter()
 	{
 		return false;
@@ -273,8 +273,6 @@ class TerjeRadTent extends TentBase
 		}
 	}
 	
-	
-		
 	override void OnWorkStop()
 	{
 		super.OnWorkStop();
