@@ -8,7 +8,7 @@ PixelShaderID="Super";
 VertexShaderID="Super";
 class Stage1
 {
-	texture="TerjeGadgets\Laptop\data\laptop_nohq.paa";
+	texture="TerjeElectronics\Laptop\data\laptop_nohq.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -56,7 +56,7 @@ class Stage4
 };
 class Stage5
 {
-	texture="TerjeGadgets\Laptop\data\laptop_smdi.paa";
+	texture="TerjeElectronics\Laptop\data\laptop_smdi.paa";
 	uvSource="tex";
 	class uvTransform
 	{

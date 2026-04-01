@@ -108,43 +108,43 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDADUTY_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_duty_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_duty_co.paa"};
 	};
 	class TerjeLaptop_Iskra: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDAISKRA_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_iskra_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_iskra_co.paa"};
 	};
 	class TerjeLaptop_SOP: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDASOP_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_sop_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_sop_co.paa"};
 	};
 	class TerjeLaptop_Stalker: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDASTALKER_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_stalker_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_stalker_co.paa"};
 	};
 	class TerjeLaptop_Varta: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDAVARTA_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_varta_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_varta_co.paa"};
 	};
 	class TerjeLaptop_Volya: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDAVOLYA_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_volya_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_volya_co.paa"};
 	};
 	class TerjeLaptop_Naemniki: TerjeGadgetsLaptop_ColorBase
 	{
 		scope=2;
 		displayName="#STR_TerjeGadgets_PDANAEMNIK_NAME";
-		hiddenSelectionsTextures[]={"TerjeGadgets\Laptop\data\pda_naemniki_co.paa"};
+		hiddenSelectionsTextures[]={"TerjeElectronics\Laptop\data\pda_naemniki_co.paa"};
 	};
 	*/
 };
