@@ -96,10 +96,10 @@ class CfgVehicles
 Как вычисляется общее время действия препарата, начисялемое при употреблении предмета. Возьмем за пример такие данные:
 ```cs
 	medAntidepresantLevel=1;
-	medAntidepresantTimeSec=120;
-	medAntidepresantMaxTimeSec=1800;
+	medAntidepresantTimer=120;
+	medAntidepresantMaxTimer=1800;
 ```
-Допустим, у вас есть предмет объемом 1000 г/мл. Начисление таймера происходит за каждую единицу(quantity) предмета. Когда вы употребляете 100 г/мл (100 * medAntidepresantTimeSec), вы получаете таймер на 1200 секунд. Когда вы выпьете 500 мл, вы получите таймер (100 * medAntidepresantTimeSec) = 5000 секунд. Но если у вас указан параметр medAntidepresantMaxTimeSec, то время будет равно 1800 секундам (medAntidepresantMaxTimeSec).
+Допустим, у вас есть предмет объемом 1000 г/мл. Начисление таймера происходит за каждую единицу(quantity) предмета. Когда вы употребляете 100 г/мл (100 * medAntidepresantTimer), вы получаете таймер на 1200 секунд. Когда вы выпьете 500 мл, вы получите таймер (100 * medAntidepresantTimer) = 5000 секунд. Но если у вас указан параметр medAntidepresantMaxTimer, то время будет равно 1800 секундам (medAntidepresantMaxTimer).
 
 ##### 2. НА ОСНОВЕ ЖИДКОСТИ
 
@@ -153,7 +153,7 @@ class cfgLiquidDefinitions
 	class Vodka
 	{
 		medAntiradLevel = 1; //Сила
-		medAntiradTimeSec = 10; // Время действия (с)
+		medAntiradTimer = 10; // Время действия (с)
 		medAntiradMaxTimeSec=1800; // Максимальное время действия (с), после употребления всего объема
 		terjeAddBlood = 1; //Добавить 1 Крови за 1 мл (Отрицательные значения - уменьшить)
 		terjeAddHealth = 2; //Добавить 2 Здоровья за 1 мл (Отрицательные значения - уменьшить)
@@ -193,7 +193,7 @@ class CfgTerjeCustomLiquids
 		liquidBoilingThreshold=150;
 		terjeRadiationCleanupForce=1;
 		medAntiradLevel = 1; //Сила
-		medAntiradTimeSec = 10; // Время действия (с)
+		medAntiradTimer = 10; // Время действия (с)
 		medAntiradMaxTimeSec=1800; // Максимальное время действия (с), после употребления всего объема
 		terjeAddBlood = 1; //Добавить 1 Крови за 1 мл (Отрицательные значения - уменьшить)
 		terjeAddHealth = 2; //Добавить 2 Здоровья за 1 мл (Отрицательные значения - уменьшить)
