@@ -344,11 +344,11 @@ modded class ItemBase
 			{
 				int liquid_type = GetLiquidType();
 				string liquidClassName = Liquid.GetLiquidClassname(liquid_type);
-				output = output + medEffects.Describe(null, "CfgLiquidDefinitions " + liquidClassName);
+				output += medEffects.Describe(null, "CfgLiquidDefinitions " + liquidClassName);
 			}
 			else
 			{
-				output = output + medEffects.Describe(this, "CfgVehicles " + GetType());
+				output += medEffects.Describe(this, "CfgVehicles " + GetType());
 			}
 			
 			return true;
@@ -439,12 +439,12 @@ modded class ItemBase
 			OnTerjeRPC(sender, metaData.param1, ctx);
 		}
 	}
-		
+	
 	void OnTerjeRPC(PlayerIdentity sender, string id, ParamsReadContext ctx)
 	{
 		
 	}
-		
+	
 	void TerjeSendToClient(string id, PlayerIdentity recipient, Param params)
 	{
 		if (GetGame() && GetGame().IsDedicatedServer())
@@ -483,7 +483,7 @@ modded class ItemBase
 			this.RPC(TerjeERPC.TerjeRPC_CUSTOM_CALL, sendData, true, null);
 		}
 	}
-		
+	
 	void TerjeStreamToServer(string id, out TerjeStreamRpc stream)
 	{
 		if (GetGame() && GetGame().IsClient())

@@ -1,9 +1,11 @@
 "Language","original","english","czech","german","russian","polish","hungarian","italian","spanish","french","chinese","japanese","portuguese","chinesesimp",
+"STR_TERJECORE_EFFECT_LEVEL_0","LEVEL","LEVEL","ÚROVEŇ","STUFE","УРОВЕНЬ","POZIOM","","LIVELLO","NIVEL","NIVEAU","","レベル","NÍVEL","",
+"STR_TERJECORE_EFFECT_LEVEL_1","","","","","","",". SZINT","","","","級","","","级",
 "STR_TERJECORE_EFFECT_HEALTH","HEALTH","HEALTH","ZDRAVÍ","GESUNDHEIT","ЗДОРОВЬЕ","ZDROWIE","EGÉSZSÉG","SALUTE","SALUD","SANTÉ","健康","健康","SAÚDE","健康",
 "STR_TERJECORE_EFFECT_BLOOD","BLOOD","BLOOD","KREV","BLUT","КРОВЬ","KREW","VÉR","SANGUE","SANGRE","SANG","血液","血液","SANGUE","血液",
 "STR_TERJECORE_EFFECT_SHOCK","SHOCK","SHOCK","ŠOK","SCHOCK","ШОК","SZOK","SZOK","SHOCK","CHOQUE","CHOC","休克","ショック","CHOQUE","休克",
-"STR_TERJECORE_EFFECT_ENERGY","NUTRITION","NUTRITION","VÝŽIVA","ERNÄHRUNG","ПИТАТЕЛЬНОСТЬ","POŻYWIENIE","TÁPLÁKOZÁS","NUTRIZIONE","NUTRICIÓN","NUTRITION","營養","栄養","NUTRIÇÃO","营养",
-"STR_TERJECORE_EFFECT_WATER","HYDRATION","HYDRATION","HYDRATACE","HYDRATATION","ГИДРАЦИЯ","NAWODNIENIE","HIDRATÁCIÓ","IDRATAZIONE","HIDRATACIÓN","HYDRATATION","水分值","水分補給","HIDRATAÇÃO","水分值",
+"STR_TERJECORE_EFFECT_ENERGY","NUTRITION","NUTRITION","VÝŽIVA","NÄHRSTOFFE","ПИТАТЕЛЬНОСТЬ","POŻYWIENIE","TÁPLÁKOZÁS","NUTRIZIONE","NUTRICIÓN","NUTRITION","營養","栄養","NUTRIÇÃO","营养",
+"STR_TERJECORE_EFFECT_WATER","HYDRATION","HYDRATION","HYDRATACE","HYDRATION","ГИДРАЦИЯ","NAWODNIENIE","HIDRATÁCIÓ","IDRATAZIONE","HIDRATACIÓN","HYDRATATION","水分值","水分補給","HIDRATAÇÃO","水分值",
 "STR_TERJECORE_PIS_HEALTH","Health","Health","Zdraví","Gesundheit","Здоровье","Zdrowie","Egészség","Salute","Salud","Santé","健康","健康","Saúde","健康",
 "STR_TERJECORE_PIS_HEALTH_CRIT","Critically low level of health","Critically low level of health","Kriticky nízká úroveň zdraví","Kritisch niedrige Gesundheit","Критически низкий уровень здоровья","Krytycznie niski poziom zdrowia","Kritikusan alacsony egészségügyi szint","Salute criticamente bassa","Salud críticamente baja","État de santé critique","健康水平極低","非常に低いレベルの健康","Nível de saúde criticamente baixo","健康水平极低",
 "STR_TERJECORE_PIS_HEALTH_LOW","Low level of health","Low level of health","Nízká úroveň zdraví","Niedrige Gesundheit","Низкий уровень здоровья","Niski poziom zdrowia","Alacsony egészségügyi szint","Bassa salute","Baja salud","Mauvaise santé","健康水平低","低レベルの健康","Baixa saúde","健康水平低",
@@ -28,3 +30,6 @@
 "STR_TERJECORE_COND_PERK","perk level","perk level","úroveň perku","das niveau des Perks","уровень перка","poziom profitu","perk szint","livello di vantaggio","nivel de beneficio","niveau d'avantage","振作水平","特典レベル","nível de vantagem","振作水平",
 "STR_TERJECORE_COND_REQ","Requires","Requires","Vyžadovat","Erforderlich","Требуется","Potrzebnym","Szükséges","Cercasi","Necesario","Se demander","是必需的","が必要です","Exigir","是必需的",
 "STR_TERJECORE_CRAFT_BLOCK","Failed to craft","Failed to craft","Nelze vytvořit","Konnte nicht erstellt werden","Не удалось создать","Nie można utworzyć","Nem sikerült létrehozni","Impossibile creare","No se pudo crear","Impossible de créer","创建失败","作成に失敗しました","Não foi possível criar","创建失败",
+
+STR_TERJECORE_EFFECT_POSITIVE,TREATMENT:,TREATMENT:,LÉČBA:,BEHANDLUNG:,ЛЕЧЕНИЕ:,LECZENIE:,KEZELÉS:,TRATTAMENTO:,TRATAMIENTO:,TRAITEMENT:,治療：,処理：,TRATAMENTO:,治疗：
+STR_TERJECORE_EFFECT_NEGATIVE,SIDE EFFECTS:,SIDE EFFECTS:,NEŽÁDOUCÍ ÚČINKY:,NEBENWIRKUNGEN:,ПОБОЧНЫЕ ЭФФЕКТЫ:,SKUTKI UBOCZNE:,MELLÉKHATÁSOK:,EFFETTI COLLATERALI:,EFECTOS SECUNDARIOS:,EFFETS SECONDAIRES :,副作用：,副作用:,EFEITOS COLATERAIS:,副作用：

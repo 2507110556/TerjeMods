@@ -37,7 +37,7 @@ Name  | Item | Stage | Level | Form and Packaging | Duration (s) | Overdose |
 Parameters for [creating your own items](../Modding/README.md#1-based-on-an-item)
 ```cs
     medAntiradLevel = 1; //Strength
-    medAntiradTimer = 300; // Duration (s)
+    medAntiradTimeSec = 300; // Duration (s)
     overdosedIncrement = 0.45; // Overdose
 ```
 

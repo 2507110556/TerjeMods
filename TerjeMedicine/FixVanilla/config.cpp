@@ -244,9 +244,9 @@ class CfgVehicles
 	{
 		medicalItem=1;
 		overdosedIncrement = 0.01;
-		medImmunityGainForce=1;
+		medImmunityGainValue=1;
 		medImmunityGainTimeSec=120;
-		medImmunityGainMaxTimer=1800;
+		medImmunityGainMaxTimeSec=1800;
 	};
 
 	class PurificationTablets: Edible_Base

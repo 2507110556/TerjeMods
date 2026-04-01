@@ -37,7 +37,7 @@ class CfgVehicles
 		medPainkillerMaxTimeSec=1800;
 		medAntipoisonMaxTimeSec=1800;
 		medAntibiohazardMaxTimeSec=1800;
-		medAntibioticsMaxTimeSec=1800;
+		medAntibioticMaxTimeSec=1800;
 		medRabiesAntibioticMaxTimeSec=1800;
 		medZAntidotMaxTimeSec=1800;
 		medAntisepsisMaxTimeSec=1800;
@@ -46,7 +46,7 @@ class CfgVehicles
 		medBloodRegenMaxTimeSec=1800;
 		medHematomaHealMaxTimeSec=1800;
 		medAdrenalinMaxTimeSec=1800;
-		medAntidepresantMaxTimer=1800;
+		medAntidepresantMaxTimeSec=1800;
 		class DamageSystem
 		{
 			class GlobalHealth
@@ -86,7 +86,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_AMOXIVAN";
 		medAntibioticLevel=2;
-		medAntibioticsTimeSec=900;
+		medAntibioticTimeSec=900;
 		overdosedIncrement=0.3;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_pink_co.paa"};
 	};
@@ -145,7 +145,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_PENTACIN";
 		medAntiradLevel=2;
-		medAntiradTimer=400;
+		medAntiradTimeSec=400;
 		overdosedIncrement=0.5;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_ultrayellow_co.paa"};
 	};
@@ -155,7 +155,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_METRALINDOLE";
 		medAntidepresantLevel=2;
-		medAntidepresantTimer=300;
+		medAntidepresantTimeSec=300;
 		overdosedIncrement=0.1;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_gray_co.paa"};
 	};
@@ -164,7 +164,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="#STR_TERJEMED_VAXICAM";
-		medInfluenzaVacineTime=14400;
+		medInfluenzaVacineTimeSec=14400;
 		overdosedIncrement=0.8;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_vacine_a_co.paa"};
 	};
@@ -173,7 +173,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="#STR_TERJEMED_ZERIVAX";
-		medZVirusVacineTime=7200;
+		medZVirusVacineTimeSec=7200;
 		overdosedIncrement=1.5;
 		medSkillExpAddToSelf=100;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_vacine_b_co.paa"};
@@ -183,7 +183,7 @@ class CfgVehicles
 	{
 		scope=2;
 		displayName="#STR_TERJEMED_RABIVAX";
-		medRabiesVacineTime=14400;
+		medRabiesVacineTimeSec=14400;
 		overdosedIncrement=1.3;
 		medSkillExpAddToSelf=100;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_vacine_c_co.paa"};
@@ -215,7 +215,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_KETAROL";
 		medAntibioticLevel=2;
-		medAntibioticsTimeSec=1200;
+		medAntibioticTimeSec=1200;
 		medPainkillerLevel=1;
 		medPainkillerTimeSec=1200;
 		overdosedIncrement=0.5;
@@ -227,7 +227,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_FLEMOCLAV";
 		medAntibioticLevel=3;
-		medAntibioticsTimeSec=1200;
+		medAntibioticTimeSec=1200;
 		medAntisepsisTimeSec=1200;
 		overdosedIncrement=0.8;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_toxicgrey_co.paa"};
@@ -238,7 +238,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_IMIPENEM";
 		medAntibioticLevel=3;
-		medAntibioticsTimeSec=900;
+		medAntibioticTimeSec=900;
 		medAntisepsisTimeSec=900;
 		overdosedIncrement=0.7;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_toxicgreen_co.paa"};
@@ -289,7 +289,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_CARBOXYME";
 		medAntiradLevel=2;
-		medAntiradTimer=600;
+		medAntiradTimeSec=600;
 		overdosedIncrement=0.6;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_dirtyblue_co.paa"};
 	};
@@ -299,7 +299,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_ACTAPAROXETINE";
 		medAntidepresantLevel=2;
-		medAntidepresantTimer=400;
+		medAntidepresantTimeSec=400;
 		overdosedIncrement=0.4;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_dirtygreen_co.paa"};
 	};
@@ -309,7 +309,7 @@ class CfgVehicles
 		scope=2;
 		displayName="#STR_TERJEMED_AMITRIPTYLINE";
 		medAntidepresantLevel=3;
-		medAntidepresantTimer=600;
+		medAntidepresantTimeSec=600;
 		overdosedIncrement=0.5;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_dirtyred_co.paa"};
 	};
@@ -383,7 +383,7 @@ class CfgVehicles
 		displayName="#STR_TERJEMED_KONYIN";
 		overdosedIncrement=3;
 		medSleepDamageValue=100;
-		medSleepDamageTime=300;
+		medSleepDamageTimeSec=300;
 		hiddenSelectionsTextures[]={"TerjeMedicine\Ampouls\data\ampoule_konyin_co.paa"};
 	};
 

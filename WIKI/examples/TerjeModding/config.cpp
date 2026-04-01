@@ -63,7 +63,7 @@ class cfgLiquidDefinitions
     class Vodka //Ванильная жидкость
     {
         medAntiradLevel = 1; //Сила
-        medAntiradTimer = 10; // Время действия (с)
+        medAntiradTimeSec = 10; // Время действия (с)
         overdosedIncrement = 0.15; // Передозировка
     };
 };
@@ -72,7 +72,7 @@ class CfgTerjeCustomLiquids
     class CustomLiquids //Ваша кастомная жидкость
     {
         medAntiradLevel = 1; //Сила
-        medAntiradTimer = 10; // Время действия (с)
+        medAntiradTimeSec = 10; // Время действия (с)
         overdosedIncrement = 0.15; // Передозировка
     };
 };
