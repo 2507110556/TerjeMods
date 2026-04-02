@@ -53,7 +53,7 @@ modded class StaminaModifier
 	
 	void SetTerjeModifier(float value)
 	{
-		m_terjeModifier = Math.Clamp(1.0 + value, 0.0, 1.0);
+		m_terjeModifier = Math.Clamp(1.0 + value, 0.001, 1.0); //min value of 0 can cause Division by zero
 	}
 	
 	override float GetMinValue()
@@ -164,7 +164,7 @@ modded class StaminaHandler
 		{
 			m_StaminaConsumers.SetTerjeMaxStaminaModifier(m_terjeMaxStaminaModifier);
 		}
-				
+		
 		m_StaminaDepletion = m_StaminaDepletion / m_terjeMaxStaminaModifier;
 		super.Update(deltaT, pCurrentCommandID);
 	}

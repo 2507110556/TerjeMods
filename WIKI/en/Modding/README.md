@@ -97,10 +97,10 @@ class CfgVehicles
 How is the total time of action of the drug calculated when the item is consumed. Let's take the following data as an example:
 ```css
       medAntidepresantLevel=1;     
-      medAntidepresantTimer=120;
-      medAntidepresantMaxTimer=1800;
+      medAntidepresantTimeSec=120;
+      medAntidepresantMaxTimeSec=1800;
 ```
-Let's say you have an item with a volume of 1000 g/mL. A timer is calculated for each unit (quantity) of the item. When you consume 100 g/mL (100 * medAntidepresantTimer), you get a timer of 1200 seconds. If you consume 500 g/mL, the timer would be calculated as (100 * medAntidepresantTimer) = 5000 seconds. However, if the **medAntidepresantMaxTimer** parameter is specified, the maximum time will be capped at 1800 seconds, regardless of the amount consumed.  
+Let's say you have an item with a volume of 1000 g/mL. A timer is calculated for each unit (quantity) of the item. When you consume 100 g/mL (100 * medAntidepresantTimeSec), you get a timer of 1200 seconds. If you consume 500 g/mL, the timer would be calculated as (100 * medAntidepresantTimeSec) = 5000 seconds. However, if the **medAntidepresantMaxTimeSec** parameter is specified, the maximum time will be capped at 1800 seconds, regardless of the amount consumed.  
 
 #### 2. BASED ON A LIQUID
 
@@ -157,7 +157,7 @@ class cfgLiquidDefinitions
 	class Vodka
 	{
 		medAntiradLevel = 1; //Strength
-		medAntiradTimer = 10; // Time of action (s)
+		medAntiradTimeSec = 10; // Time of action (s)
 		medAntiradMaxTimeSec=1800; //Maximum time of action (s), after consuming the entire amount.
 		terjeAddBlood = 1; //Add 1 Blood per 1 ml (Negative values - reduce).
 		terjeAddHealth = 2; //Add 2 Health per 1 ml (Negative values - reduce).
@@ -193,7 +193,7 @@ class CfgTerjeCustomLiquids
 		liquidBoilingThreshold=150;
 		terjeRadiationCleanupForce=1;
 		medAntiradLevel = 1; //Strength
-		medAntiradTimer = 10; // Action Time (s)
+		medAntiradTimeSec = 10; // Action Time (s)
 		medAntiradMaxTimeSec=1800; //Maximum time of action (s), after consuming the full amount.
 		terjeAddBlood = 1; //Add 1 Blood per 1 ml (Negative values - reduce).
 		terjeAddHealth = 2; //Add 2 Health per 1 ml (Negative values - reduce).

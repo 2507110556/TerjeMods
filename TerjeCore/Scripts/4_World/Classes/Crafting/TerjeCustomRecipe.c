@@ -1,5 +1,5 @@
 class TerjeCustomRecipe : RecipeBase
-{	
+{
 	const string TERJE_RECIPE_BLOCKED_TITLE = "#STR_TERJECORE_CRAFT_BLOCK";
 	const string TERJE_RECIPE_BLOCKED_ICON = "set:dayz_gui image:icon_lock";
 	protected ref TerjeXmlObject m_terjeRecipeData = null;

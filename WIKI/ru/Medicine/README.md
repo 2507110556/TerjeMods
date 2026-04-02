@@ -68,9 +68,9 @@
 
 Параметры для [создания своих предметов](../Modding/README.md#1-на-основе-предмета)
 ```cs
-    medInfluenzaVacineTime  = 14400; //Вакцина от Простуды
-    medZVirusVacineTime  = 7200; // Вакцина от вируса Z
-    medRabiesVacineTime = 14400; // Вакцина от Бешенства
+    medInfluenzaVacineTimeSec  = 14400; //Вакцина от Простуды
+    medZVirusVacineTimeSec  = 7200; // Вакцина от вируса Z
+    medRabiesVacineTimeSec = 14400; // Вакцина от Бешенства
 ```
 
 ## ![image](/WIKI/images/desinfection.png) ДЕЗИНФЕКЦИЯ
@@ -430,7 +430,7 @@
 Параметры для [создания своих предметов](../Modding/README.md#1-на-основе-предмета)
 ```cs
     medAntidepresantLevel  = 1; //Сила
-    medAntidepresantTimer  = 300; // Время действия (с)
+    medAntidepresantTimeSec  = 300; // Время действия (с)
     overdosedIncrement = 0.45; // Передозировка
 ```
 

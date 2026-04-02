@@ -1,5 +1,10 @@
 class TerjeSkillTooltip
 {
+	static const string COLOR_GREEN = "<color rgba='97,215,124,255'>";
+	static const string COLOR_BLUE = "<color rgba='0,148,255,255'>";
+	static const string COLOR_END = "</color>";
+	static const string NEXT_LINE = "<br/>";
+	
 	private static ref Widget m_skillTooltipInstance = null;
 	static ref Widget GetSkillTooltipWidget(TerjeSkillCfg skillCfg, int exp, int points)
 	{
@@ -23,12 +28,12 @@ class TerjeSkillTooltip
 		skillCfg.GetModifiers(modifiers);
 		if (modifiers.Count() > 0)
 		{
-			info = info + "<br/>";
+			info += NEXT_LINE;
 			foreach (ref TerjeSkillModifierCfg modifier : modifiers)
 			{
 				string modifierPercent = TerjeMathHelper.ToDisplayPercent(modifier.GetValue());
 				string totalPercent = TerjeMathHelper.ToDisplayPercent(modifier.GetValue() * level);
-				info = info + "<br/>" + modifier.GetText() + " <color rgba='0,148,255,255'>" + modifierPercent + "%</color> #STR_TERJESKILL_MISC0 (<color rgba='97,215,124,255'>" + totalPercent + "%</color>)";
+				info += NEXT_LINE + modifier.GetText() + " " + COLOR_BLUE + modifierPercent + "%" + COLOR_END + " #STR_TERJESKILL_MISC0 (" + COLOR_GREEN + totalPercent + "%" + COLOR_END + ")";
 			}
 		}
 		

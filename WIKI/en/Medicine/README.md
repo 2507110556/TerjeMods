@@ -65,9 +65,9 @@ Mechanics included in the mod:
 
 Parameters for [creating your own items](../Modding/README.md#1-based-on-item)
 ```cs
-    medInfluenzaVacineTime  = 14400; // Vaccine against Cold
-    medZVirusVacineTime     = 7200;  // Vaccine against Z Virus
-    medRabiesVacineTime     = 14400; // Vaccine against Rabies
+    medInfluenzaVacineTimeSec  = 14400; // Vaccine against Cold
+    medZVirusVacineTimeSec     = 7200;  // Vaccine against Z Virus
+    medRabiesVacineTimeSec     = 14400; // Vaccine against Rabies
 ```
 
 ## ![image](/WIKI/images/desinfection.png) DISINFECTION
@@ -397,7 +397,7 @@ Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 Parameters for [creating your own items](../Modding/README.md#1-based-on-item):
 ```cs
 	medAntidepresantLevel = 1; // Strength
-	medAntidepresantTimer = 300; // Duration (s)
+	medAntidepresantTimeSec = 300; // Duration (s)
 	overdosedIncrement = 0.45; // Overdose increment
 ```
 

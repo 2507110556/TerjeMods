@@ -53,6 +53,7 @@ class TerjePlayerModifierComa : TerjePlayerModifierBase
 					{
 						player.GetTerjeStats().SetKnockoutTimer(deltaTime);
 						player.GetTerjeStats().SetAdrenalinValue(0);
+						player.GetTerjeStats().SetHealthExtraRegenTimer(0);
 						player.GetTerjeStats().ResetKnockoutFinisher();
 					}
 				}

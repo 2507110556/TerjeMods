@@ -41,7 +41,7 @@
 Параметры для [создания своих предметов](../Modding/README.md#1-на-основе-предмета)
 ```cs
     medAntiradLevel = 1; //Сила
-    medAntiradTimer = 300; // Время действия (с)
+    medAntiradTimeSec = 300; // Время действия (с)
     overdosedIncrement = 0.45; // Передозировка
 ```
 
