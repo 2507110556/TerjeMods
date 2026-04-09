@@ -47,7 +47,8 @@ modded class PrepareFish
 					float perkStrgarms;
 					if (player.GetTerjeSkills().GetPerkValue("fish", "strgarms", perkStrgarms))
 					{
-						mknifeSkill = Math.Clamp(1.0 + perkStrgarms, 0, 1);
+						mknifeSkill += perkStrgarms;
+						mknifeSkill = Math.Clamp(mknifeSkill, 0, 1);
 					}
 					
 					float fishBodyMod = 1.0;
