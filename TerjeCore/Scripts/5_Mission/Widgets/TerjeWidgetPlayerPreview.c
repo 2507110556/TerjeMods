@@ -31,7 +31,7 @@ class TerjeWidgetPlayerPreview : TerjeWidgetBase
 				m_playerWidget.SetPlayer(GetGame().GetPlayer());
 			}
 			
-			m_playerWidget.UpdateItemInHands(GetGame().GetPlayer().GetHumanInventory().GetEntityInHands());
+			m_playerWidget.UpdateItemInHands(GetGame().GetPlayer().GetEntityInHands());
 			m_playerWidget.Refresh();
 			
 			if ( m_isHolding )

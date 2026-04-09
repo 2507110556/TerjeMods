@@ -1214,7 +1214,7 @@ class PluginTerjeStartScreen : PluginBase
 				}
 			}
 	
-			ItemBase itemInHands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+			ItemBase itemInHands = ItemBase.Cast(player.GetEntityInHands());
 			if (itemInHands)
 			{
 				player.LocalDestroyEntityInHands();
