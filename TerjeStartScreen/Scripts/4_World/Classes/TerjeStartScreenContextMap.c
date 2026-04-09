@@ -208,7 +208,7 @@ class TerjeStartScreenContextMap : TerjeStartScreenContextBase
 			maxRadius = Math.Clamp(maxRadius, 0, 500);
 			if (maxRadius > 0)
 			{
-				GetGame().GetObjectsAtPosition3D(pos, maxRadius, safeRadObjects, null);
+				g_Game.GetObjectsAtPosition3D(pos, maxRadius, safeRadObjects, null);
 				foreach (Object obj : safeRadObjects)
 				{
 					EntityAI objEntity = EntityAI.Cast(obj);

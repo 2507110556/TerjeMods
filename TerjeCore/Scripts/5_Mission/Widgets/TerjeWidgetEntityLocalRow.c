@@ -9,7 +9,7 @@ class TerjeWidgetEntityLocalRow : TerjeWidgetBase
 	{
 		if (m_localOwnedEntity != null)
 		{
-			GetGame().ObjectDelete(m_localOwnedEntity);
+			g_Game.ObjectDelete(m_localOwnedEntity);
 			m_localOwnedEntity = null;
 		}
 	}
@@ -53,14 +53,14 @@ class TerjeWidgetEntityLocalRow : TerjeWidgetBase
 	{
 		if (m_localOwnedEntity != null)
 		{
-			GetGame().ObjectDelete(m_localOwnedEntity);
+			g_Game.ObjectDelete(m_localOwnedEntity);
 			m_localOwnedEntity = null;
 		}
 		
-		Object obj = GetGame().CreateObject(classname, vector.Zero, true, false, false);
+		Object obj = g_Game.CreateObject(classname, vector.Zero, true, false, false);
 		if (obj && !obj.IsInherited(EntityAI))
 		{
-			GetGame().ObjectDelete(obj);
+			g_Game.ObjectDelete(obj);
 			return;
 		}
 		

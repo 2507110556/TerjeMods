@@ -6,7 +6,7 @@ modded class IngameHud
 	override void Init( Widget hud_panel_widget )
 	{
 		m_BadgesWidgetTerjeType = new map<int,TerjeBadgeType>;
-		m_TerjeOverlayRoot = GetGame().GetWorkspace().CreateWidget(FrameWidgetTypeID, 0, 0, 1, 1, 536870925, -1, 0, hud_panel_widget);
+		m_TerjeOverlayRoot = g_Game.GetWorkspace().CreateWidget(FrameWidgetTypeID, 0, 0, 1, 1, 536870925, -1, 0, hud_panel_widget);
 		super.Init(hud_panel_widget);
 	}
 	
@@ -26,7 +26,7 @@ modded class IngameHud
 			return oldNotifierWidget.GetUserID();
 		}
 		
-		ref Widget tendencyRoot = GetGame().GetWorkspace().CreateWidgets("TerjeCore/Layouts/TendencyTemplate.layout");
+		ref Widget tendencyRoot = g_Game.GetWorkspace().CreateWidgets("TerjeCore/Layouts/TendencyTemplate.layout");
 		ref Widget notifierWidget = tendencyRoot.FindAnyWidget("TendencyTemplate");
 		
 		notifierWidget.SetName(name);
@@ -113,7 +113,7 @@ modded class IngameHud
 			oldBadgeWidget.Unlink();
 		}
 		
-		ref Widget badgeRoot = GetGame().GetWorkspace().CreateWidgets("TerjeCore/Layouts/BadgeTemplate.layout");	
+		ref Widget badgeRoot = g_Game.GetWorkspace().CreateWidgets("TerjeCore/Layouts/BadgeTemplate.layout");	
 		ref ImageWidget badgeWidget = ImageWidget.Cast( badgeRoot.FindAnyWidget("BadgeTemplate") );
 		ref TextWidget badgeText = TextWidget.Cast( badgeRoot.FindAnyWidget("BadgeTemplateText") );
 		

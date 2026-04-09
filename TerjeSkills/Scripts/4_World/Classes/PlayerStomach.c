@@ -34,7 +34,7 @@ modded class PlayerStomach
 		
 		if (profile)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				float energy = profile.GetEnergy() * amount;
 				if (energy > 0)

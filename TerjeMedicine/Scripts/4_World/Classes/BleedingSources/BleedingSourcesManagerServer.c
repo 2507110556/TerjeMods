@@ -720,7 +720,7 @@ modded class BleedingSourcesManagerServer
 				};
 			};
 		*/
-		if (GetGame() && source && m_Player && m_Player.GetTerjeStats() != null)
+		if (g_Game && source && m_Player && m_Player.GetTerjeStats() != null)
 		{
 			float value;
 			string configRoot = "CfgVehicles " + source.GetType() + " TerjeCustomInjuries";

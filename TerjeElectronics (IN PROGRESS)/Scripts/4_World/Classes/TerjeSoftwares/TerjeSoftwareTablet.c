@@ -6,9 +6,9 @@ class TerjeSoftwareTablet : TerjeSoftwareBase
 	{
 		super.OnUpdate(deltaTime);
 		
-		if (GetGame() && GetGadget())
+		if (g_Game && GetGadget())
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				SetBootTimer(GetBootTimer() + deltaTime);
 				if (GetBootMode() == TerjeSoftwareBootMode.INIT)
@@ -35,7 +35,7 @@ class TerjeSoftwareTablet : TerjeSoftwareBase
 	{
 		super.OnPowerModeChanged(oldState, newState);
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (newState == TerjeHardwarePowerMode.DISABLED)
 			{
@@ -70,9 +70,9 @@ class TerjeSoftwareTablet : TerjeSoftwareBase
 	{
 		super.OnBootModeChanged(oldState, newState);
 		
-		if (GetGadget() && GetGame())
+		if (GetGadget() && g_Game)
 		{
-			if (GetGame().IsClient())
+			if (g_Game.IsClient())
 			{
 				if (m_bootSound && m_bootSound.IsPlaying())
 				{
@@ -81,7 +81,7 @@ class TerjeSoftwareTablet : TerjeSoftwareBase
 				
 				if (newState == TerjeSoftwareBootMode.INIT)
 				{
-					SetBootTimer(GetGame().GetTickTime());
+					SetBootTimer(g_Game.GetTickTime());
 					
 					string bootInitSound = GetBootInitSoundSetName();
 					if (bootInitSound != string.Empty)
@@ -91,10 +91,10 @@ class TerjeSoftwareTablet : TerjeSoftwareBase
 				}
 				else if (newState == TerjeSoftwareBootMode.LOADING)
 				{
-					SetBootTimer(GetGame().GetTickTime());
+					SetBootTimer(g_Game.GetTickTime());
 				}
 			}
-			else if (GetGame().IsDedicatedServer())
+			else if (g_Game.IsDedicatedServer())
 			{
 				if (newState == TerjeSoftwareBootMode.INIT)
 				{

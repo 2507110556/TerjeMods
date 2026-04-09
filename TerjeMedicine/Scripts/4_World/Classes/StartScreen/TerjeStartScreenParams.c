@@ -19,7 +19,7 @@ modded class TerjeStartScreenParams
 	{
 		super.OnServerTick(player, deltaTime);
 		
-		if (GetGame() && GetGame().IsDedicatedServer() && (player.GetTerjeStats() != null))
+		if (g_Game && g_Game.IsDedicatedServer() && (player.GetTerjeStats() != null))
 		{
 			player.GetTerjeStats().SetSleepingValue(m_sleep);
 			player.GetTerjeStats().SetMindValue(m_mind);

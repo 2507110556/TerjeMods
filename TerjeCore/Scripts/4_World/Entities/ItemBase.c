@@ -23,7 +23,7 @@ modded class ItemBase
 	{
 		super.EEInit();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			if (IsTerjeClientUpdateRequired())
 			{
@@ -36,7 +36,7 @@ modded class ItemBase
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			if (IsTerjeClientUpdateRequired())
 			{
@@ -212,7 +212,7 @@ modded class ItemBase
 	
 	ItemBase GetTerjeProtectionElement(string protectionType)
 	{
-		if (!GetGame() || IsDamageDestroyed() || (HasQuantity() && GetQuantity() <= 0))
+		if (!g_Game || IsDamageDestroyed() || (HasQuantity() && GetQuantity() <= 0))
 		{
 			return null;
 		}
@@ -293,7 +293,7 @@ modded class ItemBase
 	
 	void ApplyTerjeConsumableEffects(PlayerBase player, float amount)
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			TerjeConsumableEffects medEffects = new TerjeConsumableEffects();
 			if (IsLiquidContainer())
@@ -447,7 +447,7 @@ modded class ItemBase
 	
 	void TerjeSendToClient(string id, PlayerIdentity recipient, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -462,7 +462,7 @@ modded class ItemBase
 	
 	void TerjeStreamToClient(string id, PlayerIdentity recipient, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, recipient, TerjeStreamRpc_Target.TO_CLIENT, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -471,7 +471,7 @@ modded class ItemBase
 		
 	void TerjeSendToServer(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -486,7 +486,7 @@ modded class ItemBase
 	
 	void TerjeStreamToServer(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_SERVER, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -495,7 +495,7 @@ modded class ItemBase
 	
 	void TerjeSendToAll(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -510,7 +510,7 @@ modded class ItemBase
 	
 	void TerjeStreamToAll(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_ALL, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);

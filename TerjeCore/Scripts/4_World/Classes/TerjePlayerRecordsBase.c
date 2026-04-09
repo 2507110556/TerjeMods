@@ -102,7 +102,7 @@ class TerjePlayerRecordsBase
 	
 	protected int RegisterRecord(string id, TerjeRecordBase defaultValue)
 	{
-		if (!GetGame().IsDedicatedServer() && defaultValue.IsServerOnly())
+		if (!g_Game.IsDedicatedServer() && defaultValue.IsServerOnly())
 		{
 			return -1;
 		}
@@ -738,7 +738,7 @@ class TerjePlayerRecordsBase
 	
 	bool OnStoreSynch(ParamsWriteContext ctx, bool forceSynchAll)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && (forceSynchAll || IsDirtySynch()))
+		if (g_Game && g_Game.IsDedicatedServer() && (forceSynchAll || IsDirtySynch()))
 		{
 			int headerRecordsCount = 0;
 			foreach (string id0, ref TerjeRecordBase record0 : m_synchRecords)	
@@ -774,7 +774,7 @@ class TerjePlayerRecordsBase
 	
 	void SynchWithClient(PlayerBase player, bool forceSynchAll, int rpcId)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && player && player.GetIdentity() && (forceSynchAll || IsDirtySynch()))
+		if (g_Game && g_Game.IsDedicatedServer() && player && player.GetIdentity() && (forceSynchAll || IsDirtySynch()))
 		{
 			ScriptRPC ctx = new ScriptRPC();
 			bool result = this.OnStoreSynch(ctx, forceSynchAll);
@@ -789,7 +789,7 @@ class TerjePlayerRecordsBase
 	
 	void SetExpirableTimestamp(string name, int value, bool deleteExpired = true)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetIntMapValue(m_timestampExpireRecord, name, value);
 			
@@ -820,7 +820,7 @@ class TerjePlayerRecordsBase
 	
 	void DeleteExpirableTimestamp(string name)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			RemoveMapValue(m_timestampExpireRecord, name);
 		}
@@ -833,7 +833,7 @@ class TerjePlayerRecordsBase
 	
 	void SetInstantTimestamp(string name, int value)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetIntMapValue(m_timestampInstantRecord, name, value);
 		}
@@ -841,7 +841,7 @@ class TerjePlayerRecordsBase
 	
 	void DeleteInstantTimestamp(string name)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			RemoveMapValue(m_timestampInstantRecord, name);
 		}

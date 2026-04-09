@@ -28,7 +28,7 @@ modded class MissionGameplay
 					settingModifier = 1.0;
 				}
 				
-				bool isNight = GetGame() && GetGame().GetWorld() && GetGame().GetWorld().IsNight();
+				bool isNight = g_Game && g_Game.GetWorld() && g_Game.GetWorld().IsNight();
 				bool isUnderground = player.GetUndergroundHandler() && player.GetUndergroundHandler().IsTerjeClientUnderground();
 				if (isNight || isUnderground)
 				{

@@ -186,7 +186,7 @@ class TerjeGadgetConsoleWidget : TerjeGadgetComponentWidget
 			
 			if (char != " ")
 			{
-				newCharWidget = TextWidget.Cast(GetGame().GetWorkspace().CreateWidgets(GetNativeCharLayout(), m_nativeScrollWidget));
+				newCharWidget = TextWidget.Cast(g_Game.GetWorkspace().CreateWidgets(GetNativeCharLayout(), m_nativeScrollWidget));
 			}
 			
 			TextWidget oldCharWidget = GetCharFromMatrix(m_actualColumn, m_actualRow);

@@ -24,7 +24,7 @@ class TerjeScriptableArea : House
 	{	
 		super.AfterStoreLoad();
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			Delete();
 		}
@@ -52,7 +52,7 @@ class TerjeScriptableArea : House
 	
 	void SetTerjeParametersServer(map<string, float> parameters)
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			SetTerjeParameters(parameters);
 			m_terjeInitialized = true;
@@ -102,7 +102,7 @@ class TerjeScriptableArea : House
 		super.EEInit();
 		m_terjeStaticPos = GetWorldPosition();
 		
-		if (!m_terjeInitialized && GetGame().IsDedicatedServer())
+		if (!m_terjeInitialized && g_Game.IsDedicatedServer())
 		{
 			LoadTerjeConfigParameters();
 			
@@ -116,7 +116,7 @@ class TerjeScriptableArea : House
 			SetSynchDirty();
 		}
 		
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(RegisterTerjeScriptableArea, 250);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(RegisterTerjeScriptableArea, 250);
 	}
 	
 	void RegisterTerjeScriptableArea()

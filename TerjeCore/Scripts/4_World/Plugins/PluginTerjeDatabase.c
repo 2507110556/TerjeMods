@@ -25,7 +25,7 @@ class PluginTerjeDatabase extends PluginBase
 	
 	override void OnInit()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			MakeDirectory(DATABASE_DIR);
 			MakeDirectory(DATABASE_DIR + "/profiles");
@@ -38,7 +38,7 @@ class PluginTerjeDatabase extends PluginBase
 	{
 		super.OnUpdate(delta_time);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			float autosaveInterval;
 			if (m_autosaveCache.Count() > 0)
@@ -69,7 +69,7 @@ class PluginTerjeDatabase extends PluginBase
 	
 	void OnPlayerPreloading(PlayerIdentity identity)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && identity != null)
+		if (g_Game && g_Game.IsDedicatedServer() && identity != null)
 		{
 			string uid = identity.GetId();
 			if (!m_profiles.Contains(uid))
@@ -105,7 +105,7 @@ class PluginTerjeDatabase extends PluginBase
 	
 	void OnPlayerConnected(PlayerBase player, PlayerIdentity identity, string uid)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjePlayerProfile oldProfile;
 			TerjePlayerProfile newProfile = player.CreateTerjeProfile();
@@ -150,7 +150,7 @@ class PluginTerjeDatabase extends PluginBase
 	
 	void OnPlayerDisconnected(PlayerBase player, PlayerIdentity identity, string uid)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			ref TerjePlayerProfile profile;
 			if (m_profiles.Find(uid, profile) && (profile != null))
@@ -172,7 +172,7 @@ class PluginTerjeDatabase extends PluginBase
 	
 	private void SaveProfileByIdentity(TerjePlayerProfile profile, string uid)
 	{
-		if ((GetGame().IsDedicatedServer()) && (profile != null) && (uid != string.Empty))
+		if ((g_Game.IsDedicatedServer()) && (profile != null) && (uid != string.Empty))
 		{
 			profile.OnStoreSaveFile(DATABASE_DIR + "/profiles/" + uid + ".dat");
 			TerjeLog_Info("Profile '" + uid + "' saved to database.");

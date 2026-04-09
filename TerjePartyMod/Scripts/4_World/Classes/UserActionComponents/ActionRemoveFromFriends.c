@@ -23,7 +23,7 @@ class ActionRemoveFromFriends: ActionContinuousBase
 		PlayerBase ntarget = PlayerBase.Cast( target.GetObject() );
 		if ( ntarget && ntarget.IsAlive() && ntarget.GetIdentity() && !ntarget.IsUnconscious() && !ntarget.IsRestrained() )
 		{
-			if (GetGame().IsServer())
+			if (g_Game.IsServer())
 			{
 				return true;
 			}

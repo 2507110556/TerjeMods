@@ -14,7 +14,7 @@ class TerjePassport : ItemBase
 	
 	void InitializeTerjePassportData(PlayerBase target)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (target && target.IsAlive() && target.GetIdentity())
 			{
@@ -36,7 +36,7 @@ class TerjePassport : ItemBase
 	{
 		super.OnItemLocationChanged(old_owner, new_owner);
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (new_owner && !HasTerjePassportData())
 			{

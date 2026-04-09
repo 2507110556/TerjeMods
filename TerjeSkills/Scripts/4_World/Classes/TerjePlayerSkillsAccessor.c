@@ -7,7 +7,7 @@ modded class TerjePlayerSkillsAccessor
 			return 0;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return 0;
 		}
@@ -29,7 +29,7 @@ modded class TerjePlayerSkillsAccessor
 			return 0;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return 0;
 		}
@@ -50,7 +50,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -93,7 +93,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -171,7 +171,7 @@ modded class TerjePlayerSkillsAccessor
 			return 0;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return 0;
 		}
@@ -186,7 +186,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -214,7 +214,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -246,7 +246,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -288,7 +288,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -324,7 +324,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -376,7 +376,7 @@ modded class TerjePlayerSkillsAccessor
 			return 0;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return 0;
 		}
@@ -425,7 +425,7 @@ modded class TerjePlayerSkillsAccessor
 			return false;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return false;
 		}
@@ -487,7 +487,7 @@ modded class TerjePlayerSkillsAccessor
 			return;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return;
 		}
@@ -538,7 +538,7 @@ modded class TerjePlayerSkillsAccessor
 			return false;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
+		if (!g_Game.IsDedicatedServer() && !m_Player.IsTerjeLocalControlledPlayer())
 		{
 			return false;
 		}

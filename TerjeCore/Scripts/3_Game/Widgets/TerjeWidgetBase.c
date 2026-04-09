@@ -10,7 +10,7 @@ class TerjeWidgetBase : ScriptedWidgetEventHandler
 	
 	void OnCreate(Widget parent)
 	{
-		m_nativeWidget = GetGame().GetWorkspace().CreateWidgets(GetNativeLayout(), parent);
+		m_nativeWidget = g_Game.GetWorkspace().CreateWidgets(GetNativeLayout(), parent);
 		if (m_nativeWidget != null)
 		{
 			m_nativeWidget.SetHandler(this);

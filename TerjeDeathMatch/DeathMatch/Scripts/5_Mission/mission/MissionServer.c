@@ -142,7 +142,7 @@ modded class MissionServer
 		}
 		
 		BuildLeaderboard_DM();
-		GetGame().GetWorld().GetDate(m_DmYear, m_DmMonth, m_DmDay, m_DmHour, m_DmMinute);
+		g_Game.GetWorld().GetDate(m_DmYear, m_DmMonth, m_DmDay, m_DmHour, m_DmMinute);
 		GetRPCManager().AddRPC("DM", "DM_WeaponBuy", this, SingleplayerExecutionType.Server);
 		GetRPCManager().AddRPC("DM", "DM_EquipmentBuy", this, SingleplayerExecutionType.Server);
 		GetRPCManager().AddRPC("DM", "DM_LeaderBoardSrv", this, SingleplayerExecutionType.Server);
@@ -253,7 +253,7 @@ modded class MissionServer
 	override void OnUpdate(float timeslice)
 	{
 		array<Man> playersList();
-		GetGame().GetPlayers(playersList);		
+		g_Game.GetPlayers(playersList);		
 		m_DM_currentRadius = Math.Clamp(playersList.Count() * m_DM_ServerSettings.m_expandStep, m_DmCurrentTrail.m_minRadius, m_DmCurrentTrail.m_maxRadius);
 		
 		m_DmTrailTimer = m_DmTrailTimer + (timeslice * m_DM_ServerSettings.m_areaMoveSpeed);
@@ -275,7 +275,7 @@ modded class MissionServer
 			if (m_DmTimeUpdateTimer > 600)
 			{
 				m_DmTimeUpdateTimer = 0;
-				GetGame().GetWorld().SetDate(m_DmYear, m_DmMonth, m_DmDay, m_DmHour, m_DmMinute);
+				g_Game.GetWorld().SetDate(m_DmYear, m_DmMonth, m_DmDay, m_DmHour, m_DmMinute);
 			}
 		}
 		
@@ -350,7 +350,7 @@ modded class MissionServer
 		vector endPos = m_DmCurrentTrail.m_points.Get(end);
 		float delta = Math.Clamp(m_DmTrailShift - start, 0, 1);
 		vector result = vector.Lerp(startPos, endPos, delta);
-		result[1] = GetGame().SurfaceY(result[0], result[2]);
+		result[1] = g_Game.SurfaceY(result[0], result[2]);
 		return result;
 	}
 	
@@ -441,16 +441,16 @@ modded class MissionServer
 			string msg;
 			if (DM_ProcessAdminCommand(adminPlayer, parts, msg))
 			{
-				GetGame().ChatMP(adminPlayer, "COMMAND SUCCESS: " + msg, "colorImportant");
+				g_Game.ChatMP(adminPlayer, "COMMAND SUCCESS: " + msg, "colorImportant");
 			}
 			else
 			{
-				GetGame().ChatMP(adminPlayer, "COMMAND FAILED: " + msg, "colorImportant");
+				g_Game.ChatMP(adminPlayer, "COMMAND FAILED: " + msg, "colorImportant");
 			}
 		}
 		else
 		{
-			GetGame().ChatMP(adminPlayer, "COMMAND FAILED:  Invalid parameters", "colorImportant");
+			g_Game.ChatMP(adminPlayer, "COMMAND FAILED:  Invalid parameters", "colorImportant");
 		}
 	}
 	
@@ -489,7 +489,7 @@ modded class MissionServer
 					
 					targetPlayer.m_dmPlayerData.m_Money = money;
 					targetPlayer.m_DmPlayerDataSynchDirty = true;
-					GetGame().ChatMP(targetPlayer, "Your money is set to " + money + " by server admin.", "colorImportant");
+					g_Game.ChatMP(targetPlayer, "Your money is set to " + money + " by server admin.", "colorImportant");
 				}
 				
 				msg = "Money set to " + money + " for player " + moneyGuid;
@@ -531,7 +531,7 @@ modded class MissionServer
 					
 					targetPlayer.m_dmPlayerData.m_Level = level;
 					targetPlayer.m_DmPlayerDataSynchDirty = true;
-					GetGame().ChatMP(targetPlayer, "Your level is set to " + level + " by server admin.", "colorImportant");
+					g_Game.ChatMP(targetPlayer, "Your level is set to " + level + " by server admin.", "colorImportant");
 				}
 				
 				msg = "Level set to " + level + " for player " + levelGuid;
@@ -552,7 +552,7 @@ modded class MissionServer
 	{
 		PlayerBase plObj;
 		array<Man> playersList();
-		GetGame().GetPlayers(playersList);
+		g_Game.GetPlayers(playersList);
 		foreach (Man man0 : playersList)
 		{
 			plObj = PlayerBase.Cast(man0);
@@ -709,7 +709,7 @@ modded class MissionServer
 		if (identity)
 		{
 			vector pos = CalculateSafePos_DM(DM_GetAreaPos(), Math.Clamp(m_DM_currentRadius - 20, 10, 10000));
-			PlayerBase player = CreateCharacter(identity, pos, null, GetGame().CreateRandomPlayer());
+			PlayerBase player = CreateCharacter(identity, pos, null, g_Game.CreateRandomPlayer());
 			if (player)
 			{
 				DM_PlayerCustomRespawnHandler(player, identity, false);
@@ -719,7 +719,7 @@ modded class MissionServer
 		if (deadBody)
 		{
 			ref Param1<PlayerBase> deletePlayerParams = new Param1<PlayerBase>(deadBody);
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(GetGame(), "ObjectDelete", 5000, false, deletePlayerParams);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(g_Game, "ObjectDelete", 5000, false, deletePlayerParams);
 		}
 	}
 	
@@ -776,7 +776,7 @@ modded class MissionServer
 	
 	void EquipPlayer_DM(PlayerBase player)
 	{
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc0, player);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc0, player);
 	}
 	
 	void EquipPlayer_DM_Subfnc0(PlayerBase player)
@@ -784,7 +784,7 @@ modded class MissionServer
 		if (player)
 		{
 			player.ClearInventory();
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc1, player);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc1, player);
 		}
 	}
 	
@@ -798,7 +798,7 @@ modded class MissionServer
 				EquipPlayerClothing_DM(player, eqpData);
 			}
 			
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc2, player);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EquipPlayer_DM_Subfnc2, player);
 		}
 	}
 	
@@ -863,13 +863,13 @@ modded class MissionServer
 			float dist = Math.Sqrt(Math.RandomFloat01()) * radius;
 			float x = center[0] + dist * Math.Cos(angle);
 	    	float z = center[2] + dist * Math.Sin(angle);
-			float y = GetGame().SurfaceY(x, z);
-			if (GetGame().SurfaceIsSea(x, z))
+			float y = g_Game.SurfaceY(x, z);
+			if (g_Game.SurfaceIsSea(x, z))
 			{
 				continue;
 			}
 			
-			if (GetGame().SurfaceIsPond(x, z))
+			if (g_Game.SurfaceIsPond(x, z))
 			{
 				continue;
 			}
@@ -904,7 +904,7 @@ modded class MissionServer
 		vector contactDir = vector.Zero;
 		int contactComp = 0;
 		array<Man> playersList();
-		GetGame().GetPlayers(playersList);	
+		g_Game.GetPlayers(playersList);	
 		foreach (Man target: playersList)
 		{
 			vector targetPos = target.GetWorldPosition();

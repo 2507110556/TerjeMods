@@ -31,7 +31,7 @@ class ActionTerjeGadgetUse: ActionSingleUseBase
 	
 	override void OnExecuteClient( ActionData action_data )
 	{
-		if ((GetGame()) && (GetGame().IsClient()) && (GetGame().GetUIManager().GetMenu() == null))
+		if ((g_Game) && (g_Game.IsClient()) && (g_Game.GetUIManager().GetMenu() == null))
 		{
 			typename gadgetMenuType = String("TerjeGadgetMenu").ToType();
 			TerjeGadgetBase gadgetEntity = TerjeGadgetBase.Cast(action_data.m_MainItem);
@@ -41,7 +41,7 @@ class ActionTerjeGadgetUse: ActionSingleUseBase
 				if (gadgetMenu != null)
 				{
 					Param1<TerjeGadgetBase> callParams = new Param1<TerjeGadgetBase>(gadgetEntity);
-					GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallByName(gadgetMenu, "SetTerjeGadget", callParams);
+					g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallByName(gadgetMenu, "SetTerjeGadget", callParams);
 				}
 			}
 		}

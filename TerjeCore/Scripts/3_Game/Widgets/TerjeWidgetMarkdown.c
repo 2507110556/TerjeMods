@@ -338,11 +338,11 @@ class TerjeWidgetMarkdownLink : TerjeWidgetText
 			int button = TerjeWidgetCommand_Clicked.Cast(command).m_button;
 			if (button == 0)
 			{
-				GetGame().OpenURL(m_linkUrl);
+				g_Game.OpenURL(m_linkUrl);
 			}
 			else
 			{
-				GetGame().CopyToClipboard(m_linkUrl);
+				g_Game.CopyToClipboard(m_linkUrl);
 			}
 		}
 	}

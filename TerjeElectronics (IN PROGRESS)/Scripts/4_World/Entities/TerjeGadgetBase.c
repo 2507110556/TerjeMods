@@ -31,7 +31,7 @@ class TerjeGadgetBase : ItemBase
 	
 	TerjeHardwareBase GetHardware()
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && (m_hardware == null))
+		if (g_Game && g_Game.IsDedicatedServer() && (m_hardware == null))
 		{
 			string hardwareClass = GetTerjeGameConfig().ConfigGetStringRaw("CfgVehicles " + GetType() + " hardwareClass");
 			if (hardwareClass != string.Empty)
@@ -56,9 +56,9 @@ class TerjeGadgetBase : ItemBase
 	{
 		super.EEInit();
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			if (GetGame().IsClient())
+			if (g_Game.IsClient())
 			{
 				TerjeSendToServer("init.req", null);
 			}
@@ -75,7 +75,7 @@ class TerjeGadgetBase : ItemBase
 		if (id == "init.req")
 		{
 			hardware = GetHardware();
-			if (GetGame() && GetGame().IsDedicatedServer() && (sender != null) && (hardware != null))
+			if (g_Game && g_Game.IsDedicatedServer() && (sender != null) && (hardware != null))
 			{
 				TerjeStreamToClient("init.res", sender, stream);
 				stream.Write(hardware.Type().ToString());
@@ -85,7 +85,7 @@ class TerjeGadgetBase : ItemBase
 		}
 		else if (id == "init.res")
 		{
-			if (GetGame() && GetGame().IsClient())
+			if (g_Game && g_Game.IsClient())
 			{
 				string hardwareClass;
 				if (ctx.Read(hardwareClass))
@@ -200,13 +200,13 @@ class TerjeGadgetBase : ItemBase
 	
 	void TerjeGadgetSendRPC(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame())
+		if (g_Game)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				TerjeStreamToAll(id, stream);
 			}
-			else if (GetGame().IsClient())
+			else if (g_Game.IsClient())
 			{
 				TerjeStreamToServer(id, stream);
 			}
@@ -220,7 +220,7 @@ class TerjeGadgetBase : ItemBase
 	
 	protected void ScheduleTerjeGadgetUpdate()
 	{
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(HandleTerjeGadgetUpdate, 1000);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(HandleTerjeGadgetUpdate, 1000);
 	}
 	
 	protected void HandleTerjeGadgetUpdate()
@@ -234,7 +234,7 @@ class TerjeGadgetBase : ItemBase
 		TerjeHardwareBase hardware = GetHardware();
 		if (hardware != null)
 		{
-			float currentTime = GetGame().GetTickTime();
+			float currentTime = g_Game.GetTickTime();
 			if (m_LastHardwareUpdatedTime == 0)
 			{
 				m_LastHardwareUpdatedTime = currentTime;

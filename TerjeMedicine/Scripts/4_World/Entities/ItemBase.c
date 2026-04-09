@@ -225,9 +225,9 @@ modded class ItemBase
 	
 	override int TerjeOverrideDescriptionByConsumableEffects()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
-			PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
+			PlayerBase player = PlayerBase.Cast( g_Game.GetPlayer() );
 			if (player && player.GetTerjeSkills())
 			{
 				if (GetTerjeGameConfig().ConfigGetBool("CfgVehicles " + GetType() + " medicalPillsCategory"))

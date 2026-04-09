@@ -9,7 +9,7 @@ modded class PlayerBase
 	{
 		super.EEInit();
 		
-		if (GetGame() && (GetGame().IsClient()))
+		if (g_Game && (g_Game.IsClient()))
 		{
 			TerjeRPCSingleParam("tss.name.req", null, true);
 		}
@@ -71,7 +71,7 @@ modded class PlayerBase
 	
 	override void OnTerjeCharacterLifetimeUpdated(int secondsSinceRespawn)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.STARTSCREEN_SOULS_ENABLED))
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.STARTSCREEN_SOULS_ENABLED))
 		{
 			float survTimePow = GetTerjeSettingFloat(TerjeSettingsCollection.STARTSCREEN_SOULS_SURVT_POW);
 			int survTimeSlice = GetTerjeSettingInt(TerjeSettingsCollection.STARTSCREEN_SOULS_SURVT_TIME);
@@ -101,7 +101,7 @@ modded class PlayerBase
 	
 	override string GetTerjeCharacterName()
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && (GetTerjeProfile() != null))
+		if (g_Game && g_Game.IsDedicatedServer() && (GetTerjeProfile() != null))
 		{
 			string firstName = GetTerjeProfile().GetFirstName();
 			string lastName = GetTerjeProfile().GetLastName();
@@ -127,7 +127,7 @@ modded class PlayerBase
 	{
 		super.OnTerjePlayerKilledEvent();
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeProfile() != null)
 			{
@@ -162,7 +162,7 @@ modded class PlayerBase
 	{
 		super.OnTerjeRPC(sender, id, ctx);
 		
-		if (GetGame())
+		if (g_Game)
 		{
 			if (id == "tss.name.req")
 			{
@@ -230,7 +230,7 @@ modded class PlayerBase
 	
 	void SetTerjeServerStartScreenImmunity(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.STARTSCREEN_ONACTIVE_GOD_MODE))
 			{

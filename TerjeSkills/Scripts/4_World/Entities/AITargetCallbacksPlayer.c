@@ -6,7 +6,7 @@ modded class AITargetCallbacksPlayer
 		float settingValue;
 		float result = super.GetMaxVisionRangeModifier(pApplicant);
 
-		if (GetGame() && GetGame().IsDedicatedServer() && m_Player && pApplicant && m_Player.GetTerjeSkills() != null)
+		if (g_Game && g_Game.IsDedicatedServer() && m_Player && pApplicant && m_Player.GetTerjeSkills() != null)
 		{
 			if (pApplicant.IsZombie())
 			{

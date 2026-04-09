@@ -313,7 +313,7 @@ modded class PlayerBase
 	
 	void UpdateTerjeWoundsBitmask()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			int bitmask = m_terjeMedWoundsMask;
 			bitmask = TerjeBitmaskHelper.SetBit(bitmask, TerjeMedicineWoundsMask.TERJE_MED_WOUNDS_MASK_STUB, HasTerjeStubWoundsSelf());
@@ -336,7 +336,7 @@ modded class PlayerBase
 	{
 		super.OnCallTerjeVomitSymptom(symptom, duration, drainForce);
 		
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeStats())
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeStats())
 		{
 			float poisonValue = GetTerjeStats().GetPoisonValue();
 			if (poisonValue > 2)
@@ -392,7 +392,7 @@ modded class PlayerBase
 	{
 		if (super.Consume(source, amount, consume_type))
 		{	
-			if (GetGame() && GetGame().IsDedicatedServer() && HasBloodyHands() && !GetItemOnSlot("Gloves"))
+			if (g_Game && g_Game.IsDedicatedServer() && HasBloodyHands() && !GetItemOnSlot("Gloves"))
 			{
 				if (Math.RandomFloat01() < GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_POISON_DIRTY_HANDS_CONSUME_CHANCE))
 				{
@@ -412,7 +412,7 @@ modded class PlayerBase
 
 		if (id == "tm.mind.weaponfire")
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				Weapon_Base weapon;
 				if (Weapon_Base.CastTo(weapon, GetItemInHands()))
@@ -431,8 +431,8 @@ modded class PlayerBase
 			if (!ctx.Read(dragPayload))
 				return;
 			
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.OnTerjeBodyDragProgress);
-			OnTerjeBodyDragProgress(dragPayload.param1, dragPayload.param2, GetGame().GetTime());
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.OnTerjeBodyDragProgress);
+			OnTerjeBodyDragProgress(dragPayload.param1, dragPayload.param2, g_Game.GetTime());
 		}
 	}
 	
@@ -449,19 +449,19 @@ modded class PlayerBase
 			DisableSimulation(false);
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				SetPosition(to);
 			}
 			else
 			{
-				float progress = ((float)(GetGame().GetTime() - startTime)) * 0.002;
+				float progress = ((float)(g_Game.GetTime() - startTime)) * 0.002;
 				SetPosition(vector.Lerp(from, to, Math.Clamp(progress, 0, 1)));
 				if (progress < 1.0)
 				{
-					GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.OnTerjeBodyDragProgress, 15, false, from, to, startTime);
+					g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.OnTerjeBodyDragProgress, 15, false, from, to, startTime);
 				}
 			}
 		}

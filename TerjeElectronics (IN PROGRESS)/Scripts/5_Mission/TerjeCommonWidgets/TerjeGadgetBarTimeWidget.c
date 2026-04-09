@@ -9,14 +9,14 @@ class TerjeGadgetBarTimeWidget : TerjeGadgetBarWidget
 	
 	protected string GetTimeString()
 	{
-		if (GetGame() && GetGame().GetWorld())
+		if (g_Game && g_Game.GetWorld())
 		{
 			int year;
 			int month;
 			int day;
 			int hour;
 			int minute;
-			GetGame().GetWorld().GetDate(year, month, day, hour, minute);
+			g_Game.GetWorld().GetDate(year, month, day, hour, minute);
 			
 			string hourStr = hour.ToString();
 			if (hourStr.Length() == 1)

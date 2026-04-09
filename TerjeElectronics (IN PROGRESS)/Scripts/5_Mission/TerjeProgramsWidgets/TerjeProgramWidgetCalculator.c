@@ -141,18 +141,18 @@ class TerjeProgramWidgetCalculator : TerjeProgramWidgetBase
 	
 	protected void OnButtonCopyCommand()
 	{
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().CopyToClipboard(TextToFloat(m_displayText).ToString(true));
+			g_Game.CopyToClipboard(TextToFloat(m_displayText).ToString(true));
 		}
 	}
 	
 	protected void OnButtonPasteCommand()
 	{
 		string clipboard = string.Empty;
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().CopyFromClipboard(clipboard);
+			g_Game.CopyFromClipboard(clipboard);
 			clipboard.Replace(",", ".");
 			m_displayText = FloatToText(clipboard.ToFloat());
 		}

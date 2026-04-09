@@ -5,7 +5,7 @@ class TerjeGameConfig
 	
 	void OnInit()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			m_config = new TerjeXmlDocument;
 			
@@ -43,7 +43,7 @@ class TerjeGameConfig
 	
 	void OnReceiveClientSettings(ParamsReadContext ctx)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			m_config = new TerjeXmlDocument;
 			m_config.Unbinarize(ctx);
@@ -155,9 +155,9 @@ class TerjeGameConfig
 			return result.GetValue().ToFloat();
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetFloat(path);
+			return g_Game.ConfigGetFloat(path);
 		}
 		
 		return 0;
@@ -171,9 +171,9 @@ class TerjeGameConfig
 			return result.GetValue().ToVector();
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetVector(path);
+			return g_Game.ConfigGetVector(path);
 		}
 		
 		return vector.Zero;
@@ -187,9 +187,9 @@ class TerjeGameConfig
 			return result.GetValue().ToInt();
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetInt(path);
+			return g_Game.ConfigGetInt(path);
 		}
 		
 		return 0;
@@ -204,9 +204,9 @@ class TerjeGameConfig
 			return true;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetText(path, value);
+			return g_Game.ConfigGetText(path, value);
 		}
 		
 		value = string.Empty;
@@ -222,9 +222,9 @@ class TerjeGameConfig
 			return true;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetTextRaw(path, value);
+			return g_Game.ConfigGetTextRaw(path, value);
 		}
 		
 		value = string.Empty;
@@ -270,9 +270,9 @@ class TerjeGameConfig
 			return;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().ConfigGetTextArray(path, values);
+			g_Game.ConfigGetTextArray(path, values);
 			return;
 		}
 	}
@@ -295,9 +295,9 @@ class TerjeGameConfig
 			return;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().ConfigGetTextArrayRaw(path, values);
+			g_Game.ConfigGetTextArrayRaw(path, values);
 			return;
 		}
 	}
@@ -320,9 +320,9 @@ class TerjeGameConfig
 			return;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().ConfigGetFloatArray(path, values);
+			g_Game.ConfigGetFloatArray(path, values);
 			return;
 		}
 	}
@@ -345,9 +345,9 @@ class TerjeGameConfig
 			return;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			GetGame().ConfigGetIntArray(path, values);
+			g_Game.ConfigGetIntArray(path, values);
 			return;
 		}
 	}
@@ -360,24 +360,24 @@ class TerjeGameConfig
 			return true;
 		}
 		
-		return GetGame() && GetGame().ConfigIsExisting(path);
+		return g_Game && g_Game.ConfigIsExisting(path);
 	}
 		
 	bool ConfigGetChildName(string path, int index, out string name)
 	{
-		return GetGame() && GetGame().ConfigGetChildName(path, index, name);
+		return g_Game && g_Game.ConfigGetChildName(path, index, name);
 	}
 	
 	bool ConfigGetBaseName(string path, out string base_name)
 	{
-		return GetGame() && GetGame().ConfigGetBaseName(path, base_name);
+		return g_Game && g_Game.ConfigGetBaseName(path, base_name);
 	}
 	
 	int ConfigGetChildrenCount(string path)
 	{
-		if (GetGame())
+		if (g_Game)
 		{
-			return GetGame().ConfigGetChildrenCount(path);
+			return g_Game.ConfigGetChildrenCount(path);
 		}
 		
 		return 0;
@@ -395,13 +395,13 @@ class TerjeGameConfig
 			result = new TStringArray;
 		}
 		
-		if (GetGame())
+		if (g_Game)
 		{
-			int count = GetGame().ConfigGetChildrenCount(path);
+			int count = g_Game.ConfigGetChildrenCount(path);
 			for (int i = 0; i < count; i++)
 			{
 				string classname;
-				if (GetGame().ConfigGetChildName(path, i, classname) && ConfigIsKindOf(path, classname, baseclass))
+				if (g_Game.ConfigGetChildName(path, i, classname) && ConfigIsKindOf(path, classname, baseclass))
 				{
 					classname.ToLower();
 					result.Insert(classname);
@@ -414,11 +414,11 @@ class TerjeGameConfig
 	{
 		actualClass.ToLower();
 		baseClass.ToLower();
-		if (GetGame() && (actualClass != baseClass))
+		if (g_Game && (actualClass != baseClass))
 		{
 			string parentName = string.Empty;
 			string value = path + " " + actualClass;
-			while (GetGame().ConfigIsExisting(value) && GetGame().ConfigGetBaseName(value, parentName))
+			while (g_Game.ConfigIsExisting(value) && g_Game.ConfigGetBaseName(value, parentName))
 			{
 				parentName.ToLower();
 				if (parentName == actualClass)

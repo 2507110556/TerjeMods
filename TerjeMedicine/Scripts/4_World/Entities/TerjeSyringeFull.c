@@ -56,7 +56,7 @@ class TerjeSyringeFull extends Inventory_Base
 	
 	override void OnApply(PlayerBase player)
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			float operatorPerkSterilityMod = 1.0;
 			PlayerBase operator = PlayerBase.Cast( this.GetHierarchyRootPlayer() ); 

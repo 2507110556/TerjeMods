@@ -14,7 +14,7 @@ modded class ActionDigWorms
 				count = (int)Math.Round((float)count * perkValue);
 				for (int i = 0; i < count; i++)
 				{
-					Class.CastTo(worms,  GetGame().CreateObjectEx("Worm", action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
+					Class.CastTo(worms,  g_Game.CreateObjectEx("Worm", action_data.m_Player.GetPosition(), ECE_PLACE_ON_SURFACE));
 				}
 			}
 		}

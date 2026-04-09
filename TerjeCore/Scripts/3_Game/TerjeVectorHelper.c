@@ -53,7 +53,7 @@ class TerjeVectorHelper
 		
 		if (!ySet)
 		{
-			result[1] = GetGame().SurfaceRoadY( result[0], result[2] );
+			result[1] = g_Game.SurfaceRoadY( result[0], result[2] );
 		}
 		
 		return result;
@@ -90,7 +90,7 @@ class TerjeVectorHelper
 		
 		if (!ySet)
 		{
-			result[1] = GetGame().SurfaceRoadY( result[0], result[2] );
+			result[1] = g_Game.SurfaceRoadY( result[0], result[2] );
 		}
 		
 		return result;

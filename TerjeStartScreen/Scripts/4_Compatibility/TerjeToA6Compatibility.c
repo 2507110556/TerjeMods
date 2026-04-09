@@ -25,7 +25,7 @@ modded class TerjeStartScreenParams
 	{
 		super.OnServerDone(player);
 		if (player && (!player.GetSecureContainer())) {
-			GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(player.RetrieveSecureContainer);
+			g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Call(player.RetrieveSecureContainer);
 		}
 	}
 }

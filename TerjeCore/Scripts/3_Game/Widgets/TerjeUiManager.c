@@ -7,7 +7,7 @@ class TerjeUiManager
 	
 	static ref TerjeUiManager GetInstance()
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			if (m_instance == null)
 			{
@@ -31,7 +31,7 @@ class TerjeUiManager
 	ref TerjeScriptedMenu GetScriptedMenu(typename name)
 	{
 		ref TerjeScriptedMenu menu = null;
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			if (!m_terjeScriptedMenuCache.Find(name, menu) || menu == null)
 			{
@@ -48,7 +48,7 @@ class TerjeUiManager
 		ref TerjeScriptedMenu menu = GetScriptedMenu(name);
 		if (menu != null)
 		{
-			GetGame().GetUIManager().ShowScriptedMenu(menu, null);
+			g_Game.GetUIManager().ShowScriptedMenu(menu, null);
 		}
 		
 		return menu;
@@ -73,10 +73,10 @@ class TerjeUiManager
 	{
 		HideGlobalTooltip();
 		
-		UIScriptedMenu menu = GetGame().GetUIManager().GetMenu();
+		UIScriptedMenu menu = g_Game.GetUIManager().GetMenu();
 		if (menu != null && menu.GetLayoutRoot() != null)
 		{
-			m_terjeGlobalTooltip = GetGame().GetWorkspace().CreateWidgets(layout, menu.GetLayoutRoot());
+			m_terjeGlobalTooltip = g_Game.GetWorkspace().CreateWidgets(layout, menu.GetLayoutRoot());
 			if (m_terjeGlobalTooltip != null)
 			{
 				if (init != null)

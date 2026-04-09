@@ -58,9 +58,9 @@ class PPERequester_TerjeMedPain : PPERequester_GameplayBase
 		
 		if (m_camShake == 1)
 		{
-			if (GetGame() && GetGame().GetPlayer())
+			if (g_Game && g_Game.GetPlayer())
 			{
-				GetGame().GetPlayer().GetCurrentCamera().SpawnCameraShake();
+				g_Game.GetPlayer().GetCurrentCamera().SpawnCameraShake();
 			}
 		}
 		if (m_camShake > 0)

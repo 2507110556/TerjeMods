@@ -16,7 +16,7 @@ class TerjePerkTooltip
 			m_perkTooltipInstance.Unlink();
 		}
 		
-		m_perkTooltipInstance = GetGame().GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkTooltip.layout", ItemManager.GetInstance().GetTerjeSkillsRoot() );
+		m_perkTooltipInstance = g_Game.GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkTooltip.layout", ItemManager.GetInstance().GetTerjeSkillsRoot() );
 		m_perkTooltipInstance.Show(false);
 		
 		string info = perkCfg.GetDescription() + NEXT_LINE;	

@@ -51,7 +51,7 @@ modded class DayZPlayerMeleeFightLogic_LightHeavy
 	{
 		if (super.EvaluateFinisherAttack(weapon, target))
 		{
-			if (GetGame() && GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills())
+			if (g_Game && g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills())
 			{
 				float stealthFinisherGainChance;
 				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_STEALTH_FINISHER_GAIN_CHANCE, stealthFinisherGainChance) && (Math.RandomFloat01() < stealthFinisherGainChance))

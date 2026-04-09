@@ -11,7 +11,7 @@ modded class MushroomBase
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame().IsClient() && m_terjeHighlightParticle)
+		if (g_Game.IsClient() && m_terjeHighlightParticle)
 		{
 			m_terjeHighlightParticle.Stop();
 		}
@@ -21,7 +21,7 @@ modded class MushroomBase
 	{
 		super.OnTerjeClientUpdate(deltaTime);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			bool showParticles = false;
 			if (GetFoodStage() && GetHierarchyParent() == null)
@@ -29,7 +29,7 @@ modded class MushroomBase
 				FoodStageType foodStageType = GetFoodStageType();
 				if (foodStageType == FoodStageType.RAW || foodStageType == FoodStageType.ROTTEN || foodStageType == FoodStageType.DRIED)
 				{
-					PlayerBase localPlayer = PlayerBase.Cast(GetGame().GetPlayer());
+					PlayerBase localPlayer = PlayerBase.Cast(g_Game.GetPlayer());
 					if (localPlayer && localPlayer.GetTerjeSkills() && localPlayer.GetTerjeSkills().GetPerkLevel("surv", "mushprem") > 0)
 					{
 						showParticles = true;

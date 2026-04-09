@@ -13,7 +13,7 @@ modded class MissionGameplay
 		
 		if ( !m_DmHud && m_HudRootWidget )
 		{
-			m_DmHud = GetGame().GetWorkspace().CreateWidgets("DeathMatch/Layouts/DmHud.layout", m_HudRootWidget);
+			m_DmHud = g_Game.GetWorkspace().CreateWidgets("DeathMatch/Layouts/DmHud.layout", m_HudRootWidget);
 			m_DmHud.Show(false);
 		}
 		
@@ -55,7 +55,7 @@ modded class MissionGameplay
 	{
 		super.OnUpdate(timeslice);
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (m_DmHud && player && player.IsAlive())
 		{
 			m_DmHud.Show(true);
@@ -132,7 +132,7 @@ modded class MissionGameplay
 				dmMenuKeyText.SetText(keyName);
 			}
 			
-			if ( dmMenuKey.LocalClick() && GetGame().GetUIManager().GetMenu() == NULL )
+			if ( dmMenuKey.LocalClick() && g_Game.GetUIManager().GetMenu() == NULL )
 			{
 				if (m_dmPlayerMenu && m_dmPlayerMenu.m_active && player.m_dmConnectSyncCtx) 
 				{
@@ -145,7 +145,7 @@ modded class MissionGameplay
 						m_dmPlayerMenu = new DmPlayerMenu();
 					}
 		
-					GetGame().GetUIManager().ShowScriptedMenu( m_dmPlayerMenu, NULL );
+					g_Game.GetUIManager().ShowScriptedMenu( m_dmPlayerMenu, NULL );
 				}
 			}
 			
@@ -180,7 +180,7 @@ modded class MissionGameplay
 			item.GetUserData(wpnObject);
 			if (wpnObject)
 			{
-				GetGame().ObjectDelete(wpnObject);
+				g_Game.ObjectDelete(wpnObject);
 			}
 			
 			m_HudRootWidget.RemoveChild(item);
@@ -230,7 +230,7 @@ modded class MissionGameplay
 			return;
 		}
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player)
 		{
 			return;
@@ -259,7 +259,7 @@ modded class MissionGameplay
 		
 		float x, y, w, h;
 		int count = m_DmKillFeedItems.Count();
-		Widget item = GetGame().GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmKillMessage.layout", m_HudRootWidget );
+		Widget item = g_Game.GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmKillMessage.layout", m_HudRootWidget );
 		item.GetPos(x, y);
 		item.GetSize(w, h);
 		item.SetPos(x, y + ((h + 4) * count));
@@ -267,7 +267,7 @@ modded class MissionGameplay
 		TextWidget.Cast(item.FindAnyWidget("DM_Src")).SetText(data.param1);
 		TextWidget.Cast(item.FindAnyWidget("DM_Dst")).SetText(data.param2);
 		
-		Weapon_Base itemObject = Weapon_Base.Cast( GetGame().CreateObject(wpnData.m_Classname, "0 0 0", true, false, false) );
+		Weapon_Base itemObject = Weapon_Base.Cast( g_Game.CreateObject(wpnData.m_Classname, "0 0 0", true, false, false) );
 		if (itemObject)
 		{			
 			item.SetUserData(itemObject);	
@@ -320,7 +320,7 @@ modded class MissionGameplay
 		{
 			pos[0] = center[0] + (radius * Math.Cos(a));
 			pos[2] = center[2] + (radius * Math.Sin(a));
-			pos[1] = GetGame().SurfaceY(pos[0], pos[2]);
+			pos[1] = g_Game.SurfaceY(pos[0], pos[2]);
 			
 			m_DM_area_particles.Insert(Particle.PlayInWorld(particleId, pos));
 			a = a + points_offset;

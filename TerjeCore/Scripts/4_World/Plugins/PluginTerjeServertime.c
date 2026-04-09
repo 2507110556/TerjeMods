@@ -18,7 +18,7 @@ class PluginTerjeServertime extends PluginBase
 		m_calcTimer = 0;
 		m_saveTimer = 0;
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			bool loadedSuccess = false;
 			if (FileExist(SERVERTIME_FILE))
@@ -46,7 +46,7 @@ class PluginTerjeServertime extends PluginBase
 	{
 		super.OnUpdate(delta_time);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			m_calcTimer += delta_time;
 			if (m_calcTimer > 1.0)
@@ -82,7 +82,7 @@ class PluginTerjeServertime extends PluginBase
 	
 	private void SaveServertime()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			FileSerializer file = new FileSerializer();
 			if (file.Open(SERVERTIME_FILE, FileMode.WRITE))

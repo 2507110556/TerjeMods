@@ -30,7 +30,7 @@ modded class ActionFishingNew
 	bool TerjeProcessingSpawnCatch(PlayerBase player, EntityAI fishItem)
 	{
 		bool spawnExtraFish = false;
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			int expGainValue;
 			if (fishItem)
@@ -41,7 +41,7 @@ modded class ActionFishingNew
 				if (resultItem && resultItem.IsTerjeWholeFish())
 				{
 					float perkValue;
-					if (GetGame().IsDedicatedServer() && player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("fish", "fishmluck", perkValue))
+					if (g_Game.IsDedicatedServer() && player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("fish", "fishmluck", perkValue))
 					{
 						// Spawn extra fish
 						if (Math.RandomFloat01() < (perkValue * 0.5))
@@ -79,7 +79,7 @@ modded class CatchingContextFishingRodAction
 {
 	override protected void TryDamageItems()
 	{
-		if (GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "strgarms"))
+		if (g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "strgarms"))
 		{
 			float settingValue;
 			float perkStrgarms;
@@ -155,7 +155,7 @@ modded class CatchingContextFishingRodAction
 	override float GetQualityModifier()
 	{
 		float result = super.GetQualityModifier();
-		if (GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "fishmluck"))
+		if (g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "fishmluck"))
 		{
 			result *= GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_FISHING_FISH_SIZE_MODIFIER);
 			

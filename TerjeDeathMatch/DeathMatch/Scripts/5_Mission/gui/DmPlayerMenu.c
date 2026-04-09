@@ -19,7 +19,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	
 	override Widget Init()
     {
-		layoutRoot = GetGame().GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu.layout" );
+		layoutRoot = g_Game.GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu.layout" );
 		m_active = true;
 		m_dirty = true;
         return layoutRoot;
@@ -27,7 +27,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	
 	void SelectPage()
 	{		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player)
 		{
 			return;
@@ -81,7 +81,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	{
 		foreach (Weapon_Base w : m_weaponEntities)
 		{
-			GetGame().ObjectDelete(w);
+			g_Game.ObjectDelete(w);
 		}
 		
 		m_weaponEntities.Clear();
@@ -91,7 +91,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	{
 		foreach (EntityAI e : m_equipmentEntities)
 		{
-			GetGame().ObjectDelete(e);
+			g_Game.ObjectDelete(e);
 		}
 		
 		m_equipmentEntities.Clear();
@@ -120,7 +120,7 @@ class DmPlayerMenu extends UIScriptedMenu
 				continue;
 			}
 			
-			Widget item = GetGame().GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemLeaderboard.layout" );
+			Widget item = g_Game.GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemLeaderboard.layout" );
 			scrollWidget.AddChild(item);
 			item.GetSize(w, h);
 			item.SetPos(0, (h + 2) * c);
@@ -156,7 +156,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	void DisplayEquipmentsPage()
 	{
 		HideAllPages();
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player || !player.m_dmConnectSyncCtx || !player.m_dmPlayerData)
 		{
 			return;
@@ -182,7 +182,7 @@ class DmPlayerMenu extends UIScriptedMenu
 		
 		foreach (ref DmEquipmentPresset wpnData : player.m_dmConnectSyncCtx.dm_Equipments)
 		{
-			Widget item = GetGame().GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemEquipment.layout" );
+			Widget item = g_Game.GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemEquipment.layout" );
 			scrollWidget.AddChild(item);
 			item.GetSize(w, h);
 			item.SetPos(0, (h + 2) * i);
@@ -233,7 +233,7 @@ class DmPlayerMenu extends UIScriptedMenu
 			
 			for (int q = 0; q < wpnData.m_Items.Count() && q < 5; q++)
 			{
-				EntityAI itemObject = EntityAI.Cast( GetGame().CreateObject(wpnData.m_Items.Get(q), "0 0 0", true, false, false) );
+				EntityAI itemObject = EntityAI.Cast( g_Game.CreateObject(wpnData.m_Items.Get(q), "0 0 0", true, false, false) );
 				if (itemObject)
 				{
 					ItemPreviewWidget previewWidget = ItemPreviewWidget.Cast(item.FindAnyWidget("DM_WI_Preview" + q.ToString()));
@@ -253,7 +253,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	void DisplayWeaponsPage()
 	{
 		HideAllPages();
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player || !player.m_dmConnectSyncCtx || !player.m_dmPlayerData)
 		{
 			return;
@@ -279,7 +279,7 @@ class DmPlayerMenu extends UIScriptedMenu
 		
 		foreach (ref DmWeaponPresset wpnData : player.m_dmConnectSyncCtx.dm_Weapons)
 		{
-			Widget item = GetGame().GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemWeapon.layout" );
+			Widget item = g_Game.GetWorkspace().CreateWidgets( "DeathMatch/Layouts/DmPlayerMenu_ItemWeapon.layout" );
 			scrollWidget.AddChild(item);
 			item.GetSize(w, h);
 			item.SetPos(0, (h + 2) * i);
@@ -328,7 +328,7 @@ class DmPlayerMenu extends UIScriptedMenu
 				item.FindAnyWidget("DM_WI_Price").Show(false);
 			}
 			
-			Weapon_Base itemObject = Weapon_Base.Cast( GetGame().CreateObject(wpnData.m_Classname, "0 0 0", true, false, false) );
+			Weapon_Base itemObject = Weapon_Base.Cast( g_Game.CreateObject(wpnData.m_Classname, "0 0 0", true, false, false) );
 			if (itemObject)
 			{				
 				if (wpnData.m_Magazine != "")
@@ -361,7 +361,7 @@ class DmPlayerMenu extends UIScriptedMenu
 	{
 		super.Update(timeslice);
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (!player || !player.IsAlive())
 		{
 			m_active = false;
@@ -375,7 +375,7 @@ class DmPlayerMenu extends UIScriptedMenu
 
 		if (!m_active)
 		{
-			GetGame().GetUIManager().Back();
+			g_Game.GetUIManager().Back();
 		}
 	};
 	
@@ -385,7 +385,7 @@ class DmPlayerMenu extends UIScriptedMenu
 		
 		if (button == MouseState.LEFT)
 		{
-			PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 			if (w.GetParent().GetName() == "PageTabWeapons")
 			{
 				m_selectedPage = "Weapons";
@@ -413,7 +413,7 @@ class DmPlayerMenu extends UIScriptedMenu
 					w.GetUserData(dmWp);
 					if (dmWp)
 					{
-						GetRPCManager().SendRPC("DM", "DM_WeaponBuy", new Param1<string>(dmWp.m_Id), true, null, GetGame().GetPlayer()); 
+						GetRPCManager().SendRPC("DM", "DM_WeaponBuy", new Param1<string>(dmWp.m_Id), true, null, g_Game.GetPlayer()); 
 					}
 				}
 			}
@@ -425,7 +425,7 @@ class DmPlayerMenu extends UIScriptedMenu
 					w.GetUserData(dmEp);
 					if (dmEp)
 					{
-						GetRPCManager().SendRPC("DM", "DM_EquipmentBuy", new Param1<string>(dmEp.m_Id), true, null, GetGame().GetPlayer()); 
+						GetRPCManager().SendRPC("DM", "DM_EquipmentBuy", new Param1<string>(dmEp.m_Id), true, null, g_Game.GetPlayer()); 
 					}
 				}
 			}
@@ -438,12 +438,12 @@ class DmPlayerMenu extends UIScriptedMenu
 	{
 		super.OnShow();
 
-		GetGame().GetInput().ChangeGameFocus(1);
+		g_Game.GetInput().ChangeGameFocus(1);
 
 		SetFocus( layoutRoot );
 		
 		bool showLeaderboard = false;
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player)
 		{
 			player.GetInputController().SetDisabled(true);
@@ -465,9 +465,9 @@ class DmPlayerMenu extends UIScriptedMenu
 	{		
 		super.OnHide();
 
-		GetGame().GetInput().ResetGameFocus();
+		g_Game.GetInput().ResetGameFocus();
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player)
 		{
 			player.GetInputController().SetDisabled(false);

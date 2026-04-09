@@ -19,7 +19,7 @@ class TerjeRpcManager
 			if (invoker.param1)
 			{
 				auto invokeData = new Param2<ParamsReadContext, PlayerIdentity>(ctx, sender);
-				GetGame().GameScript.CallFunctionParams(invoker.param1, invoker.param2, null, invokeData);
+				g_Game.GameScript.CallFunctionParams(invoker.param1, invoker.param2, null, invokeData);
 			}
 		}
 		else if (m_RegisteredRPCsEx.Find(metaData.param1, caller))
@@ -71,7 +71,7 @@ class TerjeRpcManager
 
 	void SendToClient(string id, PlayerIdentity identity, Param params) 
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -81,7 +81,7 @@ class TerjeRpcManager
 				sendData.Insert(params);
 			}
 			
-			GetGame().RPC(null, 67963732, sendData, true, identity);
+			g_Game.RPC(null, 67963732, sendData, true, identity);
 		}
 	}
 	
@@ -93,7 +93,7 @@ class TerjeRpcManager
 	
 	void SendToServer(string id, Param params) 
 	{
-		if (!GetGame().IsDedicatedServer())
+		if (!g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -103,7 +103,7 @@ class TerjeRpcManager
 				sendData.Insert(params);
 			}
 			
-			GetGame().RPC(null, 67963732, sendData, true, null);
+			g_Game.RPC(null, 67963732, sendData, true, null);
 		}
 	}
 	
@@ -115,7 +115,7 @@ class TerjeRpcManager
 	
 	void SendToAll(string id, Param params) 
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -125,7 +125,7 @@ class TerjeRpcManager
 				sendData.Insert(params);
 			}
 			
-			GetGame().RPC(null, 67963732, sendData, true, null);
+			g_Game.RPC(null, 67963732, sendData, true, null);
 		}
 	}
 	

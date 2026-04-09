@@ -21,7 +21,7 @@ modded class TerjePlayerSoulsAccessor
 	
 	override void SetCount(int count, bool showNotification = true)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && IsEnabled())
+		if (g_Game && g_Game.IsDedicatedServer() && IsEnabled())
 		{
 			if (m_Player && (m_Player.GetTerjeProfile() != null))
 			{
@@ -60,7 +60,7 @@ modded class TerjePlayerSoulsAccessor
 	
 	override void AddCount(int count, bool showNotification = true)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			int oldSouls = GetCount();
 			int newSouls = oldSouls + count;

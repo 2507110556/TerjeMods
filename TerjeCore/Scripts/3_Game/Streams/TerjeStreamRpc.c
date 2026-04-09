@@ -29,21 +29,21 @@ class TerjeStreamRpc : ScriptRPC
 	{
 		if (m_Target == TerjeStreamRpc_Target.TO_CLIENT)
 		{
-			if (m_Identity != null && GetGame().IsDedicatedServer())
+			if (m_Identity != null && g_Game.IsDedicatedServer())
 			{
 				Send(m_Object, m_NativeId, true, m_Identity);
 			}
 		}
 		else if (m_Target == TerjeStreamRpc_Target.TO_SERVER)
 		{
-			if (!GetGame().IsDedicatedServer())
+			if (!g_Game.IsDedicatedServer())
 			{
 				Send(m_Object, m_NativeId, true, null);
 			}
 		}
 		else if (m_Target == TerjeStreamRpc_Target.TO_ALL)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				Send(m_Object, m_NativeId, true, null);
 			}

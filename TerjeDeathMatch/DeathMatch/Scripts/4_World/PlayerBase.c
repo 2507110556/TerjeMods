@@ -76,7 +76,7 @@ modded class PlayerBase
 	{
 		super.OnScheduledTick(deltaTime);
 		
-		if (GetGame() && GetGame().IsDedicatedServer() && IsAlive())
+		if (g_Game && g_Game.IsDedicatedServer() && IsAlive())
 		{
 			DM_RefillStats(deltaTime);
 			DM_RefillMags(deltaTime);
@@ -107,7 +107,7 @@ modded class PlayerBase
 	
 	void DM_OnDead(PlayerBase killer)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && killer && m_dmPlayerData && killer.m_dmPlayerData && m_dmServerSettings)
+		if (g_Game && g_Game.IsDedicatedServer() && killer && m_dmPlayerData && killer.m_dmPlayerData && m_dmServerSettings)
 		{
 			m_dmPlayerData.m_Death = m_dmPlayerData.m_Death + 1;
 			
@@ -131,7 +131,7 @@ modded class PlayerBase
 	
 	void DM_OnKill(PlayerBase murder)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && m_dmPlayerData && murder.m_dmPlayerData && m_dmServerSettings)
+		if (g_Game && g_Game.IsDedicatedServer() && m_dmPlayerData && murder.m_dmPlayerData && m_dmServerSettings)
 		{
 			m_dmPlayerData.m_Kills = m_dmPlayerData.m_Kills + 1;
 			m_dmPlayerData.m_Money = m_dmPlayerData.m_Money + m_dmServerSettings.m_moneyPerKill;
@@ -188,18 +188,18 @@ modded class PlayerBase
 		
 		super.EEKilled( killer );
 		
-		if (GetGame())
+		if (g_Game)
 		{
 			int fastRespawnTimeoutTime = (int)(m_dmServerSettings.m_fastRespawnTimeout * 1000);
 			if (fastRespawnTimeoutTime > 0)
 			{
 				Param2<PlayerBase, PlayerIdentity> fastRespawnParams(this, GetIdentity());
-				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(GetGame().GetMission(), "DM_PlayerFastRespawnHandler", fastRespawnTimeoutTime, false, fastRespawnParams);
+				g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(g_Game.GetMission(), "DM_PlayerFastRespawnHandler", fastRespawnTimeoutTime, false, fastRespawnParams);
 			}
 			else
 			{
 				Param1<PlayerBase> deletePlayerParams(this);
-				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(GetGame(), "ObjectDelete", 5000, false, deletePlayerParams);
+				g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLaterByName(g_Game, "ObjectDelete", 5000, false, deletePlayerParams);
 			}
 		}
 	}
@@ -313,10 +313,10 @@ modded class PlayerBase
 				{
 					int curAmmo = mag.GetAmmoCount();
 					int maxAmmo = mag.GetAmmoMax();
-					if (GetGame() && (mag.GetAmmoCount() < mag.GetAmmoMax()))
+					if (g_Game && (mag.GetAmmoCount() < mag.GetAmmoMax()))
 					{
 						string magType = mag.GetType();
-						GetGame().ObjectDelete(mag);
+						g_Game.ObjectDelete(mag);
 						GetInventory().CreateInInventory(magType);
 					}
 				}
@@ -374,17 +374,17 @@ modded class PlayerBase
 		}
 		
 		m_DmClearItemsTimer = m_DmClearItemsTimer + deltaTime;
-		if (GetGame() && (m_DmClearItemsTimer > 1.0))
+		if (g_Game && (m_DmClearItemsTimer > 1.0))
 		{
 			m_DmClearItemsTimer = 0;
 			ItemBase nearestItem = NULL;
 			array<Object> nearestObjects();
-			GetGame().GetObjectsAtPosition3D(GetWorldPosition(), 10, nearestObjects, NULL);
+			g_Game.GetObjectsAtPosition3D(GetWorldPosition(), 10, nearestObjects, NULL);
 			foreach (Object nearestObj : nearestObjects)
 			{
 				if (ItemBase.CastTo(nearestItem, nearestObj))
 				{
-					GetGame().ObjectDelete(nearestItem);
+					g_Game.ObjectDelete(nearestItem);
 				}
 			}
 		}

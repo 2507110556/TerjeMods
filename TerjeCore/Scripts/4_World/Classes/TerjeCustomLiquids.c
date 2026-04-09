@@ -4,7 +4,7 @@ modded class LiquidInfo
 	{
 		string path = "CfgTerjeCustomLiquids " + className;
 		GetTerjeGameConfig().ConfigGetTextRaw(string.Format("%1 displayName", path), m_LiquidDisplayName);
-		GetGame().FormatRawConfigStringKeys(m_LiquidDisplayName);
+		g_Game.FormatRawConfigStringKeys(m_LiquidDisplayName);
 		m_LiquidType = GetTerjeGameConfig().ConfigGetInt(string.Format("%1 type", path));
 		if (GetTerjeGameConfig().ConfigIsExisting(string.Format("%1 liquidFreezeThreshold", path)))
 			m_TemperatureLiquidFreezeThreshold = GetTerjeGameConfig().ConfigGetFloat(string.Format("%1 liquidFreezeThreshold", path));

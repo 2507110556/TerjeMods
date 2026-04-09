@@ -80,7 +80,7 @@ class CAContinuousWashRadioactiveItems : CAContinuousBase
 		EntityAI targetEntity = EntityAI.Cast(action_data.m_Target.GetObject());
 		m_SpentQuantity_total += m_SpentQuantity;
 		
-		if (GetGame().IsServer())
+		if (g_Game.IsServer())
 		{
 			if (m_SpentUnits)
 			{
@@ -159,32 +159,32 @@ class ActionWashRadioactiveItems: ActionContinuousBase
 	
 	override void OnStartAnimationLoop( ActionData action_data )
 	{
-		if ( !GetGame().IsMultiplayer() || GetGame().IsServer() )
+		if ( !g_Game.IsMultiplayer() || g_Game.IsServer() )
 		{
 			Bottle_Base vesselInHands = Bottle_Base.Cast( action_data.m_MainItem );
 			Param1<bool> play = new Param1<bool>( true );
 
-			GetGame().RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
+			g_Game.RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
 		}
 	}
 	
 	override void OnEndAnimationLoop( ActionData action_data )
 	{
-		if ( !GetGame().IsMultiplayer() || GetGame().IsServer() )
+		if ( !g_Game.IsMultiplayer() || g_Game.IsServer() )
 		{
 			Bottle_Base vesselInHands = Bottle_Base.Cast( action_data.m_MainItem );
 			Param1<bool> play = new Param1<bool>( false );
-			GetGame().RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
+			g_Game.RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
 		}
 	}
 	
 	override void OnEnd( ActionData action_data )
 	{
-		if ( !GetGame().IsMultiplayer() || GetGame().IsServer() )
+		if ( !g_Game.IsMultiplayer() || g_Game.IsServer() )
 		{
 			Bottle_Base vesselInHands = Bottle_Base.Cast( action_data.m_MainItem );
 			Param1<bool> play = new Param1<bool>( false );
-			GetGame().RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
+			g_Game.RPCSingleParam( vesselInHands, SoundTypeBottle.EMPTYING, play, true );
 		}
 	}
 	

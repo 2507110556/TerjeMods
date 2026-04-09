@@ -11,7 +11,7 @@ class PluginTerjeSettings extends PluginBase
 	override void OnInit()
 	{
 		m_settingsCollection.OnInit();
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			// Load settings from disk
 			MakeDirectory(SETTINGS_DIR);
@@ -27,7 +27,7 @@ class PluginTerjeSettings extends PluginBase
 				SaveServerSettingsFile(category);
 			}
 		}
-		else if (GetGame().IsClient())
+		else if (g_Game.IsClient())
 		{
 			m_settingsCollection.ApplySynchSettings(GetTerjeSettingsSynchContext().GetData());
 		}
@@ -191,7 +191,7 @@ bool GetTerjeSettingString(int id, out string result)
 		TerjeSettingValueString strSetting = TerjeSettingValueString.Cast(setting);
 		if (strSetting != null)
 		{
-			if (GetGame().IsDedicatedServer() || !strSetting.IsServerSideOnly())
+			if (g_Game.IsDedicatedServer() || !strSetting.IsServerSideOnly())
 			{
 				result = strSetting.GetValue();
 				return true;
@@ -222,7 +222,7 @@ bool GetTerjeSettingInt(int id, out int result)
 		TerjeSettingValueInt intSetting = TerjeSettingValueInt.Cast(setting);
 		if (intSetting != null)
 		{
-			if (GetGame().IsDedicatedServer() || !intSetting.IsServerSideOnly())
+			if (g_Game.IsDedicatedServer() || !intSetting.IsServerSideOnly())
 			{
 				result = intSetting.GetValue();
 				return true;
@@ -253,7 +253,7 @@ bool GetTerjeSettingFloat(int id, out float result)
 		TerjeSettingValueFloat floatSetting = TerjeSettingValueFloat.Cast(setting);
 		if (floatSetting != null)
 		{
-			if (GetGame().IsDedicatedServer() || !floatSetting.IsServerSideOnly())
+			if (g_Game.IsDedicatedServer() || !floatSetting.IsServerSideOnly())
 			{
 				result = floatSetting.GetValue();
 				return true;
@@ -284,7 +284,7 @@ bool GetTerjeSettingBool(int id, out bool result)
 		TerjeSettingValueBool boolSetting = TerjeSettingValueBool.Cast(setting);
 		if (boolSetting != null)
 		{
-			if (GetGame().IsDedicatedServer() || !boolSetting.IsServerSideOnly())
+			if (g_Game.IsDedicatedServer() || !boolSetting.IsServerSideOnly())
 			{
 				result = boolSetting.GetValue();
 				return true;
@@ -434,7 +434,7 @@ class TerjeSettingsCollection
 	
 	bool Find(string name, out TerjeSettingValueBase result)
 	{
-		if (!GetGame().IsDedicatedServer() && !m_ready)
+		if (!g_Game.IsDedicatedServer() && !m_ready)
 		{
 			return false;
 		}
@@ -444,7 +444,7 @@ class TerjeSettingsCollection
 			return false;
 		}
 		
-		if (!GetGame().IsDedicatedServer() && result.IsServerSideOnly())
+		if (!g_Game.IsDedicatedServer() && result.IsServerSideOnly())
 		{
 			return false;
 		}
@@ -454,13 +454,13 @@ class TerjeSettingsCollection
 	
 	ref TerjeSettingValueBase Get(int id)
 	{
-		if (!GetGame().IsDedicatedServer() && !m_ready)
+		if (!g_Game.IsDedicatedServer() && !m_ready)
 		{
 			return null;
 		}
 		
 		ref TerjeSettingValueBase result = m_ordered.Get(id);
-		if (!GetGame().IsDedicatedServer() && result.IsServerSideOnly())
+		if (!g_Game.IsDedicatedServer() && result.IsServerSideOnly())
 		{
 			return null;
 		}

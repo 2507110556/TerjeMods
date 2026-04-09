@@ -10,16 +10,16 @@ bool DM_HasBatterySlot(string classname)
 {
 	array<string> slots = new array<string>;
 	string preffix = FindItemPreffix(classname);
-	GetGame().ConfigGetTextArray( preffix + " " + classname + " attachments", slots);
+	g_Game.ConfigGetTextArray( preffix + " " + classname + " attachments", slots);
 	return slots && slots.Find("BatteryD") != -1;
 }
 
 string FindItemPreffix(string itemClassname)
 {
-	if (GetGame().ConfigIsExisting("CfgVehicles " + itemClassname)) return "CfgVehicles";
-	if (GetGame().ConfigIsExisting("CfgMagazines " + itemClassname)) return "CfgMagazines";
-	if (GetGame().ConfigIsExisting("CfgAmmo " + itemClassname)) return "CfgAmmo";
-	if (GetGame().ConfigIsExisting("CfgWeapons " + itemClassname)) return "CfgWeapons";
-	if (GetGame().ConfigIsExisting("CfgNonAIVehicles " + itemClassname)) return "CfgNonAIVehicles";
+	if (g_Game.ConfigIsExisting("CfgVehicles " + itemClassname)) return "CfgVehicles";
+	if (g_Game.ConfigIsExisting("CfgMagazines " + itemClassname)) return "CfgMagazines";
+	if (g_Game.ConfigIsExisting("CfgAmmo " + itemClassname)) return "CfgAmmo";
+	if (g_Game.ConfigIsExisting("CfgWeapons " + itemClassname)) return "CfgWeapons";
+	if (g_Game.ConfigIsExisting("CfgNonAIVehicles " + itemClassname)) return "CfgNonAIVehicles";
 	return "";
 }

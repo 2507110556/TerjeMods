@@ -119,7 +119,7 @@ class TerjeStartScreenMenu : TerjeScriptedMenu
 		{
 			m_parameters.Deserialize(ctx);
 			
-			PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 			if (player)
 			{
 				player.m_terjeStartScreenParams = m_parameters;

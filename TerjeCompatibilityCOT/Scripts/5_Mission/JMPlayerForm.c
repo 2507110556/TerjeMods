@@ -96,11 +96,11 @@ modded class JMPlayerForm
 			{
 				int chunkSize = perkCount - offset;
 				if (chunkSize > MAX_PERKS_PER_ROW) chunkSize = MAX_PERKS_PER_ROW;
-				GridSpacerWidget perkRow = GridSpacerWidget.Cast(GetGame().GetWorkspace().CreateWidgets(TERJE_GRID_LAYOUT,skillBlock));
+				GridSpacerWidget perkRow = GridSpacerWidget.Cast(g_Game.GetWorkspace().CreateWidgets(TERJE_GRID_LAYOUT,skillBlock));
 				for (int j = offset; j < offset + chunkSize; j++)
 				{
 					ref TerjePerkCfg perkCfgMain = visiblePerks.Get(j);
-					Widget perkWidget = GetGame().GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkLayout.layout", perkRow);
+					Widget perkWidget = g_Game.GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkLayout.layout", perkRow);
 					if (perkWidget)
 					{
 						string compositeId = skillCfg.GetId() + ":" + perkCfgMain.GetId();
@@ -158,7 +158,7 @@ modded class JMPlayerForm
 		if (m_SelectedInstance)
 			player = PlayerBase.Cast(m_SelectedInstance.PlayerObject);
 		if (!player)
-			player = PlayerBase.Cast(GetGame().GetPlayer());
+			player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player && player.GetTerjeSkills())
 		{
 			player.GetTerjeSkills().GetPerkStatus(skillCfg.GetId(), perkCfg.GetId(), perkLevel, perkActiveLevel, canBeUpgraded);
@@ -174,7 +174,7 @@ modded class JMPlayerForm
 		GetMousePos(mxi, myi);
 
 		// Container with visible text header plus real Terje tooltip as child.
-		Widget tooltip = GetGame().GetWorkspace().CreateWidget(FrameWidgetTypeID, mxi, myi, 420, 220, WidgetFlags.EXACTPOS | WidgetFlags.EXACTSIZE | WidgetFlags.IGNOREPOINTER | WidgetFlags.RENDER_ALWAYS, 0, 0, null);
+		Widget tooltip = g_Game.GetWorkspace().CreateWidget(FrameWidgetTypeID, mxi, myi, 420, 220, WidgetFlags.EXACTPOS | WidgetFlags.EXACTSIZE | WidgetFlags.IGNOREPOINTER | WidgetFlags.RENDER_ALWAYS, 0, 0, null);
 		if (!tooltip) return false;
 
 		Widget innerTooltip = TerjePerkTooltip.GetPerkTooltipWidget(perkCfg, perkLevel, perkActiveLevel, 0);
@@ -238,7 +238,7 @@ modded class JMPlayerForm
 				player = PlayerBase.Cast(m_SelectedInstance.PlayerObject);
 
 			if (!player)
-				player = PlayerBase.Cast(GetGame().GetPlayer());
+				player = PlayerBase.Cast(g_Game.GetPlayer());
 				
 			if (button == MouseState.LEFT)
 				player.TerjeRPCSingleParam(TerjeSkillsConstants.TRPC_PLAYER_PERK_APPLY, new Param2<string, string>(skillId, perkId), true, player.GetIdentity());

@@ -26,7 +26,7 @@ class TerjeEntitySpawner
 			return null;
 		}
 		
-		Object spawnedObject = GetGame().CreateObject(classname, pos);
+		Object spawnedObject = g_Game.CreateObject(classname, pos);
 		if (!spawnedObject)
 		{
 			TerjeLog_Warning("TerjeEntitySpawner::SpawnInInventoryFromXml - Failed to spawn '" + classname + "' entity.");
@@ -38,7 +38,7 @@ class TerjeEntitySpawner
 		{
 			// Delete object when not inherited from EntityAI.
 			TerjeLog_Warning("TerjeEntitySpawner::SpawnInInventoryFromXml - Failed to spawn '" + classname + "' entity.");
-			GetGame().ObjectDelete(spawnedObject);
+			g_Game.ObjectDelete(spawnedObject);
 			return null;
 		}
 		
@@ -115,7 +115,7 @@ class TerjeEntitySpawner
 		{
 			// Delete object when spawned on the ground.
 			TerjeLog_Warning("TerjeEntitySpawner::SpawnInInventoryFromXml - Failed to spawn '" + classname + "' entity inside " + target);
-			GetGame().ObjectDelete(spawnedEntity);
+			g_Game.ObjectDelete(spawnedEntity);
 			return null;
 		}
 		
@@ -343,15 +343,15 @@ class TerjeEntitySpawner
 			return false;
 		}
 		
-		if (GetGame().ConfigIsExisting("CfgAmmo " + rawAmmoType))
+		if (g_Game.ConfigIsExisting("CfgAmmo " + rawAmmoType))
 		{
 			resolvedAmmoType = rawAmmoType;
 			return true;
 		}
 		
-		if (GetGame().ConfigIsExisting("CfgMagazines " + rawAmmoType))
+		if (g_Game.ConfigIsExisting("CfgMagazines " + rawAmmoType))
 		{
-			return GetGame().ConfigGetTextRaw("CfgMagazines " + rawAmmoType + " ammo", resolvedAmmoType);
+			return g_Game.ConfigGetTextRaw("CfgMagazines " + rawAmmoType + " ammo", resolvedAmmoType);
 		}
 		
 		return false;

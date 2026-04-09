@@ -17,7 +17,7 @@ modded class PrepareFish
 	{
 		super.Do(ingredients, player, results, specialty_weight);
 		
-		if (GetGame().IsDedicatedServer() && player && player.IsAlive() && player.GetTerjeSkills())
+		if (g_Game.IsDedicatedServer() && player && player.IsAlive() && player.GetTerjeSkills())
 		{
 			if (player.GetTerjeSkills().IsPerkRegistered("fish", "masterf"))
 			{

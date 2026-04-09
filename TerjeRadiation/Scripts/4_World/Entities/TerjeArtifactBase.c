@@ -7,7 +7,7 @@ class TerjeArtifactBase extends ItemBase
 	{
 		super.EEInit();
 		
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			InventoryLocation location = new InventoryLocation;
 			GetInventory().GetCurrentInventoryLocation(location);
@@ -22,7 +22,7 @@ class TerjeArtifactBase extends ItemBase
 	{
 		super.EEDelete(parent);
 		
-		if(GetGame() && GetGame().IsClient())
+		if(g_Game && g_Game.IsClient())
 		{
 			StopEffects();
 		}
@@ -33,7 +33,7 @@ class TerjeArtifactBase extends ItemBase
 	{
 		super.EEItemLocationChanged(oldLoc, newLoc);
 		
-		if(GetGame() && GetGame().IsClient())
+		if(g_Game && g_Game.IsClient())
 		{
 			if(newLoc.GetType() == InventoryLocationType.GROUND || newLoc.GetType() == InventoryLocationType.HANDS)
 			{

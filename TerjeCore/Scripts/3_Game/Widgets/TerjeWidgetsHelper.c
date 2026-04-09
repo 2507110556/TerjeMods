@@ -20,7 +20,7 @@ class TerjeWidgetsHelper
 
 		string fncArgs = typeId + ", " + leftInt + ", " + topInt + ", " + widthInt + ", " + heightInt + ", " + flags + ", " + color + ", " + sort + ", NULL";
 		TerjeLog_Info("========= WIDGET DUMP BEGIN =========");
-		TerjeLog_Info("GetGame().GetWorkspace().CreateWidget(" + fncArgs + ");");
+		TerjeLog_Info("g_Game.GetWorkspace().CreateWidget(" + fncArgs + ");");
 		TerjeLog_Info("========== WIDGET DUMP END ==========");
 	}
 }

@@ -65,7 +65,7 @@ class TerjePlayerManager extends AdminHudSubMenu
 	
 	private void CreateTerjeRowWidget(Widget parent, string guid, string name, bool selected)
 	{
-		ref Widget terjeStatWidget = GetGame().GetWorkspace().CreateWidgets("TerjeCompatibilityVPP/Layouts/TerjePlayerRowWidget.layout", parent);	
+		ref Widget terjeStatWidget = g_Game.GetWorkspace().CreateWidgets("TerjeCompatibilityVPP/Layouts/TerjePlayerRowWidget.layout", parent);	
 		terjeStatWidget.SetName("TerjePlayerRowWidget_" + guid);
 		
 		ref ButtonWidget btn = ButtonWidget.Cast( terjeStatWidget.FindAnyWidget("TerjeRowBtn") );
@@ -97,7 +97,7 @@ class TerjePlayerManager extends AdminHudSubMenu
 	private void CreateTerjeStatWidget(Widget parent, TerjeAdmintoolSupport_PlayerStat stat)
 	{
 		string id = stat.GetId();
-		ref Widget terjeStatWidget = GetGame().GetWorkspace().CreateWidgets("TerjeCompatibilityVPP/Layouts/TerjePlayerSliderWidget.layout", parent);	
+		ref Widget terjeStatWidget = g_Game.GetWorkspace().CreateWidgets("TerjeCompatibilityVPP/Layouts/TerjePlayerSliderWidget.layout", parent);	
 		terjeStatWidget.SetName(id);
 		terjeStatWidget.FindAnyWidget("TerjeApplyImg").SetName("TerjeApplyImg_" + id);
 		
@@ -267,7 +267,7 @@ modded class MissionServer
 		
 		ref map<string, string> infos = new map<string, string>;
 		ref array<Man> players = new array<Man>;
-		GetGame().GetWorld().GetPlayerList( players );
+		g_Game.GetWorld().GetPlayerList( players );
 		
 		for (int i = 0; i < players.Count(); i++)
 		{

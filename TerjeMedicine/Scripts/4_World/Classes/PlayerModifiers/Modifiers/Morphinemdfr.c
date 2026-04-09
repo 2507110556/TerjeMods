@@ -2,7 +2,7 @@ modded class MorphineMdfr: ModifierBase
 {
 	override protected bool ActivateCondition(PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
 		{
 			return super.ActivateCondition(player);
 		}
@@ -12,7 +12,7 @@ modded class MorphineMdfr: ModifierBase
 	
 	override protected bool DeactivateCondition(PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
 		{
 			return super.DeactivateCondition(player);
 		}
@@ -22,7 +22,7 @@ modded class MorphineMdfr: ModifierBase
 	
 	override protected void OnActivate(PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
 		{
 			super.OnActivate(player);
 		}
@@ -30,7 +30,7 @@ modded class MorphineMdfr: ModifierBase
 
 	override protected void OnDeactivate(PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_PAIN_ENABLED) == false)
 		{
 			super.OnDeactivate(player);
 		}

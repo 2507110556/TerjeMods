@@ -37,7 +37,7 @@ class TerjeSoftwareBase
 	void OnSetup()
 	{
 		TerjeGadgetBase gadget = GetGadget();
-		if (GetGame() && GetGame().IsDedicatedServer() && gadget)
+		if (g_Game && g_Game.IsDedicatedServer() && gadget)
 		{
 			TStringArray programsClassList();
 			GetTerjeGameConfig().ConfigGetTextArrayRaw("CfgVehicles " + gadget.GetType() + " programsClassList", programsClassList);
@@ -278,9 +278,9 @@ class TerjeSoftwareBase
 	void SetBootMode(TerjeSoftwareBootMode mode)
 	{
 		TerjeSoftwareBootMode oldBootMode = m_bootMode;
-		if (GetGame() && GetGadget() && (mode != oldBootMode))
+		if (g_Game && GetGadget() && (mode != oldBootMode))
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				m_bootMode = mode;
 				OnBootModeChanged(oldBootMode, mode);
@@ -312,7 +312,7 @@ class TerjeSoftwareBase
 	bool AddProgram(typename type)
 	{
 		TerjeGadgetBase gadget = GetGadget();
-		if (GetGame() && GetGame().IsDedicatedServer() && gadget)
+		if (g_Game && g_Game.IsDedicatedServer() && gadget)
 		{
 			if ((type.IsInherited(TerjeProgramBase)) && (!m_programs.Contains(type)))
 			{
@@ -333,7 +333,7 @@ class TerjeSoftwareBase
 	
 	bool RemoveProgram(typename type)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjeProgramBase program;
 			if (m_programs.Find(type, program))
@@ -388,9 +388,9 @@ class TerjeSoftwareBase
 	void SetActiveProgram(TerjeProgramBase program)
 	{
 		TerjeProgramBase oldActiveProgram = m_activeProgram;
-		if (GetGame() && GetGadget() && (program != oldActiveProgram))
+		if (g_Game && GetGadget() && (program != oldActiveProgram))
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				m_activeProgram = program;
 				OnProgramChanged(oldActiveProgram, program);
@@ -455,7 +455,7 @@ class TerjeSoftwareBase
 			idx = Math.RandomInt(0, int.MAX);
 		}
 		
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			EffectSound sound;
 			OnPlaySound(name, idx, sound);
@@ -471,7 +471,7 @@ class TerjeSoftwareBase
 	
 	protected void OnPlaySound(string soundName, int soundIdx, out EffectSound sound)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			int cacheIdx = m_soundLocalCache.Find(soundIdx);
 			if (cacheIdx != -1)
@@ -499,13 +499,13 @@ class TerjeSoftwareBase
 		int soundIdx;
 		if (ctx.Read(soundName) && ctx.Read(soundIdx))
 		{
-			if (GetGame() && GetGadget())
+			if (g_Game && GetGadget())
 			{
-				if (GetGame().IsDedicatedServer())
+				if (g_Game.IsDedicatedServer())
 				{
 					PlaySound(soundName, soundIdx);
 				}
-				else if (GetGame().IsClient())
+				else if (g_Game.IsClient())
 				{
 					EffectSound sound;
 					OnPlaySound(soundName, soundIdx, sound);
@@ -517,14 +517,14 @@ class TerjeSoftwareBase
 	protected void OnRPC_BootMode(ParamsReadContext ctx)
 	{
 		int bootMode;
-		if (GetGame() && ctx.Read(bootMode))
+		if (g_Game && ctx.Read(bootMode))
 		{
 			TerjeSoftwareBootMode oldBootMode = GetBootMode();
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				SetBootMode(bootMode);
 			}
-			else if (GetGame().IsClient())
+			else if (g_Game.IsClient())
 			{
 				m_bootMode = bootMode;
 				if (oldBootMode != bootMode)
@@ -538,7 +538,7 @@ class TerjeSoftwareBase
 	protected void OnRPC_ActiveProgram(ParamsReadContext ctx)
 	{
 		string newActiveProgramType;
-		if (GetGame() && ctx.Read(newActiveProgramType))
+		if (g_Game && ctx.Read(newActiveProgramType))
 		{
 			TerjeProgramBase newActiveProgram;
 			if (!FindProgram(newActiveProgramType, newActiveProgram))
@@ -547,11 +547,11 @@ class TerjeSoftwareBase
 			}
 			
 			TerjeProgramBase oldActiveProgram = GetActiveProgram();
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				SetActiveProgram(newActiveProgram);
 			}
-			else if (GetGame().IsClient())
+			else if (g_Game.IsClient())
 			{
 				m_activeProgram = newActiveProgram;
 				if (oldActiveProgram != newActiveProgram)

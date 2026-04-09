@@ -221,7 +221,7 @@ class TerjeCustomRecipe : RecipeBase
 	{
 		bool result = true;
 		errorMessage = string.Empty;
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjeXmlObject conditions = m_terjeRecipeData.GetChildByNodeName("Conditions");
 			if (conditions != null)
@@ -261,7 +261,7 @@ class TerjeCustomRecipe : RecipeBase
 	
 	override void PerformRecipe(ItemBase item1, ItemBase item2, PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			m_terjeCheckServerConditions = true;
 		}
@@ -296,7 +296,7 @@ class TerjeCustomRecipe : RecipeBase
 	
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjeXmlObject conditions = m_terjeRecipeData.GetChildByNodeName("Conditions");
 			if (conditions != null)

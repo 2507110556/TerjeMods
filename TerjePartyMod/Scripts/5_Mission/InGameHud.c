@@ -16,7 +16,7 @@ modded class IngameHud
 		
 		if (m_PartyHUD3D)
 		{
-			PlayerBase myLocalPlayer = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase myLocalPlayer = PlayerBase.Cast(g_Game.GetPlayer());
 			if (myLocalPlayer && myLocalPlayer.IsAlive())
 			{				
 				array<int> idsToDetele();
@@ -44,7 +44,7 @@ modded class IngameHud
 						ref Widget pinWidget2;
 						if (!m_PartyPins3D.Find(localId2, pinWidget2))
 						{
-							pinWidget2 = GetGame().GetWorkspace().CreateWidgets("TerjePartyMod/Layout/party_pin_3d.layout", m_PartyHUD3D);
+							pinWidget2 = g_Game.GetWorkspace().CreateWidgets("TerjePartyMod/Layout/party_pin_3d.layout", m_PartyHUD3D);
 							pinWidget2.Show(false);
 							m_PartyPins3D.Insert(localId2, pinWidget2);
 						}
@@ -59,7 +59,7 @@ modded class IngameHud
 									MiscGameplayFunctions.GetHeadBonePos(localPlayer, worldPos);
 									worldPos[1] = worldPos[1] + 0.25;
 									
-									vector screenPos = GetGame().GetScreenPos(worldPos);
+									vector screenPos = g_Game.GetScreenPos(worldPos);
 									vector localPos = localPlayer.GetWorldPosition();
 									if ((screenPos[0] > 0) && (screenPos[1] > 0) && (screenPos[2] > 0.5) && vector.Distance(localPos, myLocalPos) < maxVisiblePos)
 									{
@@ -101,7 +101,7 @@ modded class IngameHud
 		else
 		{
 			m_PartyPins3D = new map<int, ref Widget>();
-			m_PartyHUD3D = GetGame().GetWorkspace().CreateWidgets("TerjePartyMod/Layout/party_hood_3d.layout", m_HudPanelWidget);
+			m_PartyHUD3D = g_Game.GetWorkspace().CreateWidgets("TerjePartyMod/Layout/party_hood_3d.layout", m_HudPanelWidget);
 		}
 	}
 	
