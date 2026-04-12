@@ -9,7 +9,7 @@ modded class DayZPlayerMeleeFightLogic_LightHeavy
 		
 		if (m_Player && m_Player.GetTerjeSkills() && m_Player.CanConsumeStamina(EStaminaConsumers.MELEE_EVADE))
 		{
-			m_Player.DepleteStamina(EStaminaModifiers.MELEE_EVADE);
+			m_Player.DepleteStaminaEx(EStaminaModifiers.MELEE_EVADE);
 			
 			float successBlockPerkModifier;
 			if (m_Player.GetTerjeSkills().GetPerkValue("strng", "mrevasion", successBlockPerkModifier) && Math.RandomFloat01() <= successBlockPerkModifier)
