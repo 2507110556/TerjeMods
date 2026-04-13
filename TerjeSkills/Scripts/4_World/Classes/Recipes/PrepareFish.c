@@ -14,9 +14,7 @@ modded class PrepareFish
 	}
 	
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
-	{
-		super.Do(ingredients, player, results, specialty_weight);
-		
+	{		
 		if (g_Game.IsDedicatedServer() && player && player.IsAlive() && player.GetTerjeSkills())
 		{
 			if (player.GetTerjeSkills().IsPerkRegistered("fish", "masterf"))
@@ -80,6 +78,7 @@ modded class PrepareFish
 				}
 			}
 		}
+		super.Do(ingredients, player, results, specialty_weight);
 	}
 	
 	override float GetTerjeCraftingTimeModifier(PlayerBase player)

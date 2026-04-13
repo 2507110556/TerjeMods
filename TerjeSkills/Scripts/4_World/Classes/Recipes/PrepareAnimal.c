@@ -3,8 +3,8 @@ modded class PrepareChicken
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		super.Do(ingredients, player, results, specialty_weight);
 		TerjeSkillsSpecificLogic(ingredients, player, results);
+		super.Do(ingredients, player, results, specialty_weight);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
@@ -14,8 +14,8 @@ modded class PrepareRabbit
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		super.Do(ingredients, player, results, specialty_weight);
 		TerjeSkillsSpecificLogic(ingredients, player, results);
+		super.Do(ingredients, player, results, specialty_weight);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
@@ -25,8 +25,8 @@ modded class PrepareFox
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		super.Do(ingredients, player, results, specialty_weight);
 		TerjeSkillsSpecificLogic(ingredients, player, results);
+		super.Do(ingredients, player, results, specialty_weight);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
