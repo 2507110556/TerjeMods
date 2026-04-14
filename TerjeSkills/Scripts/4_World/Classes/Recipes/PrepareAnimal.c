@@ -2,9 +2,11 @@ modded class PrepareChicken
 {
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
+		int huntExp = 0;
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		TerjeSkillsSpecificLogic(ingredients, player, results);
+		TerjeSkillsSpecificLogicDoSuper(ingredients, player, huntExp);
 		super.Do(ingredients, player, results, specialty_weight);
+		TerjeSkillsSpecificLogic(player, results, huntExp);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
@@ -13,9 +15,11 @@ modded class PrepareRabbit
 {
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
+		int huntExp = 0;
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		TerjeSkillsSpecificLogic(ingredients, player, results);
+		TerjeSkillsSpecificLogicDoSuper(ingredients, player, huntExp);
 		super.Do(ingredients, player, results, specialty_weight);
+		TerjeSkillsSpecificLogic(player, results, huntExp);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
@@ -24,9 +28,11 @@ modded class PrepareFox
 {
 	override void Do(ItemBase ingredients[], PlayerBase player, array<ItemBase> results, float specialty_weight)
 	{
+		int huntExp = 0;
 		player.m_terjeSkillsSpawnEntityOnGroundCache = new array<ItemBase>;
-		TerjeSkillsSpecificLogic(ingredients, player, results);
+		TerjeSkillsSpecificLogicDoSuper(ingredients, player, huntExp);
 		super.Do(ingredients, player, results, specialty_weight);
+		TerjeSkillsSpecificLogic(player, results, huntExp);
 		player.m_terjeSkillsSpawnEntityOnGroundCache = null;
 	}
 }
@@ -46,7 +52,67 @@ modded class PrepareAnimal
 		}
 	}
 	
-	protected void TerjeSkillsSpecificLogic(ItemBase ingredients[], PlayerBase player, array<ItemBase> results)
+	protected void TerjeSkillsSpecificLogicDoSuper(ItemBase ingredients[], PlayerBase player, out int huntExp)
+	{
+		huntExp = 0;
+		if (!(g_Game.IsDedicatedServer() && player && player.IsAlive() && player.GetTerjeSkills()))
+		{
+			return;
+		}
+		
+		ItemBase animalBody = ingredients[0];
+		ItemBase knifeItem = ingredients[1];
+		string animalBodyType = string.Empty;
+		string knifeType = string.Empty;
+		
+		if (animalBody)
+		{
+			animalBodyType = animalBody.GetType();
+		}
+		
+		if (knifeItem)
+		{
+			knifeType = knifeItem.GetType();
+		}
+		
+		if (knifeItem && player.GetTerjeSkills().IsPerkRegistered("hunt", "mknife"))
+		{
+			float huntingOverrideKnifeDamage;
+			if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_HUNTING_OVERRIDE_KNIFE_DAMAGE, huntingOverrideKnifeDamage))
+			{
+				float mknifeSkill = 1.0;
+				float perkMknife;
+				if (player.GetTerjeSkills().GetPerkValue("hunt", "mknife", perkMknife))
+				{
+					mknifeSkill = Math.Clamp(1.0 + perkMknife, 0, 1);
+				}
+				
+				float animalBodyMod = 1.0;
+				if (animalBodyType != string.Empty && GetTerjeGameConfig().ConfigIsExisting("CfgVehicles " + animalBodyType + " terjeSkinningKnifeDamageModifier"))
+				{
+					animalBodyMod = GetTerjeGameConfig().ConfigGetFloat("CfgVehicles " + animalBodyType + " terjeSkinningKnifeDamageModifier");
+				}
+				
+				knifeItem.DecreaseHealth(huntingOverrideKnifeDamage * mknifeSkill * animalBodyMod, false);
+			}
+		}
+		
+		if (animalBodyType != string.Empty)
+		{
+			float huntingButchAnimalExpGainModifier;
+			if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_HUNTING_BUTCH_ANIMAL_EXP_GAIN_MODIFIER, huntingButchAnimalExpGainModifier))
+			{
+				int expCfg = GetTerjeGameConfig().ConfigGetInt("CfgVehicles " + animalBodyType + " terjeOnButchHuntingExp");
+				huntExp = (int)(expCfg * huntingButchAnimalExpGainModifier);
+				if (knifeType != string.Empty && GetTerjeGameConfig().ConfigIsExisting("CfgVehicles " + knifeType + " terjeSkinningExpModifier"))
+				{
+					huntExp = (int)(huntExp * GetTerjeGameConfig().ConfigGetFloat("CfgVehicles " + knifeType + " terjeSkinningExpModifier"));
+				}
+			}
+		}
+	}
+	
+	protected void TerjeSkillsSpecificLogic(PlayerBase player, array<ItemBase> results, int huntExp)
 	{
 		if (player && player.IsAlive() && player.GetTerjeSkills() && player.m_terjeSkillsSpawnEntityOnGroundCache != null)
 		{
@@ -145,47 +211,9 @@ modded class PrepareAnimal
 				}
 			}
 			
-			ItemBase animalBody = ingredients[0];
-			ItemBase knifeItem = ingredients[1];
-			if (knifeItem && player.GetTerjeSkills().IsPerkRegistered("hunt", "mknife"))
+			if (huntExp > 0)
 			{
-				float huntingOverrideKnifeDamage;
-				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_HUNTING_OVERRIDE_KNIFE_DAMAGE, huntingOverrideKnifeDamage))
-				{
-					float mknifeSkill = 1.0;
-					float perkMknife;
-					if (player.GetTerjeSkills().GetPerkValue("hunt", "mknife", perkMknife))
-					{
-						mknifeSkill = Math.Clamp(1.0 + perkMknife, 0, 1);
-					}
-					
-					float animalBodyMod = 1.0;
-					if (animalBody && GetTerjeGameConfig().ConfigIsExisting("CfgVehicles " + animalBody.GetType() + " terjeSkinningKnifeDamageModifier"))
-					{
-						animalBodyMod = GetTerjeGameConfig().ConfigGetFloat("CfgVehicles " + animalBody.GetType() + " terjeSkinningKnifeDamageModifier");
-					}
-					
-					knifeItem.DecreaseHealth(huntingOverrideKnifeDamage * mknifeSkill * animalBodyMod, false);
-				}
-			}
-			
-			if (animalBody && player && player.IsAlive() && player.GetTerjeSkills())
-			{
-				float huntingButchAnimalExpGainModifier;
-				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_HUNTING_BUTCH_ANIMAL_EXP_GAIN_MODIFIER, huntingButchAnimalExpGainModifier))
-				{
-					int expCfg = GetTerjeGameConfig().ConfigGetInt("CfgVehicles " + animalBody.GetType() + " terjeOnButchHuntingExp");
-					int huntExp = (int)(expCfg * huntingButchAnimalExpGainModifier);
-					if (knifeItem && GetTerjeGameConfig().ConfigIsExisting("CfgVehicles " + knifeItem.GetType() + " terjeSkinningExpModifier"))
-					{
-						huntExp = (int)(huntExp * GetTerjeGameConfig().ConfigGetFloat("CfgVehicles " + knifeItem.GetType() + " terjeSkinningExpModifier"));
-					}
-					
-					if (huntExp > 0)
-					{
-						player.GetTerjeSkills().AddSkillExperience("hunt", huntExp);
-					}
-				}
+				player.GetTerjeSkills().AddSkillExperience("hunt", huntExp);
 			}
 		}
 	}
