@@ -152,34 +152,26 @@ modded class BleedingSourcesManagerServer
 			return;
 		}
 		
-		float perkImpactresMod;
-		if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "impactres", perkImpactresMod))
+		float perkImpactresMod = 1.0;
+		float perkDurleathMod = 1.0;
+		float perkSepsisresMod = 1.0;
+		if (m_Player.GetTerjeSkills())
 		{
-			perkImpactresMod = 1.0 - Math.Clamp(perkImpactresMod, 0, 1);
-		}
-		else
-		{
-			perkImpactresMod = 1.0;
-		}
-		
-		float perkDurleathMod;
-		if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "durleath", perkDurleathMod))
-		{
-			perkDurleathMod = 1.0 - Math.Clamp(perkDurleathMod, 0, 1);
-		}
-		else
-		{
-			perkDurleathMod = 1.0;
-		}
-		
-		float perkSepsisresMod;
-		if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisresMod))
-		{
-			perkSepsisresMod = 1.0 - Math.Clamp(perkSepsisresMod, 0, 1);
-		}
-		else
-		{
-			perkSepsisresMod = 1.0;
+			float perkImpactres;
+			if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "impactres", perkImpactres))
+			{
+				perkImpactresMod -= Math.Clamp(perkImpactres, 0, 1);
+			}
+			float perkDurleath;
+			if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "durleath", perkDurleath))
+			{
+				perkDurleathMod -= Math.Clamp(perkDurleath, 0, 1);
+			}
+			float perkSepsisres;
+			if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisres))
+			{
+				perkSepsisresMod -= Math.Clamp(perkSepsisres, 0, 1);
+			}
 		}
 		
 		bool isInKnockout = false;
@@ -227,14 +219,14 @@ modded class BleedingSourcesManagerServer
 				float zombieDammageBleedVirusChance = GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_ZOMBIE_DAMMAGE_BLEED_VIRUS_CHANCE);
 				float zombieDammageStubWoundVirusChance = GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_ZOMBIE_DAMMAGE_STUB_WOUND_VIRUS_CHANCE);
 				
-				float perkZmbvirresMod;
-				if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "zmbvirres", perkZmbvirresMod))
+				float perkZmbvirresMod = 1.0;
+				if (m_Player.GetTerjeSkills())
 				{
-					perkZmbvirresMod = 1.0 - Math.Clamp(perkZmbvirresMod, 0, 1);
-				}
-				else
-				{
-					perkZmbvirresMod = 1.0;
+					float perkZmbvirres;
+					if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "zmbvirres", perkZmbvirres))
+					{
+						perkZmbvirresMod -= Math.Clamp(perkZmbvirres, 0, 1);
+					}
 				}
 				
 				if (Math.RandomFloat01() < zombieDammageHematomaChance * perkImpactresMod)
@@ -728,7 +720,7 @@ modded class BleedingSourcesManagerServer
 				};
 			};
 		*/
-		if (GetGame() && source && m_Player && m_Player.GetTerjeStats() != null)
+		if (g_Game && source && m_Player && m_Player.GetTerjeStats() != null)
 		{
 			float value;
 			string configRoot = "CfgVehicles " + source.GetType() + " TerjeCustomInjuries";
@@ -744,14 +736,14 @@ modded class BleedingSourcesManagerServer
 					value = GetTerjeGameConfig().ConfigGetFloat(configRoot + " lightBleedingChance");
 					if (value > 0)
 					{
-						float perkDurleathMod;
-						if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "durleath", perkDurleathMod))
+						float perkDurleathMod = 1.0;
+						if (m_Player.GetTerjeSkills())
 						{
-							perkDurleathMod = 1.0 - Math.Clamp(perkDurleathMod, 0, 1);
-						}
-						else
-						{
-							perkDurleathMod = 1.0;
+							float perkDurleath;
+							if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "durleath", perkDurleath))
+							{
+								perkDurleathMod -= Math.Clamp(perkDurleath, 0, 1);
+							}
 						}
 						
 						if (Math.RandomFloat01() < value * perkDurleathMod)
@@ -775,14 +767,14 @@ modded class BleedingSourcesManagerServer
 					value = GetTerjeGameConfig().ConfigGetFloat(configRoot + " hematomaChance");
 					if (value > 0)
 					{
-						float perkImpactresMod;
-						if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "impactres", perkImpactresMod))
+						float perkImpactresMod = 1.0;
+						if (m_Player.GetTerjeSkills())
 						{
-							perkImpactresMod = 1.0 - Math.Clamp(perkImpactresMod, 0, 1);
-						}
-						else
-						{
-							perkImpactresMod = 1.0;
+							float perkImpactres;
+							if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "impactres", perkImpactres))
+							{
+								perkImpactresMod -= Math.Clamp(perkImpactres, 0, 1);
+							}
 						}
 						
 						if (Math.RandomFloat01() < value * perkImpactresMod)
@@ -824,14 +816,14 @@ modded class BleedingSourcesManagerServer
 					value = GetTerjeGameConfig().ConfigGetFloat(configRoot + " zombieVirusChance");
 					if (value > 0)
 					{
-						float perkZmbvirresMod;
-						if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "zmbvirres", perkZmbvirresMod))
+						float perkZmbvirresMod = 1.0;
+						if (m_Player.GetTerjeSkills())
 						{
-							perkZmbvirresMod = 1.0 - Math.Clamp(perkZmbvirresMod, 0, 1);
-						}
-						else
-						{
-							perkZmbvirresMod = 1.0;
+							float perkZmbvirres;
+							if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "zmbvirres", perkZmbvirres))
+							{
+								perkZmbvirresMod -= Math.Clamp(perkZmbvirres, 0, 1);
+							}
 						}
 						
 						if (Math.RandomFloat01() < value * perkZmbvirresMod)
@@ -843,14 +835,14 @@ modded class BleedingSourcesManagerServer
 					value = GetTerjeGameConfig().ConfigGetFloat(configRoot + " sepsisInfectionChance");
 					if (value > 0)
 					{
-						float perkSepsisresMod;
-						if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisresMod))
+						float perkSepsisresMod = 1.0;
+						if (m_Player.GetTerjeSkills())
 						{
-							perkSepsisresMod = 1.0 - Math.Clamp(perkSepsisresMod, 0, 1);
-						}
-						else
-						{
-							perkSepsisresMod = 1.0;
+							float perkSepsisres;
+							if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisres))
+							{
+								perkSepsisresMod -= Math.Clamp(perkSepsisres, 0, 1);
+							}
 						}
 						
 						if (Math.RandomFloat01() < value * perkSepsisresMod)

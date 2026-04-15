@@ -9,7 +9,7 @@ class TerjePlayerConditions
 		{
 			m_instance = new TerjePlayerConditions;
 			
-			if (GetGame() && GetGame().IsDedicatedServer())
+			if (g_Game && g_Game.IsDedicatedServer())
 			{
 				m_instance.OnInit();
 			}
@@ -51,7 +51,7 @@ class TerjePlayerConditions
 	
 	protected void RegisterCondition(string name, typename type)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (type && type.IsInherited(TerjePlayerConditionBase))
 			{
@@ -66,7 +66,7 @@ class TerjePlayerConditions
 	
 	bool ProcessCondition(PlayerBase player, TerjeXmlObject condition, out string displayText)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && (condition != null) && (condition.IsObjectNode()))
+		if (g_Game && g_Game.IsDedicatedServer() && (condition != null) && (condition.IsObjectNode()))
 		{
 			bool result = ValidateCondition(player, condition);
 			if (result)
@@ -93,7 +93,7 @@ class TerjePlayerConditions
 	
 	bool ValidateCondition(PlayerBase player, TerjeXmlObject condition)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjePlayerConditionBase result;
 			if ((condition != null) && (condition.IsObjectNode()) && (m_conditions.Find(condition.GetName(), result)) && (result != null))
@@ -107,7 +107,7 @@ class TerjePlayerConditions
 	
 	void ApplyCondition(PlayerBase player, TerjeXmlObject condition)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjePlayerConditionBase result;
 			if ((condition != null) && (condition.IsObjectNode()) && (m_conditions.Find(condition.GetName(), result)) && (result != null))
@@ -119,7 +119,7 @@ class TerjePlayerConditions
 	
 	string GetConditionText(PlayerBase player, TerjeXmlObject condition)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjePlayerConditionBase result;
 			if ((condition != null) && (condition.IsObjectNode()))

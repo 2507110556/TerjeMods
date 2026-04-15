@@ -47,7 +47,7 @@ class CAContinuousRepeatStethoscopeInspect : CAContinuousRepeat
 			m_TimeElpased = m_TimeToComplete - m_TimeElpased;
 			OnCompletePogress(action_data);
 			
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				string notificationTitle;
 				string notificationIcon;
@@ -159,7 +159,7 @@ class ActionStethoscopeInspect: ActionContinuousBase
 				PlayerBase targetPlayer = PlayerBase.Cast( action_data.m_Target.GetObject() );
 				if (targetPlayer)
 				{
-					if (GetGame().IsDedicatedServer() && player && player.GetTerjeSkills())
+					if (g_Game.IsDedicatedServer() && player && player.GetTerjeSkills())
 					{
 						if (player.GetTerjeSkills().IsPerkRegistered("med", "stethscp"))
 						{

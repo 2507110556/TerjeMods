@@ -15,7 +15,7 @@ class PluginTerjeScriptableAreas : PluginBase
 		super.OnInit();
 		
 		m_scriptableAreas = new TerjeSAT_General;
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			string areasXmlDir = "$profile:TerjeSettings\\ScriptableAreas";
 			MakeDirectory(areasXmlDir);
@@ -166,12 +166,12 @@ class PluginTerjeScriptableAreas : PluginBase
 		vector pos = TerjeVectorHelper.StrToVector(nodePosition.GetValue());
 		if (pos[1] == 0)
 		{
-			pos[1] = GetGame().SurfaceRoadY( pos[0], pos[2] );
-			Class.CastTo( spawnableObject, GetGame().CreateObjectEx( classname, pos, ECE_PLACE_ON_SURFACE ) );
+			pos[1] = g_Game.SurfaceRoadY( pos[0], pos[2] );
+			Class.CastTo( spawnableObject, g_Game.CreateObjectEx( classname, pos, ECE_PLACE_ON_SURFACE ) );
 		}
 		else
 		{
-			Class.CastTo( spawnableObject, GetGame().CreateObjectEx( classname, pos, ECE_NONE ) );
+			Class.CastTo( spawnableObject, g_Game.CreateObjectEx( classname, pos, ECE_NONE ) );
 		}
 		
 		if (spawnableObject)
@@ -207,7 +207,7 @@ class PluginTerjeScriptableAreas : PluginBase
 	
 	bool HasAbsoluteCustomProtectionOfType(PlayerBase player, string protectionType)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && m_customProtection != null)
+		if (g_Game && g_Game.IsDedicatedServer() && m_customProtection != null)
 		{
 			ref set<string> registeredIds;
 			if (m_customProtection.Find(protectionType, registeredIds))
@@ -427,7 +427,7 @@ class PluginTerjeScriptableAreas : PluginBase
 			AnimalBase animalObj;
 			vector ownerPos = owner.GetWorldPosition();
 			ref array<Object> nearestObjects = new array<Object>;
-			GetGame().GetObjectsAtPosition3D(ownerPos, radius, nearestObjects, null);
+			g_Game.GetObjectsAtPosition3D(ownerPos, radius, nearestObjects, null);
 			foreach (Object obj : nearestObjects)
 			{
 				if (owner == obj && ignoreOwnerRadioactivity)
@@ -587,7 +587,7 @@ class TerjeSAT_TypedTree
 	{
 		m_flatTree = new TerjeSAT_Indexed;
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			float gridSize = Math.Max(100, GetTerjeSettingInt(TerjeSettingsCollection.CORE_SAT_BINARY_TREE_GRID_SIZE));
 			m_gridTree = new TerjeSAT_GridTree(gridSize);

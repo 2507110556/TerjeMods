@@ -11,7 +11,7 @@ modded class AnimalBase
 	
 	override bool AddTerjeRadiation(float rAmount)
 	{
-		if (GetGame().IsDedicatedServer() && IsTerjeRadiationAccumulated())
+		if (g_Game.IsDedicatedServer() && IsTerjeRadiationAccumulated())
 		{
 			if (ConfigIsExisting("terjeStaticRadiationValue"))
 			{
@@ -40,7 +40,7 @@ modded class AnimalBase
 			return GetTerjeGameConfig().ConfigGetFloat("CfgVehicles " + GetType() + " terjeStaticRadiationValue");
 		}
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			return m_terjeRadiationServer;
 		}
@@ -59,7 +59,7 @@ modded class AnimalBase
 	{
 		super.CommandHandler(dt, currentCommandID, currentCommandFinished);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			m_terjeRadiationUpdate += dt;
 			if (m_terjeRadiationUpdate > 30)

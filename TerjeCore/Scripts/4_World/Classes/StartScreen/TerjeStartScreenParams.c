@@ -6,7 +6,7 @@ class TerjeStartScreenParams
 	
 	protected void RegisterContextType(typename type)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			m_contextTypes.Insert(type);
 		}

@@ -9,7 +9,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	override void OnInit()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			GetTerjeRPC().RegisterHandler("startscreen.tros", this, "OnTerjeStartScreenRespawnObjectsSynch");
 		}
@@ -17,7 +17,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	protected void OnTerjeStartScreenRespawnObjectsSynch(ParamsReadContext ctx, PlayerIdentity sender)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			m_idsToClassname.Clear();
 			m_classnameToIds.Clear();
@@ -32,7 +32,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	void RegisterRespawnObjects(string respawnId, TerjeXmlObject objects)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			for (int i = 0; i < objects.GetChildrenCount(); i++)
 			{
@@ -105,7 +105,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	void SendToClient(PlayerIdentity identity)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			TerjeStreamRpc stream;
 			GetTerjeRPC().StreamToClient("startscreen.tros", identity, stream);
@@ -117,7 +117,7 @@ class PluginTerjeRespawnObjects : PluginBase
 		
 	void ResetRespawnObjectsOwner(string uid, TerjePlayerProfile profile)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && (profile != null) && (uid != string.Empty))
+		if (g_Game && g_Game.IsDedicatedServer() && (profile != null) && (uid != string.Empty))
 		{
 			foreach (string respawnId : m_idsCollection)
 			{
@@ -136,7 +136,7 @@ class PluginTerjeRespawnObjects : PluginBase
 		if (profile.FindRespawnObjectData(respawnId, classname, metadata, objectPos, playerPos, playerOri))
 		{
 			array<Object> objects();
-			GetGame().GetObjectsAtPosition3D(objectPos, 0.1, objects, null);
+			g_Game.GetObjectsAtPosition3D(objectPos, 0.1, objects, null);
 			foreach (Object obj : objects)
 			{
 				ItemBase objItemBase;
@@ -150,7 +150,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	bool FindAndValidateRespawnObject(PlayerBase player, string respawnId, out vector playerPos, out vector playerOri)
 	{
-		if (!GetGame() || !GetGame().IsDedicatedServer())
+		if (!g_Game || !g_Game.IsDedicatedServer())
 			return false;
 		
 		if (!player)
@@ -170,7 +170,7 @@ class PluginTerjeRespawnObjects : PluginBase
 			return false;
 		
 		array<Object> objects();
-		GetGame().GetObjectsAtPosition3D(objectPos, 0.1, objects, null);
+		g_Game.GetObjectsAtPosition3D(objectPos, 0.1, objects, null);
 		foreach (Object obj : objects)
 		{
 			if (obj && (obj.GetType() == classname) && (ValidateRespawnObject(obj, player, respawnId, xmlObject)))
@@ -184,7 +184,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	bool ValidateRespawnObject(Object object, PlayerBase player, string respawnId, TerjeXmlObject xmlObject)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (xmlObject.EqualAttribute("singleBind", "1"))
 			{
@@ -248,7 +248,7 @@ class PluginTerjeRespawnObjects : PluginBase
 			return false;
 		
 		int result = 0;
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			set<string> respawnIds = null;
 			string classname = object.GetType();
@@ -310,7 +310,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	void SetLastLocalObject(Object obj)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			m_lastLocalObject = obj;
 		}
@@ -318,7 +318,7 @@ class PluginTerjeRespawnObjects : PluginBase
 	
 	Object GetLastLocalObject()
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			return m_lastLocalObject;
 		}

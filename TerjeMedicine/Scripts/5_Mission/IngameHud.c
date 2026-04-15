@@ -53,7 +53,7 @@ modded class IngameHud
 			m_terjeUnconInfoWidget.Unlink();
 		}
 		
-		m_terjeUnconInfoWidget = TextWidget.Cast(GetGame().GetWorkspace().CreateWidgets("TerjeCore/Layouts/TerjeWidgetTextCentered.layout", hud_panel_widget));
+		m_terjeUnconInfoWidget = TextWidget.Cast(g_Game.GetWorkspace().CreateWidgets("TerjeCore/Layouts/TerjeWidgetTextCentered.layout", hud_panel_widget));
 		m_terjeUnconInfoWidget.Show(false);
 	}
 	
@@ -199,7 +199,7 @@ modded class IngameHud
 		
 		if (m_terjeUnconInfoWidget)
 		{
-			PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 			if (m_terjeUnconState && player && player.IsAlive() && player.GetTerjeStats() && player.GetTerjeStats().IsInKnockout())
 			{
 				bool showDetailedText;

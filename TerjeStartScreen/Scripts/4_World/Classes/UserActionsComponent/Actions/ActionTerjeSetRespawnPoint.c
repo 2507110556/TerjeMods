@@ -30,7 +30,7 @@ class ActionTerjeSetRespawnPoint: ActionInteractBase
 		if (!plugin)
 			return false;
 		
-		if (GetGame() && GetGame().IsClient() && (plugin.GetLastLocalObject() == target.GetObject()))
+		if (g_Game && g_Game.IsClient() && (plugin.GetLastLocalObject() == target.GetObject()))
 			return false;
 		
 		return plugin.CanSetObjectAsRespawn(target.GetObject(), player);

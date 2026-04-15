@@ -9,7 +9,7 @@ class TerjeDosimetrBase : Inventory_Base
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame() && m_DosimetrSoundEffect)
+		if (g_Game && m_DosimetrSoundEffect)
 		{
 			SEffectManager.DestroyEffect(m_DosimetrSoundEffect);
 		}
@@ -19,7 +19,7 @@ class TerjeDosimetrBase : Inventory_Base
 	{
 		super.OnWorkStart();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			TerjeEnableDisplayClient();
 			m_DosimeterSoundIndex = -1;
@@ -30,7 +30,7 @@ class TerjeDosimetrBase : Inventory_Base
 	{
 		super.OnWork(consumed_energy);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			float radioactiveValue = Math.Clamp(CalculateTerjeEnvironmentRadiation() * TerjeGeigerRadiationModifier(), 0, TerjeGeigerMaxLimit());
 			
@@ -62,7 +62,7 @@ class TerjeDosimetrBase : Inventory_Base
 	{
 		super.OnWorkStop();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			TerjeDisableDisplayClient();
 			if (m_DosimeterSoundIndex != -1)

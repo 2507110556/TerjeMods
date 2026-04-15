@@ -11,7 +11,7 @@ modded class Animal_CanisLupus
 	{
 		super.EEInit();
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			float rabiesChance;
 			if (GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_RABIES_WOLF_INFECTED_CHANCE, rabiesChance))

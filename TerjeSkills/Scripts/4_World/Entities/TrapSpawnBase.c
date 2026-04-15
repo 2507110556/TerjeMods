@@ -6,7 +6,7 @@ modded class TrapSpawnBase
 	{
 		super.SetupTrapPlayer(player, set_position);
 		
-		if ( GetGame().IsDedicatedServer() )
+		if ( g_Game.IsDedicatedServer() )
 		{
 			string terjeSkillName = "hunt";
 			string terjePerkName = "trapexp";

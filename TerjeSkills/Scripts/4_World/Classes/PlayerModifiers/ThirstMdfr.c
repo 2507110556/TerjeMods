@@ -8,7 +8,7 @@ modded class ThirstMdfr
 			float skillModifier;
 			if (player.GetTerjeSkills().GetSkillModifierValue("mtblsm", "energconsmod", skillModifier))
 			{
-				metabolic_speed = metabolic_speed * Math.Clamp(1.0 + skillModifier, 0.0, 1.0);
+				metabolic_speed *= Math.Clamp(1.0 + skillModifier, 0, 1);
 			}
 			
 			if (m_MovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_IDLE)
@@ -16,7 +16,7 @@ modded class ThirstMdfr
 				float watrsavePerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "watrsave", watrsavePerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + watrsavePerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + watrsavePerkValue, 0, 1);
 				}
 			}
 			else if (m_MovementState.m_iMovement == DayZPlayerConstants.MOVEMENTIDX_SPRINT)
@@ -24,7 +24,7 @@ modded class ThirstMdfr
 				float hydrcontrPerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "hydrcontr", hydrcontrPerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + hydrcontrPerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + hydrcontrPerkValue, 0, 1);
 				}
 			}
 			else
@@ -32,7 +32,7 @@ modded class ThirstMdfr
 				float watrcontaPerkValue;
 				if (player.GetTerjeSkills().GetPerkValue("mtblsm", "watrconta", watrcontaPerkValue))
 				{
-					metabolic_speed = metabolic_speed * Math.Clamp(1.0 + watrcontaPerkValue, 0.0, 1.0);
+					metabolic_speed *= Math.Clamp(1.0 + watrcontaPerkValue, 0, 1);
 				}
 			}
 		}
@@ -42,11 +42,14 @@ modded class ThirstMdfr
 	
 	override protected float GetTerjeHealthDammageModifier(PlayerBase player, float deltaT, float water)
 	{
-		float reswaterPerkValue;
 		float healthDmg = super.GetTerjeHealthDammageModifier(player, deltaT, water);
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("mtblsm", "reswater", reswaterPerkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			healthDmg = healthDmg * Math.Clamp(1.0 + reswaterPerkValue, 0.0, 1.0);
+			float reswaterPerkValue;
+			if (player.GetTerjeSkills().GetPerkValue("mtblsm", "reswater", reswaterPerkValue))
+			{
+				healthDmg *= Math.Clamp(1.0 + reswaterPerkValue, 0, 1);
+			}
 		}
 		
 		return healthDmg;

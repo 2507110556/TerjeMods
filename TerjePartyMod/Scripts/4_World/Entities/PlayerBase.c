@@ -8,7 +8,7 @@ modded class PlayerBase
 	{
 		super.EEInit();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			m_terjepartyLocalId = m_terjepartyNextLocalID;
 			m_terjepartyNextLocalID = m_terjepartyNextLocalID + 1;
@@ -20,7 +20,7 @@ modded class PlayerBase
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			m_terjepartyPartyInfo.Remove(m_terjepartyLocalId);
 		}
@@ -30,7 +30,7 @@ modded class PlayerBase
 	{
 		super.EEKilled(killer);
 		
-		if (GetGame().IsServer())
+		if (g_Game.IsServer())
 		{
 			EntityAI killerAI;
 			if (EntityAI.CastTo(killerAI, killer))

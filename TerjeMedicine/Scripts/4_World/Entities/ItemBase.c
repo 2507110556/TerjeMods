@@ -8,11 +8,14 @@ modded class ItemBase
 			result = 0.01;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgint", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
-			result = result + (perkAffectRange * perkValue);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgint", perkValue))
+			{
+				float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
+				result += perkAffectRange * perkValue;
+			}
 		}
 		
 		float settingMod;
@@ -32,10 +35,13 @@ modded class ItemBase
 			result = 60;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			result = result * Math.Clamp(1.0 + perkValue, 0, 1);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+			{
+				result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			}
 		}
 		
 		float settingMod;
@@ -55,11 +61,14 @@ modded class ItemBase
 			result = 0.01;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgbw", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
-			result = result + (perkAffectRange * perkValue);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgbw", perkValue))
+			{
+				float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
+				result += perkAffectRange * perkValue;
+			}
 		}
 		
 		float settingMod;
@@ -79,10 +88,13 @@ modded class ItemBase
 			result = 30;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			result = result * Math.Clamp(1.0 + perkValue, 0, 1);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+			{
+				result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			}
 		}
 		
 		float settingMod;
@@ -102,11 +114,14 @@ modded class ItemBase
 			result = 0.01;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgsw", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
-			result = result + (perkAffectRange * perkValue);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgsw", perkValue))
+			{
+				float perkAffectRange = Math.Clamp(1.0 - result, 0, 1);
+				result += (perkAffectRange * perkValue);
+			}
 		}
 		
 		float settingMod;
@@ -126,10 +141,13 @@ modded class ItemBase
 			result = 20;
 		}
 		
-		float perkValue;
-		if (player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+		if (player && player.GetTerjeSkills())
 		{
-			result = result * Math.Clamp(1.0 + perkValue, 0, 1);
+			float perkValue;
+			if (player.GetTerjeSkills().GetPerkValue("med", "surgeon", perkValue))
+			{
+				result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			}
 		}
 		
 		float settingMod;
@@ -207,9 +225,9 @@ modded class ItemBase
 	
 	override int TerjeOverrideDescriptionByConsumableEffects()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
-			PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
+			PlayerBase player = PlayerBase.Cast( g_Game.GetPlayer() );
 			if (player && player.GetTerjeSkills())
 			{
 				if (GetTerjeGameConfig().ConfigGetBool("CfgVehicles " + GetType() + " medicalPillsCategory"))

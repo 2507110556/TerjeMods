@@ -26,7 +26,7 @@ class TerjeHardwareBase
 		m_serialNumber = Math.RandomInt(100000000, 999999999);
 		
 		TerjeGadgetBase gadget = GetGadget();
-		if (GetGame() && GetGame().IsDedicatedServer() && gadget && (m_software == null))
+		if (g_Game && g_Game.IsDedicatedServer() && gadget && (m_software == null))
 		{
 			string softwareClass = GetTerjeGameConfig().ConfigGetStringRaw("CfgVehicles " + gadget.GetType() + " softwareClass");
 			if (softwareClass != string.Empty)
@@ -52,7 +52,7 @@ class TerjeHardwareBase
 			m_software.OnUpdate(deltaTime);
 		}
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			UpdatePowerMode();
 		}
@@ -193,7 +193,7 @@ class TerjeHardwareBase
 	void SetPowerMode(TerjeHardwarePowerMode mode)
 	{
 		TerjeHardwarePowerMode oldPowerMode = m_powerMode;
-		if (GetGame() && GetGadget() && (mode != oldPowerMode))
+		if (g_Game && GetGadget() && (mode != oldPowerMode))
 		{
 			bool valid = false;
 			if (mode == TerjeHardwarePowerMode.ENABLED)
@@ -220,7 +220,7 @@ class TerjeHardwareBase
 			
 			if (valid)
 			{
-				if (GetGame().IsDedicatedServer())
+				if (g_Game.IsDedicatedServer())
 				{
 					m_powerMode = mode;
 					OnPowerModeChanged(oldPowerMode, mode);
@@ -276,14 +276,14 @@ class TerjeHardwareBase
 	protected void OnRPC_Power(ParamsReadContext ctx)
 	{
 		int powerMode;
-		if (GetGame() && ctx.Read(powerMode))
+		if (g_Game && ctx.Read(powerMode))
 		{
 			TerjeHardwarePowerMode oldPowerMode = GetPowerMode();
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				SetPowerMode(powerMode);
 			}
-			else if (GetGame().IsClient())
+			else if (g_Game.IsClient())
 			{
 				m_powerMode = powerMode;
 				if (oldPowerMode != powerMode)
@@ -301,7 +301,7 @@ class TerjeHardwareBase
 			idx = Math.RandomInt(0, int.MAX);
 		}
 		
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			EffectSound sound;
 			OnPlaySound(name, idx, sound);
@@ -317,7 +317,7 @@ class TerjeHardwareBase
 	
 	protected void OnPlaySound(string soundName, int soundIdx, out EffectSound sound)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			int cacheIdx = m_soundLocalCache.Find(soundIdx);
 			if (cacheIdx != -1)
@@ -336,13 +336,13 @@ class TerjeHardwareBase
 		int soundIdx;
 		if (ctx.Read(soundName) && ctx.Read(soundIdx))
 		{
-			if (GetGame() && GetGadget())
+			if (g_Game && GetGadget())
 			{
-				if (GetGame().IsDedicatedServer())
+				if (g_Game.IsDedicatedServer())
 				{
 					PlaySound(soundName, soundIdx);
 				}
-				else if (GetGame().IsClient())
+				else if (g_Game.IsClient())
 				{
 					EffectSound sound;
 					OnPlaySound(soundName, soundIdx, sound);

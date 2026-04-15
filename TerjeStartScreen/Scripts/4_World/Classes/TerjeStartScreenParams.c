@@ -109,7 +109,7 @@ modded class TerjeStartScreenParams
 	{
 		super.OnServerTick(player, deltaTime);
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.STARTSCREEN_ONACTIVE_SAFEPOS))
 			{

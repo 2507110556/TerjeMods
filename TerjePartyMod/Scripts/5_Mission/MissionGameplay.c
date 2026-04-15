@@ -10,7 +10,7 @@ modded class MissionGameplay
 		PluginTerjeParty partyModule = GetTerjeParty();
 		if (partyModule && partyModule.IsShowOnMap())
 		{
-			UIScriptedMenu currentMenu = UIScriptedMenu.Cast(GetGame().GetUIManager().GetMenu());
+			UIScriptedMenu currentMenu = UIScriptedMenu.Cast(g_Game.GetUIManager().GetMenu());
 			if (currentMenu)
 			{
 				if (currentMenu != m_lastScriptedMenu)
@@ -77,7 +77,7 @@ modded class MissionGameplay
 			m_mapsCache.Insert(mwid);
 		}
 		
-		PlayerBase myLocalPlayer = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase myLocalPlayer = PlayerBase.Cast(g_Game.GetPlayer());
 		if (myLocalPlayer && myLocalPlayer.IsAlive())
 		{	
 			PluginTerjeParty partyModule = GetTerjeParty();

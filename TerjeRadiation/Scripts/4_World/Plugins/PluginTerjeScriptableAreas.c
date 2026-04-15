@@ -39,7 +39,7 @@ modded class PluginTerjeScriptableAreas
 		float rainRadiation = GetTerjeSettingFloat(TerjeSettingsCollection.RADIATION_RADRAIN_POWER);
 		if (rainRadiation > 0)
 		{
-			Weather weather = GetGame().GetWeather();
+			Weather weather = g_Game.GetWeather();
 			if (weather != null)
 			{
 				float effectPower = 0;
@@ -72,7 +72,7 @@ modded class PluginTerjeScriptableAreas
 			vector memPointPos = parent.GetMemoryPointPos("particle_shower_" + pointIndex);
 			vector worldPos = parent.ModelToWorld(Vector(memPointPos[0], 0, memPointPos[2]));
 			
-			GetGame().GetObjectsAtPosition3D(worldPos, radius, nearestObjects, null);
+			g_Game.GetObjectsAtPosition3D(worldPos, radius, nearestObjects, null);
 			foreach (Object obj : nearestObjects)
 			{
 				if (!obj)

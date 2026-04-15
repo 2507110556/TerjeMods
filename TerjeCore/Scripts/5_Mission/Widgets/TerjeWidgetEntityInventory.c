@@ -181,11 +181,11 @@ class TerjeWidgetEntityInventory : TerjeWidgetBase
 	protected bool GetEntityInCargoInfo(CargoBase cargo, int index, out EntityAI entity, out int row, out int col, out int width, out int height, out bool flip)
 	{
 		entity = cargo.GetItem(index);
-		if (GetGame() && entity && entity.GetInventory())
+		if (g_Game && entity && entity.GetInventory())
 		{
 			InventoryLocation invloc = new InventoryLocation;
 			entity.GetInventory().GetCurrentInventoryLocation(invloc);
-			GetGame().GetInventoryItemSize(InventoryItem.Cast(entity), width, height);
+			g_Game.GetInventoryItemSize(InventoryItem.Cast(entity), width, height);
 			if (entity.GetInventory().GetFlipCargo())
 			{
 				row = invloc.GetCol();

@@ -4,12 +4,12 @@ class TerjeSoundEmitter extends House
 	
 	void TerjeSoundEmitter()
 	{
-		if ( GetGame().IsDedicatedServer() )
+		if ( g_Game.IsDedicatedServer() )
 		{
-			GetGame().GetCallQueue( CALL_CATEGORY_GAMEPLAY ).CallLater(AutoDeleteIntenalCall, GetLifeTime(), false);
+			g_Game.GetCallQueue( CALL_CATEGORY_GAMEPLAY ).CallLater(AutoDeleteIntenalCall, GetLifeTime(), false);
 		}
 		
-		if ( !GetGame().IsDedicatedServer() )
+		if ( !g_Game.IsDedicatedServer() )
 		{
 			PlaySoundInternal();
 		}
@@ -17,11 +17,11 @@ class TerjeSoundEmitter extends House
 	
 	void ~TerjeSoundEmitter() 
 	{
-		if ( !GetGame().IsDedicatedServer() )
+		if ( !g_Game.IsDedicatedServer() )
 		{
 			if ( m_soundEffect )
 			{
-				GetGame().ObjectDelete( m_soundEffect );
+				g_Game.ObjectDelete( m_soundEffect );
 				m_soundEffect = null;
 			}
 		}
@@ -29,15 +29,15 @@ class TerjeSoundEmitter extends House
 	
 	private void AutoDeleteIntenalCall()
 	{
-		if ( GetGame().IsDedicatedServer() )
+		if ( g_Game.IsDedicatedServer() )
 		{
-			GetGame().ObjectDelete( this );
+			g_Game.ObjectDelete( this );
 		}
 	}
 	
 	private void PlaySoundInternal()
 	{
-		if ( !GetGame().IsDedicatedServer() )
+		if ( !g_Game.IsDedicatedServer() )
 		{
 			m_soundEffect = PlaySound(GetSound(), GetRange(), true);	
 		}

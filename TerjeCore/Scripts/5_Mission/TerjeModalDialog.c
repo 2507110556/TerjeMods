@@ -44,7 +44,7 @@ class TerjeModalDialog : UIScriptedMenu
 	
 	override Widget Init()
 	{
-		layoutRoot = GetGame().GetWorkspace().CreateWidgets("TerjeCore/Layouts/ModalDialogYesNo.layout");
+		layoutRoot = g_Game.GetWorkspace().CreateWidgets("TerjeCore/Layouts/ModalDialogYesNo.layout");
 		TextWidget.Cast(layoutRoot.FindAnyWidget("Caption")).SetText(m_Title);
 		TextWidget.Cast(layoutRoot.FindAnyWidget("Text")).SetText(m_Message);
 		return layoutRoot;

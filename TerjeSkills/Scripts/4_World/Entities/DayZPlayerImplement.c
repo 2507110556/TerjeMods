@@ -2,7 +2,7 @@ modded class DayZPlayerImplement
 {
 	override void OnStepEvent(string pEventType, string pUserString, int pUserInt)
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			float perkValue;
 			PlayerBase player = PlayerBase.Cast(this);
@@ -40,7 +40,7 @@ modded class DayZPlayerImplement
 	
 	override void OnSoundEvent(string pEventType, string pUserString, int pUserInt)
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			float perkValue;
 			PlayerBase player = PlayerBase.Cast(this);
@@ -81,7 +81,7 @@ modded class DayZPlayerImplement
 	
 	override void AddNoise(NoiseParams noisePar, float noiseMultiplier = 1.0)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && noiseMultiplier > 0)
+		if (g_Game && g_Game.IsDedicatedServer() && noiseMultiplier > 0)
 		{
 			float settingValue;
 			if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_STEALTH_PLAYER_NOISE_MODIFIER, settingValue))

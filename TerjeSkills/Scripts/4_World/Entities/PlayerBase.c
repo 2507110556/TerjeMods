@@ -26,7 +26,7 @@ modded class PlayerBase
 	{
 		super.OnTerjePlayerRespawned();
 		
-		if (GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.SKILLS_RESET_ALL_ON_DEATH))
+		if (g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.SKILLS_RESET_ALL_ON_DEATH))
 		{
 			if (GetTerjeSkills() != null && TerjeSettingsCollection.SKILLS_INITIAL_EXP != null)
 			{
@@ -47,7 +47,7 @@ modded class PlayerBase
 	{
 		super.OnTerjeProfileFirstCreation();
 		
-		if (GetGame().IsDedicatedServer() && GetTerjeSkills() != null && TerjeSettingsCollection.SKILLS_INITIAL_EXP != null)
+		if (g_Game.IsDedicatedServer() && GetTerjeSkills() != null && TerjeSettingsCollection.SKILLS_INITIAL_EXP != null)
 		{
 			foreach (string skillId, int settingId : TerjeSettingsCollection.SKILLS_INITIAL_EXP)
 			{
@@ -94,7 +94,7 @@ modded class PlayerBase
 		
 		if (id == TerjeSkillsConstants.TRPC_PLAYER_PERK_APPLY)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				Param2<string, string> perkUpgradeParams;
 				if (!ctx.Read(perkUpgradeParams))
@@ -107,7 +107,7 @@ modded class PlayerBase
 		}
 		else if (id == TerjeSkillsConstants.TRPC_PLAYER_PERKS_RESET)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				Param1<string> perkResetParams;
 				if (!ctx.Read(perkResetParams))
@@ -121,7 +121,7 @@ modded class PlayerBase
 		// New RPCs for adding and decreasing perk levels
 		else if (id == TerjeSkillsConstants.TRPC_PLAYER_PERK_DEC)
 		{
-			if (GetGame().IsDedicatedServer())
+			if (g_Game.IsDedicatedServer())
 			{
 				Param2<string, string> perkDecParams;
 				if (!ctx.Read(perkDecParams))
@@ -166,7 +166,7 @@ modded class PlayerBase
 	{
 		super.OnTerjePlayerKilledEvent();
 		
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSkills() != null)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSkills() != null)
 		{
 			float experienceLosePercentage;
 			ref array<ref TerjeSkillCfg> skills = new array<ref TerjeSkillCfg>;
@@ -205,7 +205,7 @@ modded class PlayerBase
 	{
 		bool result = super.CanBeTargetedByAI(ai);
 		
-		if (!result && GetGame() && GetGame().IsDedicatedServer() && IsAlive() && IsUnconscious() && !IsInVehicle() && GetTerjeSkills() != null && ai != null)
+		if (!result && g_Game && g_Game.IsDedicatedServer() && IsAlive() && IsUnconscious() && !IsInVehicle() && GetTerjeSkills() != null && ai != null)
 		{
 			if (ai.IsZombie() || ai.IsAnimal())
 			{
@@ -228,24 +228,24 @@ modded class PlayerBase
 			float strengthSkillModifier = 0;
 			if (GetTerjeSkills().GetSkillModifierValue("strng", "maxweightmod", strengthSkillModifier))
 			{
-				weightModifier = weightModifier + strengthSkillModifier;
+				weightModifier += strengthSkillModifier;
 			}
 			
 			float strengthPerkModifier = 0;	
 			if (GetTerjeSkills().GetPerkValue("strng", "hvweight", strengthPerkModifier))
 			{
-				weightModifier = weightModifier + strengthPerkModifier;
+				weightModifier += strengthPerkModifier;
 			}
 			
 			if (weightModifier > 1.0)
 			{
-				result = result / weightModifier;
+				result /= weightModifier;
 			}
 			
 			float ltarmorPerkValue = 0;
 			if (GetTerjeSkills().GetPerkValue("strng", "ltarmor", ltarmorPerkValue))
 			{
-				result = result + (TerjeCalculateVestAndHelmetWeight() * ltarmorPerkValue);
+				result += (TerjeCalculateVestAndHelmetWeight() * ltarmorPerkValue);
 			}
 		}
 		
@@ -270,7 +270,7 @@ modded class PlayerBase
 	
 	override void TerjeSendSoundEvent(string soundSet, string soundType, float volume)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && GetTerjeSkills() != null)
+		if (g_Game && g_Game.IsDedicatedServer() && GetTerjeSkills() != null)
 		{
 			float perkValue;
 			if (soundType == TERJE_SOUND_EVENT_TYPE_VOICE)
@@ -324,7 +324,7 @@ modded class PlayerBase
 	
 	private void TerjeStrongBonesPerkEEHitByHandler(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
 	{
-		if (GetGame().IsDedicatedServer() && GetAllowDamage() && GetTerjeSkills() != null && !GetModifiersManager().IsModifierActive(eModifiers.MDF_BROKEN_LEGS))
+		if (g_Game.IsDedicatedServer() && GetAllowDamage() && GetTerjeSkills() != null && !GetModifiersManager().IsModifierActive(eModifiers.MDF_BROKEN_LEGS))
 		{
 			if (GetHealth("RightLeg", "Health") <= 1 || GetHealth("LeftLeg", "Health") <= 1 || GetHealth("RightFoot", "Health") <= 1 || GetHealth("LeftFoot", "Health") <= 1)
 			{
@@ -358,10 +358,10 @@ modded class PlayerBase
 	
 	private void TerjeSurvDmgModEEHitByHandler(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
 	{
-		if (GetGame().IsDedicatedServer() && GetAllowDamage() && damageResult != null && source != null && source.IsZombie())
+		if (g_Game.IsDedicatedServer() && GetAllowDamage() && damageResult != null && source != null && source.IsZombie())
 		{
 			float survSkillMod;
-			if (GetGame().IsDedicatedServer() && GetTerjeSkills() != null && GetTerjeSkills().GetSkillModifierValue("surv", "survzmbmod", survSkillMod))
+			if (g_Game.IsDedicatedServer() && GetTerjeSkills() != null && GetTerjeSkills().GetSkillModifierValue("surv", "survzmbmod", survSkillMod))
 			{
 				float actualDmg = damageResult.GetDamage(dmgZone, "Health") * Math.Clamp(Math.AbsFloat(survSkillMod), 0, 1);
 				if (actualDmg > 0)
@@ -374,11 +374,11 @@ modded class PlayerBase
 	
 	void UpdateTerjeSkillsStealthBitmask()
 	{
-		if (GetGame().IsDedicatedServer() && GetTerjeSkills() != null)
+		if (g_Game.IsDedicatedServer() && GetTerjeSkills() != null)
 		{
 			int bitmask = m_terjeSkillsStealthMask;
 			bool setShadowtrc = GetTerjeSkills().GetPerkLevel("stlth", "shadowtrc") > 0;
-			bool setNinja = GetGame().GetWorld().IsNight() && (GetTerjeSkills().GetPerkLevel("stlth", "ninja") > 0);
+			bool setNinja = g_Game.GetWorld().IsNight() && (GetTerjeSkills().GetPerkLevel("stlth", "ninja") > 0);
 
 			bitmask = UpdateTerjeSkillsStealthBitmask_Perk(bitmask, TerjeSkillsStealthMask.TERJE_SKILLS_STEALTH_SHOES, "qtstep");
 			bitmask = UpdateTerjeSkillsStealthBitmask_Perk(bitmask, TerjeSkillsStealthMask.TERJE_SKILLS_STEALTH_WEAPON, "qshooter");

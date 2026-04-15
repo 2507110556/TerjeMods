@@ -18,7 +18,7 @@ modded class InspectMenuNew
 			Widget parent = textDescWidget.GetParent();
 			if (parent)
 			{
-				RichTextWidget newTextWidget = RichTextWidget.Cast(GetGame().GetWorkspace().CreateWidgets("TerjeCore/Layouts/RichTextInspectWidget.layout", parent));
+				RichTextWidget newTextWidget = RichTextWidget.Cast(g_Game.GetWorkspace().CreateWidgets("TerjeCore/Layouts/RichTextInspectWidget.layout", parent));
 				if (newTextWidget)
 				{
 					parent.RemoveChild(textDescWidget);

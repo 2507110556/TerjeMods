@@ -8,10 +8,10 @@ modded class PluginRecipesManager
 	{
 		super.OnInit();
 		
-		if (!GetGame())
+		if (!g_Game)
 			return;
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.CORE_USE_CUSTOM_CRAFT_CONFIGS))
 			{
@@ -65,7 +65,7 @@ modded class PluginRecipesManager
 	
 	void SendTerjeCustomRecipesToClient(PlayerIdentity identity)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if ((m_TerjeCustomClientRecipesData != null) && (m_TerjeCustomClientRecipesData.GetChildrenCount() > 0))
 			{
@@ -79,7 +79,7 @@ modded class PluginRecipesManager
 	
 	void OnReceiveClientTerjeCustomRecipes(ParamsReadContext ctx, PlayerIdentity sender)
 	{
-		if (GetGame() && GetGame().IsClient() && (m_TerjeCustomClientRecipesData == null))
+		if (g_Game && g_Game.IsClient() && (m_TerjeCustomClientRecipesData == null))
 		{
 			m_TerjeCustomClientRecipesData = new TerjeXmlObject;
 			m_TerjeCustomClientRecipesData.Unbinarize(ctx);

@@ -9,7 +9,7 @@ modded class DayZPlayerMeleeFightLogic_LightHeavy
 		
 		if (m_Player && m_Player.GetTerjeSkills() && m_Player.CanConsumeStamina(EStaminaConsumers.MELEE_EVADE))
 		{
-			m_Player.DepleteStamina(EStaminaModifiers.MELEE_EVADE);
+			m_Player.DepleteStaminaEx(EStaminaModifiers.MELEE_EVADE);
 			
 			float successBlockPerkModifier;
 			if (m_Player.GetTerjeSkills().GetPerkValue("strng", "mrevasion", successBlockPerkModifier) && Math.RandomFloat01() <= successBlockPerkModifier)
@@ -51,7 +51,7 @@ modded class DayZPlayerMeleeFightLogic_LightHeavy
 	{
 		if (super.EvaluateFinisherAttack(weapon, target))
 		{
-			if (GetGame() && GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills())
+			if (g_Game && g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills())
 			{
 				float stealthFinisherGainChance;
 				if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_STEALTH_FINISHER_GAIN_CHANCE, stealthFinisherGainChance) && (Math.RandomFloat01() < stealthFinisherGainChance))

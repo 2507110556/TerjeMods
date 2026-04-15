@@ -85,7 +85,7 @@ class TerjeScriptedMenu : UIScriptedMenu
 	
 	protected void OnCreate()
 	{
-		layoutRoot = GetGame().GetWorkspace().CreateWidgets(GetNativeLayout());
+		layoutRoot = g_Game.GetWorkspace().CreateWidgets(GetNativeLayout());
 		if (layoutRoot != null)
 		{
 			string backgroundImage = GetBackgroundImage();
@@ -182,26 +182,26 @@ class TerjeScriptedMenu : UIScriptedMenu
 	{
 		super.OnShow();
 
-		if (GetGame())
+		if (g_Game)
 		{
-			if (GetGame().GetPlayer() && GetGame().GetPlayer().GetInputController() != null)
+			if (g_Game.GetPlayer() && g_Game.GetPlayer().GetInputController() != null)
 			{
-				GetGame().GetPlayer().GetInputController().SetDisabled(IsInputControllerDisabled());
+				g_Game.GetPlayer().GetInputController().SetDisabled(IsInputControllerDisabled());
 			}
 			
-			if (GetGame().GetMission() != null && GetGame().GetMission().GetHud() != null)
+			if (g_Game.GetMission() != null && g_Game.GetMission().GetHud() != null)
 			{
-				GetGame().GetMission().GetHud().Show(IsHudVisible());
+				g_Game.GetMission().GetHud().Show(IsHudVisible());
 			}
 			
-			if (GetGame().GetUIManager() != null)
+			if (g_Game.GetUIManager() != null)
 			{
-				GetGame().GetUIManager().ShowCursor(IsCursorVisible());
+				g_Game.GetUIManager().ShowCursor(IsCursorVisible());
 			}
 			
-			if (GetGame().GetSoundScene() != null && IsSoundMuted())
+			if (g_Game.GetSoundScene() != null && IsSoundMuted())
 			{
-				GetGame().GetSoundScene().SetSoundVolume(0, 0);
+				g_Game.GetSoundScene().SetSoundVolume(0, 0);
 			}
 			
 			if (IsBlurEffectUsed())
@@ -209,10 +209,10 @@ class TerjeScriptedMenu : UIScriptedMenu
 				PPERequesterBank.GetRequester(PPERequesterBank.REQ_INVENTORYBLUR).Start();
 			}
 			
-			if ((GetGame().GetMission() != null) && IsRestrictedInputUsed())
+			if ((g_Game.GetMission() != null) && IsRestrictedInputUsed())
 			{
-				GetGame().GetMission().AddActiveInputExcludes({"inventory"});
-				GetGame().GetMission().AddActiveInputRestriction(EInputRestrictors.INVENTORY);
+				g_Game.GetMission().AddActiveInputExcludes({"inventory"});
+				g_Game.GetMission().AddActiveInputRestriction(EInputRestrictors.INVENTORY);
 			}
 		}
 	}
@@ -221,26 +221,26 @@ class TerjeScriptedMenu : UIScriptedMenu
 	{
 		super.OnHide();
 
-		if (GetGame())
+		if (g_Game)
 		{
-			if (GetGame().GetPlayer() && GetGame().GetPlayer().GetInputController() != null)
+			if (g_Game.GetPlayer() && g_Game.GetPlayer().GetInputController() != null)
 			{
-				GetGame().GetPlayer().GetInputController().SetDisabled(false);
+				g_Game.GetPlayer().GetInputController().SetDisabled(false);
 			}
 			
-			if (GetGame().GetMission() != null && GetGame().GetMission().GetHud() != null)
+			if (g_Game.GetMission() != null && g_Game.GetMission().GetHud() != null)
 			{
-				GetGame().GetMission().GetHud().Show(true);
+				g_Game.GetMission().GetHud().Show(true);
 			}
 			
-			if (GetGame().GetUIManager() != null)
+			if (g_Game.GetUIManager() != null)
 			{
-				GetGame().GetUIManager().ShowCursor(false);
+				g_Game.GetUIManager().ShowCursor(false);
 			}
 			
-			if (GetGame().GetSoundScene() != null && IsSoundMuted())
+			if (g_Game.GetSoundScene() != null && IsSoundMuted())
 			{
-				GetGame().GetSoundScene().SetSoundVolume(1, 1);
+				g_Game.GetSoundScene().SetSoundVolume(1, 1);
 			}
 			
 			if (IsBlurEffectUsed())
@@ -248,10 +248,10 @@ class TerjeScriptedMenu : UIScriptedMenu
 				PPERequesterBank.GetRequester(PPERequesterBank.REQ_INVENTORYBLUR).Stop();
 			}
 			
-			if ((GetGame().GetMission() != null) && IsRestrictedInputUsed())
+			if ((g_Game.GetMission() != null) && IsRestrictedInputUsed())
 			{
-				GetGame().GetMission().RemoveActiveInputExcludes({"inventory"}, false);
-				GetGame().GetMission().RemoveActiveInputRestriction(EInputRestrictors.INVENTORY);
+				g_Game.GetMission().RemoveActiveInputExcludes({"inventory"}, false);
+				g_Game.GetMission().RemoveActiveInputRestriction(EInputRestrictors.INVENTORY);
 			}
 		}
 	}

@@ -24,7 +24,7 @@ modded class MissionGameplay
 	{
 		super.OnKeyPress(key);
 		
-		UIScriptedMenu currentMenu = GetGame().GetUIManager().GetMenu();
+		UIScriptedMenu currentMenu = g_Game.GetUIManager().GetMenu();
 		if (currentMenu)
 		{
 			if (currentMenu.IsInherited(TerjeModalDialog))
@@ -38,7 +38,7 @@ modded class MissionGameplay
 	{
 		super.OnUpdate(timeslice);
 		
-		PlayerBase player = PlayerBase.Cast( GetGame().GetPlayer() );
+		PlayerBase player = PlayerBase.Cast( g_Game.GetPlayer() );
 		if (player && player.GetTerjeStats())
 		{
 			if (m_Hud)

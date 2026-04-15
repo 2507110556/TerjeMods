@@ -26,7 +26,7 @@ class TerjeGadgetConsoleWidgetStalker : TerjeGadgetConsoleWidget
 		
 		if (GetSoftwareData() != null)
 		{
-			float elapsedTime = Math.Max(0, GetGame().GetTickTime() - GetSoftwareData().GetBootTimer());
+			float elapsedTime = Math.Max(0, g_Game.GetTickTime() - GetSoftwareData().GetBootTimer());
 			int color = ARGB(255, 255, 255, 255);
 			if ((elapsedTime > 1.0) && (m_bootConsoleExecutedSteps == 0))
 			{
@@ -122,7 +122,7 @@ class TerjeGadgetLoadscreenWidgetStalker : TerjeGadgetLoadscreenWidget
 		
 		if ((GetSoftwareData() != null) && (GetNativeWidget() != null))
 		{
-			float elapsedTime = Math.Max(0, GetGame().GetTickTime() - GetSoftwareData().GetBootTimer());
+			float elapsedTime = Math.Max(0, g_Game.GetTickTime() - GetSoftwareData().GetBootTimer());
 			GetNativeWidget().SetAlpha(Math.Clamp(elapsedTime * 0.5, 0, 1));
 			
 			int step = (int)(elapsedTime * 15);

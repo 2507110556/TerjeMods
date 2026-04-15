@@ -2,7 +2,7 @@ modded class CAContinuousMineWood
 {
 	override void CreatePrimaryItems(ActionData action_data)
 	{
-		if (GetGame().IsDedicatedServer() && action_data.m_Player && action_data.m_Player.GetTerjeSkills() && action_data.m_MainItem)
+		if (g_Game.IsDedicatedServer() && action_data.m_Player && action_data.m_Player.GetTerjeSkills() && action_data.m_MainItem)
 		{
 			float gainChance;
 			if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_STRENGTH_ITEMS_USE_GAIN_CHANCE, gainChance) && Math.RandomFloat01() < gainChance)
@@ -25,7 +25,7 @@ modded class ActionSawPlanks
 	{
 		super.OnFinishProgressServer(action_data);
 		
-		if (GetGame().IsDedicatedServer() && action_data.m_Player && action_data.m_Player.GetTerjeSkills())
+		if (g_Game.IsDedicatedServer() && action_data.m_Player && action_data.m_Player.GetTerjeSkills())
 		{
 			float gainChance;
 			if (GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_STRENGTH_ITEMS_USE_GAIN_CHANCE, gainChance) && Math.RandomFloat01() < gainChance)

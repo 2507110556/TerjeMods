@@ -6,7 +6,7 @@ modded class CAContinuousQuantityLiquidTransfer
 		super.CalcAndSetQuantity(action_data);
 		
 		ItemBase target_item = ItemBase.Cast(action_data.m_Target.GetObject());
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (m_TendencyDrain)
 			{

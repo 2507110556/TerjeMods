@@ -12,7 +12,7 @@ class TerjeScriptedWidget : ScriptedWidgetEventHandler
 	
 	protected void OnCreate(Widget parent)
 	{
-		m_Root = GetGame().GetWorkspace().CreateWidgets(GetNativeLayout(), parent);
+		m_Root = g_Game.GetWorkspace().CreateWidgets(GetNativeLayout(), parent);
 		if (m_Root != null)
 		{
 			string backgroundImage = GetBackgroundImage();

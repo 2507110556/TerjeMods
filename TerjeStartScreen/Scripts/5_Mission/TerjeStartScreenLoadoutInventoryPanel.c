@@ -5,7 +5,7 @@ class TerjeStartScreenLoadoutInventoryPanel : TerjeWidgetStackArea
 	
 	void TerjeStartScreenLoadoutInventoryPanel()
 	{
-		m_player = PlayerBase.Cast(GetGame().GetPlayer());
+		m_player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (m_player && m_player.OnTerjeAttachmentChangedEvent)
 		{
 			m_player.OnTerjeAttachmentChangedEvent.Insert(InventoryLayoutMarkDirty);

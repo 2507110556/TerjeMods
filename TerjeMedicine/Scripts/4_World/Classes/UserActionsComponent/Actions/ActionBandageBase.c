@@ -4,11 +4,14 @@ modded class ActionBandageSelfCB
 	{
 		super.CreateActionComponent();
 		
-		float perkModifier;
 		float perkSpeedMod = 1.0;
-		if (m_ActionData.m_Player && m_ActionData.m_Player.GetTerjeSkills() && m_ActionData.m_Player.GetTerjeSkills().GetPerkValue("med", "mastdress", perkModifier))
+		if (m_ActionData.m_Player && m_ActionData.m_Player.GetTerjeSkills())
 		{
-			perkSpeedMod = perkSpeedMod + perkModifier;
+			float perkModifier;
+			if (m_ActionData.m_Player.GetTerjeSkills().GetPerkValue("med", "mastdress", perkModifier))
+			{
+				perkSpeedMod += perkModifier;
+			}
 		}
 		
 		float effectivity = m_ActionData.m_MainItem.GetBandagingEffectivity();
@@ -35,11 +38,14 @@ modded class ActionBandageTargetCB
 	{
 		super.CreateActionComponent();
 		
-		float perkModifier;
 		float perkSpeedMod = 1.0;
-		if (m_ActionData.m_Player && m_ActionData.m_Player.GetTerjeSkills() && m_ActionData.m_Player.GetTerjeSkills().GetPerkValue("med", "mastdress", perkModifier))
+		if (m_ActionData.m_Player && m_ActionData.m_Player.GetTerjeSkills())
 		{
-			perkSpeedMod = perkSpeedMod + perkModifier;
+			float perkModifier;
+			if (m_ActionData.m_Player.GetTerjeSkills().GetPerkValue("med", "mastdress", perkModifier))
+			{
+				perkSpeedMod += perkModifier;
+			}
 		}
 		
 		float effectivity = m_ActionData.m_MainItem.GetBandagingEffectivity();
@@ -90,14 +96,14 @@ modded class ActionBandageBase
 			operator = PlayerBase.Cast( item.GetHierarchyRootPlayer() ); 
 		}
 		
-		float perkSepsisresMod;
-		if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisresMod))
+		float perkSepsisresMod = 1.0;
+		if (player.GetTerjeSkills())
 		{
-			perkSepsisresMod = 1.0 - Math.Clamp(perkSepsisresMod, 0, 1);
-		}
-		else
-		{
-			perkSepsisresMod = 1.0;
+			float perkSepsisres;
+			if (player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisres))
+			{
+				perkSepsisresMod -= Math.Clamp(perkSepsisres, 0, 1);
+			}
 		}
 		
 		float operatorPerkSterilityMod = 1.0;
@@ -117,10 +123,14 @@ modded class ActionBandageBase
 				GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_BANDAGING_SEPSIS_CHANCE_D_H, bandagingSepsisChance);
 			}
 			
-			float perkValue;
-			if (operator && operator.GetTerjeSkills() && operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+			if (operator.GetTerjeSkills())
 			{
-				operatorPerkSterilityMod = Math.Clamp(1.0 + perkValue, 0, 1);
+				float perkValue;
+				if (operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+				{
+					operatorPerkSterilityMod += perkValue;
+					operatorPerkSterilityMod = Math.Clamp(operatorPerkSterilityMod, 0, 1);
+				}
 			}
 			
 			if ((player.GetTerjeStats() != null) && (Math.RandomFloat01() < (bandagingSepsisChance * operatorPerkSterilityMod * perkSepsisresMod)))
@@ -144,14 +154,14 @@ modded class ActionBandageBase
 			operator = PlayerBase.Cast( item.GetHierarchyRootPlayer() ); 
 		}
 		
-		float perkSepsisresMod;
-		if (player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisresMod))
+		float perkSepsisresMod = 1.0;
+		if (player.GetTerjeSkills())
 		{
-			perkSepsisresMod = 1.0 - Math.Clamp(perkSepsisresMod, 0, 1);
-		}
-		else
-		{
-			perkSepsisresMod = 1.0;
+			float perkSepsisres;
+			if (player.GetTerjeSkills().GetPerkValue("immunity", "sepsisres", perkSepsisres))
+			{
+				perkSepsisresMod -= Math.Clamp(perkSepsisres, 0, 1);
+			}
 		}
 		
 		float operatorPerkSterilityMod = 1.0;
@@ -175,10 +185,14 @@ modded class ActionBandageBase
 				GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_SURGERY_SEPSIS_CHANCE_D_H, bandagingSepsisChance);
 			}
 			
-			float perkValue;
-			if (operator && operator.GetTerjeSkills() && operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+			if (operator.GetTerjeSkills())
 			{
-				operatorPerkSterilityMod = Math.Clamp(1.0 + perkValue, 0, 1);
+				float perkValue;
+				if (operator.GetTerjeSkills().GetPerkValue("med", "cleanstr", perkValue))
+				{
+					operatorPerkSterilityMod += perkValue;
+					operatorPerkSterilityMod = Math.Clamp(operatorPerkSterilityMod, 0, 1);
+				}
 			}
 			
 			if (Math.RandomFloat01() < (bandagingSepsisChance * operatorPerkSterilityMod * perkSepsisresMod))

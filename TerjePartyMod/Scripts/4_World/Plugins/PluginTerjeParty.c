@@ -12,7 +12,7 @@ class PluginTerjeParty extends PluginBase
 		GetRPCManager().AddRPC("TerjePartyMod", "OnRemoveFromParty", this, SingleplayerExecutionType.Both);
 		GetRPCManager().AddRPC("TerjePartyMod", "RequestConfig", this, SingleplayerExecutionType.Both);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			m_clientInvites = new set<string>;
 			m_clientPartyMembers = new set<string>;
@@ -41,7 +41,7 @@ class PluginTerjeParty extends PluginBase
 			}
 		}
 		
-		if (GetGame().IsServer())
+		if (g_Game.IsServer())
 		{
 			MakeDirectory("$profile:TerjePartyMod");
 			
@@ -120,7 +120,7 @@ class PluginTerjeParty extends PluginBase
 	
 	void SavePartyData()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			FileSerializer ctx = new FileSerializer();
 			ctx.Open(m_clientDataFilePath, FileMode.WRITE);
@@ -139,7 +139,7 @@ class PluginTerjeParty extends PluginBase
 	
 	bool ContainsPlayerInParty(string guid)
 	{
-		if (GetGame().IsClient() && m_clientPartyMembers != null)
+		if (g_Game.IsClient() && m_clientPartyMembers != null)
 		{
 			return m_clientPartyMembers.Find(guid) != -1;
 		}
@@ -151,7 +151,7 @@ class PluginTerjeParty extends PluginBase
 	
 	bool ContainsPlayerInInvites(string guid)
 	{
-		if (GetGame().IsClient() && m_clientInvites != null)
+		if (g_Game.IsClient() && m_clientInvites != null)
 		{
 			return m_clientInvites.Find(guid) != -1;
 		}

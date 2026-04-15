@@ -22,7 +22,7 @@ modded class ItemBase
 	
 	override bool AddTerjeRadiation(float rAmount)
 	{
-		if (GetGame().IsDedicatedServer() && IsTerjeRadiationAccumulated())
+		if (g_Game.IsDedicatedServer() && IsTerjeRadiationAccumulated())
 		{
 			if (m_terjeStaticRadioactive)
 			{
@@ -67,7 +67,7 @@ modded class ItemBase
 			return Math.Max(0, m_terjeStaticRadiation);
 		}
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			return m_terjeRadiationServer;
 		}
@@ -90,7 +90,7 @@ modded class ItemBase
 	
 	protected void TerjeProcessRadiationVariables()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			PluginTerjeScriptableAreas plugin = GetTerjeScriptableAreas();
 			if (plugin)

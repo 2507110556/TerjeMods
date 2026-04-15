@@ -44,7 +44,7 @@ class PPERequester_TerjeMedPsyonic : PPERequester_GameplayBase
 		{
 			if (!m_psiEffectSound)
 			{
-				m_psiEffectSound = SEffectManager.PlaySoundOnObject("psyonicWaveTerje_SoundSet", GetGame().GetPlayer(), 1, 1, true);
+				m_psiEffectSound = SEffectManager.PlaySoundOnObject("psyonicWaveTerje_SoundSet", g_Game.GetPlayer(), 1, 1, true);
 				m_psiEffectSound.SetAutodestroy(true);
 			}
 			

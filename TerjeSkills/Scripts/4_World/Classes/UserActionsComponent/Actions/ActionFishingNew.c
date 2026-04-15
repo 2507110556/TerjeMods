@@ -9,7 +9,7 @@ modded class ActionFishingNew
 			if (action_data.m_Player.GetTerjeSkills().GetSkillModifierValue("fish", "catchmod", modifierValue))
 			{
 				modifierValue = Math.Clamp(modifierValue, 0, 1);
-				catchChance = catchChance + ((1.0 - catchChance) * modifierValue);
+				catchChance += (1.0 - catchChance) * modifierValue;
 			}
 			
 			if (catchChance < Math.RandomFloat01())
@@ -30,7 +30,7 @@ modded class ActionFishingNew
 	bool TerjeProcessingSpawnCatch(PlayerBase player, EntityAI fishItem)
 	{
 		bool spawnExtraFish = false;
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			int expGainValue;
 			if (fishItem)
@@ -41,7 +41,7 @@ modded class ActionFishingNew
 				if (resultItem && resultItem.IsTerjeWholeFish())
 				{
 					float perkValue;
-					if (GetGame().IsDedicatedServer() && player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("fish", "fishmluck", perkValue))
+					if (g_Game.IsDedicatedServer() && player && player.GetTerjeSkills() && player.GetTerjeSkills().GetPerkValue("fish", "fishmluck", perkValue))
 					{
 						// Spawn extra fish
 						if (Math.RandomFloat01() < (perkValue * 0.5))
@@ -79,17 +79,14 @@ modded class CatchingContextFishingRodAction
 {
 	override protected void TryDamageItems()
 	{
-		if (GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "strgarms"))
+		if (g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "strgarms"))
 		{
 			float settingValue;
-			float perkValue;
-			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "strgarms", perkValue))
+			float perkStrgarms;
+			float perkValue = 1.0;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "strgarms", perkStrgarms))
 			{
-				perkValue = Math.Clamp(1.0 + perkValue, 0, 1);
-			}
-			else
-			{
-				perkValue = 1.0;
+				perkValue = Math.Clamp(1.0 + perkStrgarms, 0, 1);
 			}
 			
 			if (m_Hook && !m_Hook.IsSetForDeletion())
@@ -112,11 +109,14 @@ modded class CatchingContextFishingRodAction
 	
 	override float GetChanceCoef()
 	{
-		float perkValue;
 		float result = super.GetChanceCoef();
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			result *= Math.Max(1.0, 1.0 + perkValue);
+			float perkValue;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+			{
+				result *= Math.Max(1.0, 1.0 + perkValue);
+			}
 		}
 		
 		return result;
@@ -124,11 +124,14 @@ modded class CatchingContextFishingRodAction
 	
 	override float RandomizeSignalDuration()
 	{
-		float perkValue;
 		float result = super.RandomizeSignalDuration();
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			result *= Math.Max(1.0, 1.0 + perkValue);
+			float perkValue;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+			{
+				result *= Math.Max(1.0, 1.0 + perkValue);
+			}
 		}
 		
 		return result;
@@ -136,11 +139,14 @@ modded class CatchingContextFishingRodAction
 	
 	override float RandomizeSignalStartTime()
 	{
-		float perkValue;
 		float result = super.RandomizeSignalStartTime();
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			result = result / Math.Max(1.0, 1.0 + perkValue);
+			float perkValue;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "skfishman", perkValue))
+			{
+				result /= Math.Max(1.0, 1.0 + perkValue);
+			}
 		}
 		
 		return result;
@@ -148,11 +154,12 @@ modded class CatchingContextFishingRodAction
 	
 	override float GetQualityModifier()
 	{
-		float perkValue;
 		float result = super.GetQualityModifier();
-		if (GetGame().IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "fishmluck"))
+		if (g_Game.IsDedicatedServer() && m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().IsPerkRegistered("fish", "fishmluck"))
 		{
 			result *= GetTerjeSettingFloat(TerjeSettingsCollection.SKILLS_FISHING_FISH_SIZE_MODIFIER);
+			
+			float perkValue;
 			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "fishmluck", perkValue))
 			{
 				result += Math.Max(0.0, perkValue);
@@ -164,11 +171,14 @@ modded class CatchingContextFishingRodAction
 	
 	override float GetHookLossChanceModifierClamped()
 	{
-		float perkValue;
 		float result = super.GetHookLossChanceModifierClamped();
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("fish", "reliabgear", perkValue))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			float perkValue;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "reliabgear", perkValue))
+			{
+				result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			}
 		}
 		
 		return result;
@@ -176,11 +186,14 @@ modded class CatchingContextFishingRodAction
 	
 	override float GetBaitLossChanceModifierClamped()
 	{
-		float perkValue;
 		float result = super.GetBaitLossChanceModifierClamped();
-		if (m_Player && m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("fish", "reliabgear", perkValue))
+		if (m_Player && m_Player.GetTerjeSkills())
 		{
-			result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			float perkValue;
+			if (m_Player.GetTerjeSkills().GetPerkValue("fish", "reliabgear", perkValue))
+			{
+				result *= Math.Clamp(1.0 + perkValue, 0, 1);
+			}
 		}
 		
 		return result;

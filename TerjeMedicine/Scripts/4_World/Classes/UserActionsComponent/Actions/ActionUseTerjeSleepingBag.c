@@ -11,13 +11,13 @@ class ActionUseTerjeSleepingBag : ActionInteractBase
 	{
 		bool isActionEnabled;
 		TerjeSleepingBag sleepingBag = TerjeSleepingBag.Cast(target.GetObject());
-		if (GetGame() && sleepingBag && sleepingBag.CanBePacked())
+		if (g_Game && sleepingBag && sleepingBag.CanBePacked())
 		{
 			if (vector.Distance(player.GetWorldPosition(), sleepingBag.GetWorldPosition()) < 0.65)
 			{
 				if (player && !player.IsInVehicle() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_ENABLE_SLEEPINGBAG_ACTION, isActionEnabled) && isActionEnabled)
 				{
-					if (GetGame().IsDedicatedServer())
+					if (g_Game.IsDedicatedServer())
 					{
 						return true;
 					}

@@ -7,13 +7,16 @@ modded class BloodRegenMdfr
 		float bloodRegenCommonModifier = 1;
 		if (GetTerjeSettingFloat(TerjeSettingsCollection.MEDICINE_BLOOD_REGEN_COMMON_MODIFIER, bloodRegenCommonModifier))
 		{
-			result = result * bloodRegenCommonModifier;
+			result *= bloodRegenCommonModifier;
 		}
 		
-		float perkBloodregMod;
-		if (m_Player.GetTerjeSkills() && m_Player.GetTerjeSkills().GetPerkValue("immunity", "bloodreg", perkBloodregMod))
+		if (m_Player.GetTerjeSkills())
 		{
-			result = result * (1.0 + perkBloodregMod);
+			float perkBloodregMod;
+			if (m_Player.GetTerjeSkills().GetPerkValue("immunity", "bloodreg", perkBloodregMod))
+			{
+				result *= 1.0 + perkBloodregMod;
+			}
 		}
 		
 		return result;

@@ -66,7 +66,7 @@ modded class PlayerBase
 	// Load persisted blood type from terje profile
 	void TerjePlayerLoadBloodType()
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.CORE_PERSIST_BLOOD_TYPE) && GetTerjeProfile() != null)
 			{
@@ -81,7 +81,7 @@ modded class PlayerBase
 
 	ref TerjePlayerProfile CreateTerjeProfile()
 	{
-		if (GetGame() && IsAlive() && GetIdentity() && (GetGame().IsDedicatedServer() || IsTerjeLocalControlledPlayer()))
+		if (g_Game && IsAlive() && GetIdentity() && (g_Game.IsDedicatedServer() || IsTerjeLocalControlledPlayer()))
 		{
 			m_terjeProfile = new TerjePlayerProfile;
 			m_terjeProfile.OnInit();
@@ -99,7 +99,7 @@ modded class PlayerBase
 	{
 		if (m_terjeStats == null && IsAlive() && GetIdentity())
 		{
-			if (GetGame().IsDedicatedServer() || IsTerjeLocalControlledPlayer())
+			if (g_Game.IsDedicatedServer() || IsTerjeLocalControlledPlayer())
 			{
 				m_terjeStats = new TerjePlayerStats;
 				m_terjeStats.OnInit();
@@ -113,7 +113,7 @@ modded class PlayerBase
 	{
 		if (m_terjePlayerSkillsAccessor == null && IsAlive() && GetIdentity())
 		{
-			if (GetGame().IsDedicatedServer() || IsTerjeLocalControlledPlayer())
+			if (g_Game.IsDedicatedServer() || IsTerjeLocalControlledPlayer())
 			{
 				m_terjePlayerSkillsAccessor = new TerjePlayerSkillsAccessor(this);
 			}
@@ -126,7 +126,7 @@ modded class PlayerBase
 	{
 		if (m_terjePlayerSoulsAccessor == null && IsAlive() && GetIdentity())
 		{
-			if (GetGame().IsDedicatedServer() || IsTerjeLocalControlledPlayer())
+			if (g_Game.IsDedicatedServer() || IsTerjeLocalControlledPlayer())
 			{
 				m_terjePlayerSoulsAccessor = new TerjePlayerSoulsAccessor(this);
 			}
@@ -202,7 +202,7 @@ modded class PlayerBase
 	
 	bool IsTerjeLocalControlledPlayer()
 	{
-		return GetGame().IsClient() && (GetGame().GetPlayer() == this);
+		return g_Game.IsClient() && (g_Game.GetPlayer() == this);
 	}
 	
 	bool HasTerjeSicknesOrInjures()
@@ -225,7 +225,7 @@ modded class PlayerBase
 		super.Init();
 
 		RegisterNetSyncVariableInt("m_terjePlayerStatesMask");
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			ref array<ref TerjePlayerModifierBase> terjeModifiers = new array<ref TerjePlayerModifierBase>;
 			OnTerjeRegisterModifiers(terjeModifiers);
@@ -248,7 +248,7 @@ modded class PlayerBase
 			return false;
 		}
 		
-		if (GetGame().IsDedicatedServer() && GetTerjeStats() != null)
+		if (g_Game.IsDedicatedServer() && GetTerjeStats() != null)
 		{
 			if (!GetTerjeStats().OnStoreLoad(ctx))
 			{
@@ -270,7 +270,7 @@ modded class PlayerBase
 		super.OnStoreSave(ctx);
 		
 		TerjeStorageHelpers.WriteMarker(ctx, TERJE_CORE_STORE_BEGIN_MARKER_V1);
-		if (GetGame().IsDedicatedServer() && GetTerjeStats() != null)
+		if (g_Game.IsDedicatedServer() && GetTerjeStats() != null)
 		{
 			GetTerjeStats().OnStoreSave(ctx);
 		}
@@ -301,7 +301,7 @@ modded class PlayerBase
 	void OnTerjePlayerKilledEvent()
 	{
 		// Save persisted blood type to terje profile
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.CORE_PERSIST_BLOOD_TYPE) && GetTerjeProfile() != null)
 			{
@@ -312,7 +312,7 @@ modded class PlayerBase
 	
 	override void OnDisconnect()
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjeGodMode(false);
 			SetTerjeIndestructible(false);
@@ -382,7 +382,7 @@ modded class PlayerBase
 	{
 		super.OnScheduledTick(deltaTime);
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetIdentity() && IsAlive() && GetTerjeProfile() != null && GetTerjeStats() != null)
 			{
@@ -476,7 +476,7 @@ modded class PlayerBase
 	
 	override void EOnPostFrame( IEntity other, int extra )
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			if (IsTerjeLocalControlledPlayer())
 			{
@@ -500,7 +500,7 @@ modded class PlayerBase
 		super.OnRPC(sender, rpc_type, ctx);
 		if (rpc_type == TerjeERPC.TerjeRPC_SYNCH_PLAYER_STATS)
 		{
-			if (!GetGame().IsDedicatedServer())
+			if (!g_Game.IsDedicatedServer())
 			{
 				if (GetTerjeStats() != null && GetTerjeStats().OnStoreLoad(ctx))
 				{
@@ -510,7 +510,7 @@ modded class PlayerBase
 		}
 		else if (rpc_type == TerjeERPC.TerjeRPC_SYNCH_PLAYER_PROFILE)
 		{
-			if (!GetGame().IsDedicatedServer())
+			if (!g_Game.IsDedicatedServer())
 			{
 				ref TerjePlayerProfile profile = GetTerjeProfile();
 				if (profile == null)
@@ -540,7 +540,7 @@ modded class PlayerBase
 	{
 		if (id == "~pse")
 		{
-			if (!GetGame() || !GetGame().IsClient())
+			if (!g_Game || !g_Game.IsClient())
 			{
 				return;
 			}
@@ -575,7 +575,7 @@ modded class PlayerBase
 	
 	void TerjeSendToClient(string id, PlayerIdentity recipient, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -590,7 +590,7 @@ modded class PlayerBase
 	
 	void TerjeStreamToClient(string id, PlayerIdentity recipient, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, recipient, TerjeStreamRpc_Target.TO_CLIENT, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -599,7 +599,7 @@ modded class PlayerBase
 		
 	void TerjeSendToServer(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -614,7 +614,7 @@ modded class PlayerBase
 		
 	void TerjeStreamToServer(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_SERVER, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -623,7 +623,7 @@ modded class PlayerBase
 	
 	void TerjeSendToAll(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -638,7 +638,7 @@ modded class PlayerBase
 	
 	void TerjeStreamToAll(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_ALL, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -647,7 +647,7 @@ modded class PlayerBase
 	
 	void TerjeSendSoundEvent(string soundSet, string soundType, float volume)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && soundSet != "" && volume > 0)
+		if (g_Game && g_Game.IsDedicatedServer() && soundSet != "" && volume > 0)
 		{
 			Param2<string, float> params = new Param2<string, float>(soundSet, volume);
 			TerjeRPCSingleParam("~pse", params, false);
@@ -805,7 +805,7 @@ modded class PlayerBase
 	
 	protected void SetTerjePlayerStateBit(TerjePlayerStatesMask id, bool value)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			int bitmask = m_terjePlayerStatesMask;
 			bitmask = TerjeBitmaskHelper.SetBit(bitmask, id, value);
@@ -829,7 +829,7 @@ modded class PlayerBase
 	
 	protected void OnTerjePlayerStateChanged()
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			if (IsTerjeLocalControlledPlayer())
 			{
@@ -865,7 +865,7 @@ modded class PlayerBase
 	
 	void SetTerjeGodMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_GOD_MODE, state);
 			SetAllowDamage(!state);
@@ -879,7 +879,7 @@ modded class PlayerBase
 	
 	void SetTerjeInvisibleMode(bool localState, bool remoteState)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_INVISIBLE_LOCAL, localState);
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_INVISIBLE_REMOTE, remoteState);
@@ -898,7 +898,7 @@ modded class PlayerBase
 	
 	void SetTerjeNoClipMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_NOCLIP, state);
 			PhysicsSetSolid(!state);
@@ -912,7 +912,7 @@ modded class PlayerBase
 	
 	void SetTerjeNoTargetMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_NOTARGET, state);
 		}
@@ -925,7 +925,7 @@ modded class PlayerBase
 	
 	void SetTerjeFreezeMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_FREEZE, state);
 			
@@ -944,7 +944,7 @@ modded class PlayerBase
 	
 	void SetTerjeNoSimulateMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_NOSIMULATE, state);
 			DisableSimulation(state);
@@ -958,7 +958,7 @@ modded class PlayerBase
 	
 	void SetTerjeIgnoreDamage(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_IGNORE_DAMAGE, state);
 		}
@@ -971,7 +971,7 @@ modded class PlayerBase
 	
 	void SetTerjeDisableHeatComfort(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_NOHEATCOMFORT, state);
 		}
@@ -984,7 +984,7 @@ modded class PlayerBase
 	
 	void SetTerjeIndestructible(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_INDESTRUCTIBLE, state);
 			SetCanBeDestroyed(!state);
@@ -998,7 +998,7 @@ modded class PlayerBase
 	
 	void SetTerjeMaintenanceMode(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			SetTerjePlayerStateBit(TerjePlayerStatesMask.TERJE_MAINTENANCE_MODE, state);
 		}

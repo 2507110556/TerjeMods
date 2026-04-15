@@ -5,7 +5,7 @@ modded class PourLiquid
 		bool result = super.CanDo(ingredients, player);
 		if (result)
 		{
-			ItemBase entity_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+			ItemBase entity_in_hands = ItemBase.Cast(player.GetEntityInHands());
 			if( entity_in_hands == ingredients[0] )
 			{
 				result = TerjeCustomLiquids.GetInstance().CanTransfer(ingredients[0],ingredients[1]);
@@ -23,7 +23,7 @@ modded class PourLiquid
 	{
 		super.Do(ingredients, player, results, specialty_weight);
 
-		ItemBase entity_in_hands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+		ItemBase entity_in_hands = ItemBase.Cast(player.GetEntityInHands());
 		if( entity_in_hands == ingredients[0] )
 		{
 			TerjeCustomLiquids.GetInstance().FixVanillaTransfer(ingredients[0],ingredients[1]);

@@ -6,7 +6,7 @@ modded class AnimalBase
 	{
 		super.EEInit();
 		
-		if (GetGame().IsClient() && IsTerjeClientUpdateRequired())
+		if (g_Game.IsClient() && IsTerjeClientUpdateRequired())
 		{
 			m_terjeClientIndex = GetTerjeClientAnimalsCore().RegisterAnimal(this);
 		}
@@ -16,7 +16,7 @@ modded class AnimalBase
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame().IsClient() && IsTerjeClientUpdateRequired())
+		if (g_Game.IsClient() && IsTerjeClientUpdateRequired())
 		{
 			GetTerjeClientAnimalsCore().UnregisterAnimal(m_terjeClientIndex);
 		}
@@ -115,7 +115,7 @@ modded class AnimalBase
 		
 	void TerjeSendToClient(string id, PlayerIdentity recipient, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -130,7 +130,7 @@ modded class AnimalBase
 	
 	void TerjeStreamToClient(string id, PlayerIdentity recipient, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, recipient, TerjeStreamRpc_Target.TO_CLIENT, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -139,7 +139,7 @@ modded class AnimalBase
 		
 	void TerjeSendToServer(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -154,7 +154,7 @@ modded class AnimalBase
 		
 	void TerjeStreamToServer(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_SERVER, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);
@@ -163,7 +163,7 @@ modded class AnimalBase
 	
 	void TerjeSendToAll(string id, Param params)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<ref Param> sendData();
 			sendData.Insert(new Param1<string>(id));
@@ -178,7 +178,7 @@ modded class AnimalBase
 	
 	void TerjeStreamToAll(string id, out TerjeStreamRpc stream)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			stream = new TerjeStreamRpc();
 			stream.InitTerjeRpcEx(id, null, TerjeStreamRpc_Target.TO_ALL, this, (int)TerjeERPC.TerjeRPC_CUSTOM_CALL);

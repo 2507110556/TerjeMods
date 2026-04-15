@@ -18,7 +18,7 @@ class PluginTerjeStartScreen : PluginBase
 	
 	override void OnInit()
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			MakeDirectory(SETTINGS_DIR);
 			MakeDirectory(NAMES_STORAGE_DIR);
@@ -424,12 +424,12 @@ class PluginTerjeStartScreen : PluginBase
 	
 	private bool CheckRespawnDeadBodyExist(PlayerBase player, vector deadBodyPos)
 	{
-		if (!GetGame() || !player || !player.GetIdentity())
+		if (!g_Game || !player || !player.GetIdentity())
 			return false;
 		
 		array<Object> nearestObjects();
 		string guid = player.GetIdentity().GetId();
-		GetGame().GetObjectsAtPosition3D(deadBodyPos, 2.5, nearestObjects, null);
+		g_Game.GetObjectsAtPosition3D(deadBodyPos, 2.5, nearestObjects, null);
 		foreach (Object obj : nearestObjects)
 		{
 			PlayerBase body = PlayerBase.Cast(obj);
@@ -838,7 +838,7 @@ class PluginTerjeStartScreen : PluginBase
 		if (!CompareClientAndServerLoadoutObjects(clientLoadout, serverLoadout))
 		{
 			TerjeLog_Warning("Server and client loadouts missmatch. Possible hacker: " + sender.GetId());
-			GetGame().DisconnectPlayer(sender, sender.GetId());
+			g_Game.DisconnectPlayer(sender, sender.GetId());
 			return;
 		}
 		
@@ -987,7 +987,7 @@ class PluginTerjeStartScreen : PluginBase
 	private PlayerBase FindPlayerByIdentity(PlayerIdentity identity)
 	{
 		array<Man> players();
-		GetGame().GetPlayers(players);
+		g_Game.GetPlayers(players);
 		foreach (Man man : players)
 		{
 			if (man && man.GetIdentity() && man.GetIdentity().GetId() == identity.GetId())
@@ -1125,7 +1125,7 @@ class PluginTerjeStartScreen : PluginBase
 		string respawnsXmlPath = SETTINGS_DIR + "\\Respawns.xml";
 		if (!FileExist(respawnsXmlPath))
 		{
-			string worldName = GetGame().GetWorldName();
+			string worldName = g_Game.GetWorldName();
 			if (FileExist("TerjeStartScreen\\Templates\\Respawns_" + worldName + ".xml"))
 			{
 				CopyFile("TerjeStartScreen\\Templates\\Respawns_" + worldName + ".xml", respawnsXmlPath);
@@ -1196,12 +1196,12 @@ class PluginTerjeStartScreen : PluginBase
 		
 		player.m_terjeLoadoutProcessing = true;
 		ClearLoadoutItemsEquip(player);
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EndLoadoutItemsEquip, player, sender, itemsObject);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Call(EndLoadoutItemsEquip, player, sender, itemsObject);
 	}
 	
 	private void ClearLoadoutItemsEquip(PlayerBase player)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			array<EntityAI> items();
 			player.GetInventory().EnumerateInventory(InventoryTraversalType.INORDER, items);
@@ -1214,7 +1214,7 @@ class PluginTerjeStartScreen : PluginBase
 				}
 			}
 	
-			ItemBase itemInHands = ItemBase.Cast(player.GetHumanInventory().GetEntityInHands());
+			ItemBase itemInHands = ItemBase.Cast(player.GetEntityInHands());
 			if (itemInHands)
 			{
 				player.LocalDestroyEntityInHands();
@@ -1224,7 +1224,7 @@ class PluginTerjeStartScreen : PluginBase
 	
 	private void DeleteLoadoutItemEquip(ItemBase item)
 	{
-		GetGame().ObjectDelete(item);
+		g_Game.ObjectDelete(item);
 	}
 	
 	private void EndLoadoutItemsEquip(PlayerBase player, PlayerIdentity sender, TerjeXmlObject itemsObject)

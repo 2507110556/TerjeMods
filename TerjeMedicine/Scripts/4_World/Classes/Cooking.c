@@ -4,7 +4,7 @@ modded class Cooking
 	{
 		super.ProcessItemToCook(pItem, cookingEquip, pCookingMethod, pStateFlags);
 		
-		if (GetGame().IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_ENABLE_MEDICAL_BOILING))
+		if (g_Game.IsDedicatedServer() && GetTerjeSettingBool(TerjeSettingsCollection.MEDICINE_ENABLE_MEDICAL_BOILING))
 		{
 			Bottle_Base bottleBase = Bottle_Base.Cast(cookingEquip);
 			if (bottleBase && pItem && pItem.CanBeDisinfected())

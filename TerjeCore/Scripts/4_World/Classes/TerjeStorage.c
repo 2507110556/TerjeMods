@@ -26,7 +26,7 @@ class TerjeStorageHelpers
 	
 	static int GetServerInstanceId()
 	{
-		return GetGame().ServerConfigGetInt("instanceId");
+		return g_Game.ServerConfigGetInt("instanceId");
 	}
 	
 	static string GetServerStoragePath()
@@ -36,7 +36,7 @@ class TerjeStorageHelpers
 	
 	static int GetTerjeStorageVersion()
 	{
-		if (!GetGame() || !GetGame().IsDedicatedServer())
+		if (!g_Game || !g_Game.IsDedicatedServer())
 		{
 			return 1; // Client side, using TerjeV1 by default.
 		}
@@ -77,7 +77,7 @@ class TerjeStorageHelpers
 	
 	static void SetActualTerjeStorageVersion()
 	{
-		if (!GetGame() || !GetGame().IsDedicatedServer())
+		if (!g_Game || !g_Game.IsDedicatedServer())
 		{
 			return; // Client side
 		}

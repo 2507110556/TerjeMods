@@ -21,7 +21,7 @@ class TerjeRadTentStatic extends House
 	
 	void SetTerjeRadTentWorking(bool state)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			m_terjeRadTentActual = state;
 			SetSynchDirty();
@@ -31,11 +31,11 @@ class TerjeRadTentStatic extends House
 				m_terjeRadTentLast = m_terjeRadTentActual;
 				if (m_terjeRadTentActual)
 				{
-					GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.OnWorkTerjeServerLogic, 1000, true);
+					g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.OnWorkTerjeServerLogic, 1000, true);
 				}
 				else
 				{
-					GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.OnWorkTerjeServerLogic);
+					g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).Remove(this.OnWorkTerjeServerLogic);
 				}
 			}
 		}
@@ -45,7 +45,7 @@ class TerjeRadTentStatic extends House
 	{
 		super.OnVariablesSynchronized();
 		
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			if (m_terjeRadTentLast != m_terjeRadTentActual)
 			{

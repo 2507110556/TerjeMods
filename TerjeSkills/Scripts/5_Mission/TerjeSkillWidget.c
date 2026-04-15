@@ -123,7 +123,7 @@ class TerjeSkillWidget: Container
 			int expbackPercent = (int)(experienceLoseOnResetPerks * 100.0);
 			string title = "#STR_TERJESKILL_MISC13";
 			string message = "#STR_TERJESKILL_MISC14 " + expbackPercent + "% #STR_TERJESKILL_MISC15";			
-			GetGame().GetUIManager().ShowScriptedMenu(TerjeModalDialog.GetInstance(title, message, ScriptCaller.Create(OnResetSkillModalDialogResult)), GetGame().GetUIManager().GetMenu());
+			g_Game.GetUIManager().ShowScriptedMenu(TerjeModalDialog.GetInstance(title, message, ScriptCaller.Create(OnResetSkillModalDialogResult)), g_Game.GetUIManager().GetMenu());
 		}
 	}
 	
@@ -302,7 +302,7 @@ class TerjeSkillWidget: Container
 						continue;
 					}
 					
-					ref Widget perkLayoutWidget = GetGame().GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkLayout.layout", perksContentBody);
+					ref Widget perkLayoutWidget = g_Game.GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjePerkLayout.layout", perksContentBody);
 					m_perkWidgets.Insert(perk.GetId(), perkLayoutWidget);
 					perkLayoutWidget.FindAnyWidget("terje_perk_highlight").Show(false);
 					perkLayoutWidget.SetName(perk.GetId());

@@ -43,7 +43,7 @@ modded class TerjePlayerProfile
 	{
 		super.OnNewProfileCreated();
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetTerjeSettingBool(TerjeSettingsCollection.STARTSCREEN_SKILLS_PAGE_ENABLED))
 			{
@@ -63,7 +63,7 @@ modded class TerjePlayerProfile
 	{
 		super.OnExistProfileLoaded();
 		
-		if (GetGame() && GetGame().IsDedicatedServer())
+		if (g_Game && g_Game.IsDedicatedServer())
 		{
 			if (GetIntValue(m_SoulsCount) == -1)
 			{

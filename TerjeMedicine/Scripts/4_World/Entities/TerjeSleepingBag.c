@@ -60,7 +60,7 @@ class TerjeSleepingBag extends TentBase
 	{
 		super.Pack(update_navmesh, init);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (m_UTSource)
 			{
@@ -73,7 +73,7 @@ class TerjeSleepingBag extends TentBase
 	{
 		super.Pitch(update_navmesh, init);
 		
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (!m_UTSource)
 			{

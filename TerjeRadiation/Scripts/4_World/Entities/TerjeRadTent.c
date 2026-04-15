@@ -13,7 +13,7 @@ class TerjeRadTent extends TentBase
 		
 		m_HalfExtents = Vector(1.8, 0.33, 3.4);
 	}
-		
+	
 	override bool HasClutterCutter()
 	{
 		return false;
@@ -120,7 +120,7 @@ class TerjeRadTent extends TentBase
 	
 	void TerjeDestroyVisualEffects()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{			
 			if (m_ShowerSoundEffects != null)
 			{
@@ -201,7 +201,7 @@ class TerjeRadTent extends TentBase
 		super.OnWorkStart();
 		TerjeUpdateVisuals();
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			PlaySoundSetAtMemoryPointLoopedSafe(m_PumpSoundEffect, "TerjeRadTentPump_SoundSet", "sound_pump", 1, 1);
 		}
@@ -210,7 +210,7 @@ class TerjeRadTent extends TentBase
 	override void OnWork( float consumed_energy )
 	{
 		super.OnWork(consumed_energy);
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			if (IsValidTerjeRadTentToWork())
 			{
@@ -224,7 +224,7 @@ class TerjeRadTent extends TentBase
 				}
 			}
 		}
-		else if (GetGame().IsClient())
+		else if (g_Game.IsClient())
 		{
 			if (m_ShowerSoundEffects == null)
 			{
@@ -273,8 +273,6 @@ class TerjeRadTent extends TentBase
 		}
 	}
 	
-	
-		
 	override void OnWorkStop()
 	{
 		super.OnWorkStop();

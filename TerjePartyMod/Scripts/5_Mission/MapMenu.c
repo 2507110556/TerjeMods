@@ -4,7 +4,7 @@ modded class MapMenu
 	{
 		super.Update(timeslice);
 		
-		MissionGameplay missionGameplay = MissionGameplay.Cast(GetGame().GetMission());
+		MissionGameplay missionGameplay = MissionGameplay.Cast(g_Game.GetMission());
 		if (missionGameplay)
 		{
 			m_MapWidgetInstance.ClearUserMarks();

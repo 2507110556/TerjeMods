@@ -6,7 +6,7 @@ modded class ChatInputMenu
 	{
 		if (finished)
 		{
-			PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 			string text = m_edit_box.GetText();
 			if ((text.IndexOf(TERJE_DBG_COMMAND) == 0) && player)
 			{

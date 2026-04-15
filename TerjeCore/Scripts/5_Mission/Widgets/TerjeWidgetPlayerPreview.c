@@ -23,15 +23,15 @@ class TerjeWidgetPlayerPreview : TerjeWidgetBase
 	{
 		super.OnUpdate(timeslice);
 		
-		if (m_playerWidget && GetGame().GetPlayer())
+		if (m_playerWidget && g_Game.GetPlayer())
 		{
 			if (!m_initialized)
 			{
 				m_initialized = true;
-				m_playerWidget.SetPlayer(GetGame().GetPlayer());
+				m_playerWidget.SetPlayer(g_Game.GetPlayer());
 			}
 			
-			m_playerWidget.UpdateItemInHands(GetGame().GetPlayer().GetHumanInventory().GetEntityInHands());
+			m_playerWidget.UpdateItemInHands(g_Game.GetPlayer().GetEntityInHands());
 			m_playerWidget.Refresh();
 			
 			if ( m_isHolding )

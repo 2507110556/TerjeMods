@@ -5,7 +5,7 @@ modded class JMPlayerInstance
 	
 	override void Update()
 	{
-		if ( GetGame().IsDedicatedServer() && ( GetGame().GetTime() - m_DataLastUpdated ) >= 100 )
+		if ( g_Game.IsDedicatedServer() && ( g_Game.GetTime() - m_DataLastUpdated ) >= 100 )
 		{
 			if ( PlayerObject )
 			{

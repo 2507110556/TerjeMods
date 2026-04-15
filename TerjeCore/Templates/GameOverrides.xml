@@ -4,7 +4,7 @@ Its automatically synchronized with the clients when connecting to the server, s
 can negatively affect the connection time of players to the server. Use this file for testing purposes,
 or if you don't have any ability or modding knowledges to override mod parameters in config.cpp from your own mod.
 
-Please read https://github.com/TerjeBruoygard/TerjeModsScripting/blob/master/Wiki/en/Modding/README.md
+Please read https://github.com/TerjeBruoygard/TerjeMods/tree/master/Wiki/en/Modding/README.md
 To see the full list of supported parameters
 
 Below are examples of rewriting different types of parameters

@@ -56,7 +56,7 @@ modded class AnimalBase
 	{
 		super.EEDelete(parent);
 		
-		if (GetGame().IsClient() && m_terjeHighlightParticle)
+		if (g_Game.IsClient() && m_terjeHighlightParticle)
 		{
 			m_terjeHighlightParticle.Stop();
 		}
@@ -71,7 +71,7 @@ modded class AnimalBase
 	{
 		super.OnTerjeClientUpdate(deltaTime);
 		
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			bool showParticles = false;
 			if (IsAlive() && GetTerjeGameConfig().ConfigGetBool("CfgVehicles " + GetType() + " terjeHighlightWithPathfinder"))
@@ -81,7 +81,7 @@ modded class AnimalBase
 					float distance = vector.Distance(m_terjeLastAnimalPos, GetWorldPosition());
 					if (distance >= 2.5)
 					{
-						PlayerBase localPlayer = PlayerBase.Cast(GetGame().GetPlayer());
+						PlayerBase localPlayer = PlayerBase.Cast(g_Game.GetPlayer());
 						if (localPlayer && localPlayer.GetTerjeSkills() && localPlayer.GetTerjeSkills().GetPerkLevel("hunt", "pathfindr") > 0)
 						{
 							showParticles = true;
@@ -191,6 +191,6 @@ modded class AnimalBase
 	
 	void TerjeCommitAdditionalPerkDamage(EntityAI source, string dmgZone, string ammoName, vector modelPos, float damageCoef, int delay)
 	{
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.ProcessDirectDamage, delay, false, 0, source, dmgZone, ammoName, modelPos, damageCoef, 0);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(this.ProcessDirectDamage, delay, false, 0, source, dmgZone, ammoName, modelPos, damageCoef, 0);
 	}
 }

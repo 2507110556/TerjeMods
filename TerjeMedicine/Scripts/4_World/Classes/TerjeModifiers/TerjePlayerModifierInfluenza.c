@@ -122,8 +122,8 @@ class TerjePlayerModifierInfluenza : TerjePlayerModifierBase
 				float perkFtwarmMod;
 				if (player.GetTerjeSkills().GetPerkValue("immunity", "ftwarm", perkFtwarmMod))
 				{
-					influenzaImmunityHealThreshold *= (1.0 + perkFtwarmMod);
-					influenzaDecPerSec *= (1.0 + perkFtwarmMod);
+					influenzaImmunityHealThreshold *= 1.0 + perkFtwarmMod;
+					influenzaDecPerSec *= 1.0 + perkFtwarmMod;
 				}
 			}
 			

@@ -33,7 +33,7 @@ class PPERequester_TerjeMedOverdose : PPERequester_GameplayBase
 			if (m_OverdosedOffset >= 12)
 			{
 				m_OverdosedOffset = 0;
-				GetGame().GetPlayer().PlaySoundSet(m_hearthbitSound, "hearthbit_SoundSet", 0, 0);
+				g_Game.GetPlayer().PlaySoundSet(m_hearthbitSound, "hearthbit_SoundSet", 0, 0);
 			}
 			
 			float sinusVal = Math.Clamp(m_OverdosedOffset, 0, 12);

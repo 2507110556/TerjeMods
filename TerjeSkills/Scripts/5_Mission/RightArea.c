@@ -37,7 +37,7 @@ modded class RightArea
 				}
 			}
 
-			PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+			PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 			if (player)
 			{
 				m_terjeSkillsContainer = new TerjeSkillsContainer(this);

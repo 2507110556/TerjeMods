@@ -28,7 +28,7 @@ class TerjeDamageHandler
 	
 	void TerjeCommitAdditionalPerkDamage(EntityAI source, EntityAI target, string dmgZone, string ammoName, vector modelPos, float damageCoef, int delay)
 	{
-		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(target.ProcessDirectDamage, delay, false, 0, source, dmgZone, ammoName, modelPos, damageCoef, 0);
+		g_Game.GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(target.ProcessDirectDamage, delay, false, 0, source, dmgZone, ammoName, modelPos, damageCoef, 0);
 	}
 	
 	void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, EntityAI target, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
@@ -38,7 +38,7 @@ class TerjeDamageHandler
 			return;
 		}
 		
-		if (GetGame().IsDedicatedServer() && target.IsAlive() && target.GetAllowDamage() && source != null && damageResult != null)
+		if (g_Game.IsDedicatedServer() && target.IsAlive() && target.GetAllowDamage() && source != null && damageResult != null)
 		{
 			PlayerBase sourcePlayer = PlayerBase.Cast(source.GetHierarchyRootPlayer());
 			if (sourcePlayer && sourcePlayer.GetTerjeSkills())

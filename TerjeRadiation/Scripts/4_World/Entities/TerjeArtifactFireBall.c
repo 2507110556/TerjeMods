@@ -4,7 +4,7 @@ class TerjeArtifactAntirad extends TerjeArtifactBase
 	{
 		super.StartEffects();
 
-		if (GetGame() && GetGame().IsClient())
+		if (g_Game && g_Game.IsClient())
 		{
 			StopEffects();
 			

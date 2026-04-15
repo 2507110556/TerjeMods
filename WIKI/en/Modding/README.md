@@ -986,19 +986,23 @@ class CfgPatches
 };
 class CfgTerjeSkills
 {
-    class Athletic
+	class SkillsBase // this class applies to all skills unless they get overriten on purpose
+	{
+		enabled=0; //do not change this, its a base class
+		perkPointsPerLevel=1; // Points awarded per level
+		expLoseOnDeath=-100; // Points deducted upon death
+		levels[]= // Number of levels and required points for the next level
+		{
+			  100,   200,   300,   400,   500,   700,   900,  1100,  1300,  1500, //  1-10
+			 1750,  2000,  2250,  2500,  2750,  3250,  3750,  4250,  4750,  5250, // 11-20
+			 6000,  6750,  7500,  8250,  9000, 10000, 11000, 12000, 13000, 14000, // 20-30
+			16000, 18000, 20000, 22000, 24000, 26000, 28000, 30000, 32000, 34000, // 31-40
+			37000, 40000, 43000, 46000, 50000, 55000, 60000, 70000, 80000, 100000 // 41-50
+		};
+	};
+    class Athletic: SkillsBase
     {
         enabled = 1; // Enable or disable the skill
-        perkPointsPerLevel = 1; // Points awarded per level
-        expLoseOnDeath = -100; // Points deducted upon death
-        levels[] = // Number of levels and required points for the next level
-        {
-            100, 200, 300, 400, 500, 700, 900, 1100, 1300, 1500, // Levels 1-10
-            1750, 2000, 2250, 2500, 2750, 3000, 3500, 4000, 4500, 5000, // Levels 11-20
-            6000, 6750, 7500, 8250, 9000, 10000, 11000, 12000, 13000, 14000, // Levels 21-30
-            16000, 18000, 20000, 22000, 24000, 26000, 28000, 30000, 32000, 34000, // Levels 31-40
-            37000, 40000, 43000, 46000, 50000, 55000, 60000, 70000, 80000, 100000 // Levels 41-50
-        };
         class Modifiers
         {
             class MaxStaminaModifier // Modifier automatically upgraded per level

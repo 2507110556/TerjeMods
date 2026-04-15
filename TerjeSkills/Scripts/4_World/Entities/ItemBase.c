@@ -4,7 +4,7 @@ modded class ItemBase
 	
 	override void EEHitBy(TotalDamageResult damageResult, int damageType, EntityAI source, int component, string dmgZone, string ammo, vector modelPos, float speedCoef)
 	{
-		if (GetGame() && GetGame().IsDedicatedServer() && IsClothing())
+		if (g_Game && g_Game.IsDedicatedServer() && IsClothing())
 		{
 			float perkValue;
 			float actualHP = GetHealth("", "Health");

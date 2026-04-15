@@ -2,7 +2,7 @@ modded class VitaminBottle
 {
 	override int TerjeOverrideDescriptionByConsumableEffects()
 	{
-		if (GetGame().IsClient())
+		if (g_Game.IsClient())
 		{
 			return 2;
 		}

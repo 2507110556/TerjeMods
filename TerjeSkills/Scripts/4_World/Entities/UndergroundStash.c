@@ -34,7 +34,7 @@ modded class UndergroundStash
 	
 	void SetTerjeStashInvisible(bool state)
 	{
-		if (GetGame().IsDedicatedServer())
+		if (g_Game.IsDedicatedServer())
 		{
 			m_terjeStashInvisible = state;
 			SetSynchDirty();

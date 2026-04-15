@@ -29,7 +29,7 @@ modded class MissionGameplay
 	{
 		super.OnUpdate(timeslice);
 		
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player && (player.m_terjeStartScreenClientReady == false))
 		{
 			if (player.IsAlive())
@@ -67,7 +67,7 @@ modded class MissionGameplay
 	
 	private void OnTerjeStartScreenParamsReceived(ParamsReadContext ctx, PlayerIdentity sender)
 	{
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player)
 		{
 			player.m_terjeStartScreenParams = new TerjeStartScreenParams;
@@ -81,7 +81,7 @@ modded class MissionGameplay
 	
 	private void OnTerjeStartScreenReadyReceived(ParamsReadContext ctx, PlayerIdentity sender)
 	{
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player)
 		{
 			player.m_terjeStartScreenParams = null;
@@ -97,7 +97,7 @@ modded class MissionGameplay
 	
 	private void OnTerjeStartScreenCloseReceived(ParamsReadContext ctx, PlayerIdentity sender)
 	{
-		PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
+		PlayerBase player = PlayerBase.Cast(g_Game.GetPlayer());
 		if (player)
 		{
 			player.m_terjeStartScreenParams = null;
@@ -131,7 +131,7 @@ modded class MissionGameplay
 			else
 			{
 				// Waiting for player synchronization from server
-				GetGame().GetCallQueue(CALL_CATEGORY_GUI).CallLater(OnTerjeStartScreenCloseApply, 100, false, player, pos, rot);
+				g_Game.GetCallQueue(CALL_CATEGORY_GUI).CallLater(OnTerjeStartScreenCloseApply, 100, false, player, pos, rot);
 			}
 		}
 	}

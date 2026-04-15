@@ -13,7 +13,7 @@ class TerjeSkillTooltip
 			m_skillTooltipInstance.Unlink();
 		}
 		
-		m_skillTooltipInstance = GetGame().GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjeSkillTooltip.layout", ItemManager.GetInstance().GetTerjeSkillsRoot() );
+		m_skillTooltipInstance = g_Game.GetWorkspace().CreateWidgets("TerjeSkills/Layouts/TerjeSkillTooltip.layout", ItemManager.GetInstance().GetTerjeSkillsRoot() );
 		m_skillTooltipInstance.Show(false);
 		
 		int level = skillCfg.GetLevelFromExp(exp);
