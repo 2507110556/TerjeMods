@@ -363,7 +363,8 @@
 |  Кетамин  | TerjeAmpouleKetamin | Лечение | 3   |   Ампула  |      600      |         0.45        |
 |  Морфин  | TerjeAmpouleMorphine | Лечение | 3   |   Ампула  |      850      |         0.52        |
 |  Гексобарбитал  | TerjeAmpouleGexobarbital | Лечение | 3   |   Ампула  |      900      |         0.65        |
-|  Реаниматал | TerjeInjectorReanimatal | Лечение | 1   |   Инъектор  |      240     |         1.85        |
+|  Реаниматал | TerjeInjectorReanimatal | Лечение | 3   |   Инъектор  |      240     |         1.85        |
+|  Пропитал | TerjeInjectorPropital | Лечение | 2   |   Инъектор  |      180     |         0.75        |
 |  Морфин | Morphine | Лечение | 3   |   Инъектор  |      300     |         0.75        |
 |  Промидол | TerjeInjectorPromidol | Лечение | 3   |   Инъектор  |      600     |         0.45        |
 
